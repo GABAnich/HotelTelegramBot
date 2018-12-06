@@ -12,10 +12,41 @@ namespace HotelTelegramBot.Controller
 {
     class MessageController
     {
-        public static async void CallbackQueryAsync(object sender, CallbackQueryEventArgs e)
+        internal static async void OnMessageAsync(object sender, MessageEventArgs e)
         {
-            string userInput = e.CallbackQuery.Message.Text;
-            long userChatId = e.CallbackQuery.Message.Chat.Id;
+            string userInput = e.Message.Text;
+            long chatId = e.Message.Chat.Id;
+            Chat userChat = e.Message.Chat;
+
+            if (e.Message == null)
+            {
+                return;
+            }
+
+            var userMessage = e.Message;
+
+            if (userMessage == null || userMessage.Type != MessageType.Text)
+                return;
+
+            // Loger придумати куда запихнути
+            Console.WriteLine($"{userChat.LastName} {userChat.FirstName} {chatId}: {userInput}");
+
+            try
+            {
+                await Services.AddUserChatAsync(chatId);
+                await RouteMessageTextAsync(userInput, chatId, userChat);
+                await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
+            }
+            catch(Exception exception)
+            {
+                Console.WriteLine(exception.ToString());
+            }
+        }
+
+        internal static async void OnCallbackQueryAsync(object sender, CallbackQueryEventArgs e)
+        {
+            string userInput = e.CallbackQuery.Data;
+            long chatId = e.CallbackQuery.Message.Chat.Id;
             Chat userChat = e.CallbackQuery.Message.Chat;
 
             await Program.botClient.EditMessageTextAsync(
@@ -25,79 +56,40 @@ namespace HotelTelegramBot.Controller
                 parseMode: ParseMode.Markdown
                 );
 
-            //else if (chatPosition == "🏨 Замовити номер 5")
-            await Services.SaveUserTempDataAsync("HotelRoomType", userInput, userChatId);
-            await SendMessageAsync(userChat, "Прізвище");
-            await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 6");
+            await RouteMessageTextAsync(userInput, chatId, userChat);
+            await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
         }
 
-        async public static void MessageRouteAsync(object sender, MessageEventArgs e)
+        public static async Task RouteMessageTextAsync(string userInput, long chatId, Chat userChat)
         {
-            if (e.Message.Text != null)
-            {
-                string userInput = e.Message.Text;
-                long userChatId = e.Message.Chat.Id;
-                Chat userChat = e.Message.Chat;
-
-                try
-                {
-                    var userMessage = e.Message;
-
-                    if (userMessage == null || userMessage.Type != MessageType.Text)
-                        return;
-
-                    // Loger придумати куда запихнути
-                    Console.WriteLine($"{userChat.LastName} {userChat.FirstName} {userChatId}: {userInput}");
-
-                    await Services.AddUserChatAsync(e.Message.Chat.Id);
-                    await RouteMessageTextAsync(e);
-                    await RouteMessageChatPositionAsync(Services.GetChatPosition(e.Message.Chat.Id, e), e);
-                }
-                catch
-                {
-                    return;
-                }
-            }
-        }
-
-        public static async Task RouteMessageTextAsync(MessageEventArgs e)
-        {
-            string userInput = e.Message.Text;
-            long userChatId = e.Message.Chat.Id;
-            Chat userChat = e.Message.Chat;
-
             if (userInput == "/start")
             {
-                await Services.ChangePositionAsync(userChatId, "/start");
+                await Services.ChangePositionAsync(chatId, "/start");
             }
             else if (userInput == "🎛 Головне меню")
             {
-                await Services.ChangePositionAsync(userChatId, "🎛 Головне меню");
+                await Services.ChangePositionAsync(chatId, "🎛 Головне меню");
             }
             else if (userInput == "🏨 Замовити номер")
             {
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 0");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 0");
             }
             else if (userInput == "❌ Зняти бронювання")
             {
-                await Services.ChangePositionAsync(userChatId, "❌ Зняти бронювання 0");
+                await Services.ChangePositionAsync(chatId, "❌ Зняти бронювання 0");
             }
         }
 
-        private static async Task RouteMessageChatPositionAsync(string chatPosition, MessageEventArgs e)
+        private static async Task RouteMessageChatPositionAsync(string chatPosition, string userInput, long chatId, Chat userChat)
         {
-            string userInput = e.Message.Text;
-            long userChatId = e.Message.Chat.Id;
-            Chat userChat = e.Message.Chat;
-
             if (chatPosition == "/start")
             {
-                await Services.ClearUserTempDataAsync(userChatId);
+                await Services.ClearUserTempDataAsync(chatId);
                 await SendPhotoAsync(userChat, Services.GetImageAboutHotel(), Services.GetInfoAboutHotel(), Keyboards.MainKeyboard);
             }
             else if (chatPosition == "🎛 Головне меню")
             {
-                await Services.ClearUserTempDataAsync(userChatId);
+                await Services.ClearUserTempDataAsync(chatId);
                 await SendMessageAsync(userChat, "Виберіть пунк меню", Keyboards.MainKeyboard);
             }
             else if (chatPosition == "❌ Зняти бронювання 0")
@@ -105,18 +97,18 @@ namespace HotelTelegramBot.Controller
                 await SendMessageAsync(userChat, "Бронювання 1");
                 await SendMessageAsync(userChat, "Бронювання 2");
                 await SendMessageAsync(userChat, "Бронювання 3");
-                await Services.ChangePositionAsync(userChatId, "❌ Зняти бронювання 1");
+                await Services.ChangePositionAsync(chatId, "❌ Зняти бронювання 1");
             }
             else if (chatPosition == "❌ Зняти бронювання 1")
             {
                 await SendMessageAsync(userChat, "Знаття бронювання...");
                 await SendMessageAsync(userChat, "Бронювання знято", Keyboards.ReturnMainMenu);
-                await Services.ChangePositionAsync(userChatId, "/start");
+                await Services.ChangePositionAsync(chatId, "/start");
             }
             else if (chatPosition == "🏨 Замовити номер 0")
             {
                 await SendMessageAsync(userChat, "Введіть дату прибуття");
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 1");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 1");
             }
             else if (chatPosition == "🏨 Замовити номер 1")
             {
@@ -130,9 +122,9 @@ namespace HotelTelegramBot.Controller
                     await SendMessageAsync(userChat, Validator.BadDateLessCurrent);
                     return;
                 }
-                await Services.SaveUserTempDataAsync("DateOfArrival", userInput, userChatId);
+                await Services.SaveUserTempDataAsync("DateOfArrival", userInput, chatId);
                 await SendMessageAsync(userChat, "Введіть дату відбуття");
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 2");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 2");
             }
             else if (chatPosition == "🏨 Замовити номер 2")
             {
@@ -147,15 +139,15 @@ namespace HotelTelegramBot.Controller
                     return;
                 }
                 else if (!Validator.CheckDateRange(
-                    Services.GetUserTempData(userChatId, "DateOfArrival"),
+                    Services.GetUserTempData(chatId, "DateOfArrival"),
                     userInput))
                 {
                     await SendMessageAsync(userChat, Validator.BadDateRange);
                     return;
                 }
-                await Services.SaveUserTempDataAsync("DateOfDeparture", userInput, userChatId);
+                await Services.SaveUserTempDataAsync("DateOfDeparture", userInput, chatId);
                 await SendMessageAsync(userChat, "Введіть кількість дорослих");
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 3");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 3");
             }
             else if (chatPosition == "🏨 Замовити номер 3")
             {
@@ -169,9 +161,9 @@ namespace HotelTelegramBot.Controller
                     await SendMessageAsync(userChat, Validator.BadNumberRange);
                     return;
                 }
-                await Services.SaveUserTempDataAsync("NumberOfAdults", userInput, userChatId);
+                await Services.SaveUserTempDataAsync("NumberOfAdults", userInput, chatId);
                 await SendMessageAsync(userChat, "Введіть кількість дітей");
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 4");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 4");
             }
             else if (chatPosition == "🏨 Замовити номер 4")
             {
@@ -185,7 +177,7 @@ namespace HotelTelegramBot.Controller
                     await SendMessageAsync(userChat, Validator.BadNumberRange);
                     return;
                 }
-                await Services.SaveUserTempDataAsync("NumberOfChildren", userInput, userChatId);
+                await Services.SaveUserTempDataAsync("NumberOfChildren", userInput, chatId);
                 var listRoomTypes = Services.GetAviableRoomTypes(userChat);
 
                 List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
@@ -199,31 +191,37 @@ namespace HotelTelegramBot.Controller
                 IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
 
                 await SendMessageAsync(userChat, "Оберіть тип номеру", markup);
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 5");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 5");
+            }
+            else if (chatPosition == "🏨 Замовити номер 5")
+            {
+                await Services.SaveUserTempDataAsync("HotelRoomType", userInput, chatId);
+                await SendMessageAsync(userChat, "Прізвище");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 6");
             }
             else if (chatPosition == "🏨 Замовити номер 6")
             {
-                await Services.SaveUserTempDataAsync("SecondName", userInput, userChatId);
+                await Services.SaveUserTempDataAsync("SecondName", userInput, chatId);
                 await SendMessageAsync(userChat, "Ім’я");
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 7");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 7");
             }
             else if (chatPosition == "🏨 Замовити номер 7")
             {
-                await Services.SaveUserTempDataAsync("FirstName", userInput, userChatId);
+                await Services.SaveUserTempDataAsync("FirstName", userInput, chatId);
                 await SendMessageAsync(userChat, "По батькові");
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 8");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 8");
             }
             else if (chatPosition == "🏨 Замовити номер 8")
             {
-                await Services.SaveUserTempDataAsync("MiddleName", userInput, userChatId);
+                await Services.SaveUserTempDataAsync("MiddleName", userInput, chatId);
                 await SendMessageAsync(userChat, "Номер телефону");
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 9");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 9");
             }
             else if (chatPosition == "🏨 Замовити номер 9")
             {
-                await Services.SaveUserTempDataAsync("Number", userInput, userChatId);
+                await Services.SaveUserTempDataAsync("Number", userInput, chatId);
                 await SendMessageAsync(userChat, "Email");
-                await Services.ChangePositionAsync(userChatId, "🏨 Замовити номер 10");
+                await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 10");
             }
             else if (chatPosition == "🏨 Замовити номер 10")
             {
@@ -232,11 +230,11 @@ namespace HotelTelegramBot.Controller
                     await SendMessageAsync(userChat, Validator.BadEmail);
                     return;
                 }
-                await Services.SaveUserTempDataAsync("Email", userInput, userChatId);
+                await Services.SaveUserTempDataAsync("Email", userInput, chatId);
                 await SendMessageAsync(userChat, "Очікування бронювання");
                 await SendMessageAsync(userChat, "Бронювання відбулось успішно");
                 await SendMessageAsync(userChat, "Скачати файл", Keyboards.ReturnMainMenu);
-                await Services.ChangePositionAsync(userChatId, "/start");
+                await Services.ChangePositionAsync(chatId, "/start");
             }
         }
 

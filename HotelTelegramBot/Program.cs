@@ -16,8 +16,9 @@ namespace HotelTelegramBot
 
             botClient = new TelegramBotClient(ConfigTelegramBot.GetAPIToken());
 
-            botClient.OnMessage += MessageController.MessageRouteAsync;
-            botClient.OnCallbackQuery += MessageController.CallbackQueryAsync;  
+            botClient.OnMessage += MessageController.OnMessageAsync;
+            botClient.OnCallbackQuery += MessageController.OnCallbackQueryAsync;
+
             botClient.StartReceiving();
             Thread.Sleep(int.MaxValue);
         }

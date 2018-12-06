@@ -50,13 +50,13 @@ namespace HotelTelegramBot.Model
             }
         }
 
-        public static string GetChatPosition(long chatId, MessageEventArgs e)
+        public static string GetChatPosition(long chatId)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 var userChat = db.UserChats
-                .Where(u => u.IdChat == e.Message.Chat.Id)
-                .ToArray();
+                    .Where(u => u.IdChat == chatId)
+                    .ToArray();
 
                 return userChat[0].ChatPosition;
             }
