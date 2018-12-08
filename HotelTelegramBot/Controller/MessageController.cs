@@ -134,6 +134,7 @@ namespace HotelTelegramBot.Controller
                 {
                     await SendMessageAsync(userChat, "Бронювань немає", Keyboards.ReturnMainMenu);
                     await Services.ChangePositionAsync(chatId, "/start");
+                    return;
                 }
 
                 List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
