@@ -133,6 +133,28 @@ namespace HotelTelegramBot.Model
             return list;
         }
 
+        public static List<HotelRoom> GetAviableRooms(List<string> dates)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                var idReservedRooms = db.HotelRoomReservedDate
+                    .Where(d => dates.Contains(d.ReservedDate))
+                    .Select(d => d.HotelRoomId)
+                    .ToList();
+
+                return db.HotelRooms
+                    .Where(r => !idReservedRooms.Contains(r.Id))
+                    .ToList();
+            }
+        }
+
+        public static List<long> GetRoomTypeIds(List<HotelRoom> rooms)
+        {
+            return rooms
+                .Select(r => r.HotelRoomTypeId)
+                .ToList();
+        }
+
         public static List<HotelRoomType> GetAviableRoomTypes(Chat userChat)
         {
             string dateOfArrival = GetUserTempData(userChat.Id, "DateOfArrival");
@@ -142,21 +164,15 @@ namespace HotelTelegramBot.Model
 
             List<string> dates = GetIntermediateDates(dateOfArrival, dateOfDeparture);
 
+            var hotelRooms = GetAviableRooms(dates);
+            var hotelRoomIds = GetRoomTypeIds(hotelRooms);
+
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                var idReservedRooms = db.HotelRoomReservedDate
-                    .Where(d => dates.Contains(d.ReservedDate))
-                    .Select(d => d.HotelRoomId)
-                    .ToList();
-                var hotelRooms = db.HotelRooms
-                    .Where(r => !idReservedRooms.Contains(r.Id))
-                    .Select(r => r.HotelRoomTypeId)
-                    .ToList();
-
                 return db.HotelRoomTypes
                     .Where(t => t.MaxNumberOfAdults >= numberOfAdults)
                     .Where(t => t.MaxNumberOfChildren >= numberOfChildren)
-                    .Where(t => hotelRooms.Contains(t.Id))
+                    .Where(t => hotelRoomIds.Contains(t.Id))
                     .ToList();
             }
         }
