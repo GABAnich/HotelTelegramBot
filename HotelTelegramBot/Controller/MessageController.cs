@@ -310,8 +310,26 @@ namespace HotelTelegramBot.Controller
                 }
                 await Services.SaveUserTempDataAsync("Email", userInput, chatId);
                 await SendMessageAsync(userChat, "Очікування бронювання");
-                await Services.AddReservationAsync(chatId);
-                await SendMessageAsync(userChat, "Бронювання відбулось успішно", Keyboards.ReturnMainMenu);
+                Reservation r = await Services.AddReservationAsync(chatId);
+                HotelRoom room = Services.GetHotelRoomById(r.HotelRoomId);
+                HotelRoomType t = Services.GetHotelRoomTypeById(room.HotelRoomTypeId);
+                string text = "" +
+                    $"*{t.Name}\n*" +
+                    $"\n" +
+                    $"Прізвище: {r.SecondName}\n" +
+                    $"Ім’я: {r.FirstName}\n" +
+                    $"По батькові: {r.MiddleName}\n" +
+                    $"Номер телефону: {r.Number}\n" +
+                    $"Email: {r.Email}\n" +
+                    $"Період: {r.DateOfArrival}-{r.DateOfDeparture}\n" +
+                    $"Дорослих: {r.NumberOfAdults}\n" +
+                    $"Дітей: {r.NumberOfChildren}\n" +
+                    $"\n" +
+                    $"Кімната: {room.Name}\n" +
+                    $"Поверх: {room.Floor}\n" +
+                    $"\n" +
+                    $"Ідентифікатор для перевірки: *494ebf5f419ad02a86af25f8db5ed114790399c2aa6b233384b1b4b9ac3458e5*";
+                await SendMessageAsync(userChat, text, Keyboards.ReturnMainMenu);
                 await Services.ChangePositionAsync(chatId, "/start");
             }
         }

@@ -262,7 +262,7 @@ namespace HotelTelegramBot.Model
             }
         }
 
-        internal static async Task AddReservationAsync(long chatId)
+        internal static async Task<Reservation> AddReservationAsync(long chatId)
         {
             UserChat userChat = GetUserChatByChatId(chatId);
             long hotelRoomId;
@@ -298,8 +298,9 @@ namespace HotelTelegramBot.Model
 
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                db.Reservations.Add(reservation);
+                Reservation r = db.Reservations.Add(reservation);
                 await db.SaveChangesAsync();
+                return r;
             }
         }
 
