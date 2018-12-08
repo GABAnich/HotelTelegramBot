@@ -138,6 +138,26 @@ namespace HotelTelegramBot.Model
             return list;
         }
 
+        public static UserChat GetUserChatByChatId(long chatId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.UserChats
+                    .Where(u => u.IdChat == chatId)
+                    .FirstOrDefault();
+            }
+        }
+
+        public static List<HotelRoom> GetHotelRoomsByTypeId(long hotelRoomTypeId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRooms
+                    .Where(r => r.HotelRoomTypeId == hotelRoomTypeId)
+                    .ToList();
+            }
+        }
+
         public static List<HotelRoom> GetAviableRooms(List<string> dates)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
@@ -153,6 +173,16 @@ namespace HotelTelegramBot.Model
             }
         }
 
+        public static HotelRoom GetHotelRoomById(long id)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRooms
+                    .Where(r => r.Id == id)
+                    .FirstOrDefault();
+            }
+        }
+
         public static List<long> GetRoomTypeIds(List<HotelRoom> rooms)
         {
             return rooms
@@ -160,13 +190,23 @@ namespace HotelTelegramBot.Model
                 .ToList();
         }
 
-        private static long GetHotelRoomTypeId(string hotelRoomTypeName)
+        public static HotelRoomType GetHotelRoomTypeById(long hotelRoomTypeId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRoomTypes
+                    .Where(t => t.Id == hotelRoomTypeId)
+                    .FirstOrDefault();
+            }
+        }
+
+        public static HotelRoomType GetHotelRoomTypeByName(string hotelRoomTypeName)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 return db.HotelRoomTypes
                     .Where(t => t.Name == hotelRoomTypeName)
-                    .FirstOrDefault().Id;
+                    .FirstOrDefault();
             }
         }
 
@@ -204,22 +244,19 @@ namespace HotelTelegramBot.Model
 
         internal static async Task AddReservationAsync(long chatId)
         {
-            var userChat = new UserChat();
+            UserChat userChat = GetUserChatByChatId(chatId);
             long hotelRoomId;
             string hotelRoomTypeName = GetUserTempData(chatId, "HotelRoomTypeName");
-            long hotelRoomTypeId = GetHotelRoomTypeId(hotelRoomTypeName);
+            HotelRoomType hotelRoomType = GetHotelRoomTypeByName(hotelRoomTypeName);
             List<string> dates = GetIntermediateDates(
                         GetUserTempData(chatId, "DateOfArrival"),
                         GetUserTempData(chatId, "DateOfDeparture"));
 
+            // Geting first aviable room
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                userChat = db.UserChats
-                    .Where(u => u.IdChat == chatId)
-                    .FirstOrDefault();
-
                 hotelRoomId = GetAviableRooms(dates)
-                    .Where(r => r.HotelRoomTypeId == hotelRoomTypeId)
+                    .Where(r => r.HotelRoomTypeId == hotelRoomType.Id)
                     .FirstOrDefault().Id;
             }
 
@@ -243,6 +280,58 @@ namespace HotelTelegramBot.Model
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 db.Reservations.Add(reservation);
+                await db.SaveChangesAsync();
+            }
+        }
+
+        private static bool IsAviableDate(string departure, DateTime lastDate)
+        {
+            DateTime departureDate = DateTime.Parse(departure);
+
+            return departureDate < lastDate;
+        }
+
+        public static List<Reservation> GetReservation(long chatId, DateTime lastDate)
+        {
+            UserChat userChat = GetUserChatByChatId(chatId);
+
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                List<Reservation> reservation = db.Reservations
+                    .Where(r => r.IdUserChat == userChat.Id)
+                    .ToList();
+
+                for (int i = reservation.Count - 1; i > -1; i--)
+                {
+                    if (IsAviableDate(reservation[i].DateOfDeparture, lastDate))
+                    {
+                        reservation.RemoveAt(i);
+                    }
+                }
+
+                return reservation;
+            }
+        }
+
+        public static Reservation GetReservationById(long id)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.Reservations
+                    .Where(r => r.Id == id)
+                    .FirstOrDefault();
+            }
+        }
+
+        public static async Task DeleteReservationById(long id)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                Reservation r = GetReservationById(id);
+
+                db.Reservations.Attach(r);
+                db.Reservations.Remove(r);
+
                 await db.SaveChangesAsync();
             }
         }

@@ -31,16 +31,20 @@ namespace HotelTelegramBot.Controller
             // Loger придумати куда запихнути
             Console.WriteLine($"{userChat.LastName} {userChat.FirstName} {chatId}: {userInput}");
 
-            try
-            {
-                await Services.AddUserChatAsync(chatId);
-                await RouteMessageTextAsync(userInput, chatId, userChat);
-                await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
-            }
-            catch(Exception exception)
-            {
-                Console.WriteLine(exception.ToString());
-            }
+            await Services.AddUserChatAsync(chatId);
+            await RouteMessageTextAsync(userInput, chatId, userChat);
+            await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
+
+            //try
+            //{
+            //    await Services.AddUserChatAsync(chatId);
+            //    await RouteMessageTextAsync(userInput, chatId, userChat);
+            //    await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
+            //}
+            //catch(Exception exception)
+            //{
+            //    Console.WriteLine(exception.ToString());
+            //}
         }
 
         internal static async void OnCallbackQueryAsync(object sender, CallbackQueryEventArgs e)
@@ -94,14 +98,38 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "❌ Зняти бронювання 0")
             {
-                await SendMessageAsync(userChat, "Бронювання 1");
-                await SendMessageAsync(userChat, "Бронювання 2");
-                await SendMessageAsync(userChat, "Бронювання 3");
+                var listReservation = Services.GetReservation(chatId, DateTime.Now);
+                if (listReservation.Count < 0)
+                {
+                    await SendMessageAsync(userChat, "Бронювань немає", Keyboards.ReturnMainMenu);
+                    await Services.ChangePositionAsync(chatId, "/start");
+                }
+
+                List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
+                foreach (Reservation r in listReservation)
+                {
+                    HotelRoom room = Services.GetHotelRoomById(r.HotelRoomId);
+                    HotelRoomType roomType = Services.GetHotelRoomTypeById(room.HotelRoomTypeId);
+                    keyboards.Add(new List<InlineKeyboardButton>() {
+                        InlineKeyboardButton.WithCallbackData(
+                            $"{roomType.Name}: {r.DateOfArrival}-{r.DateOfDeparture}",
+                            $"{r.Id}"
+                        )
+                    });
+                }
+                IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
+
+                await SendMessageAsync(userChat, "Бронювання: ", markup);
                 await Services.ChangePositionAsync(chatId, "❌ Зняти бронювання 1");
             }
             else if (chatPosition == "❌ Зняти бронювання 1")
             {
                 await SendMessageAsync(userChat, "Знаття бронювання...");
+                if (Services.GetReservationById(int.Parse(userInput)) == null)
+                {
+                    await SendMessageAsync(userChat, "Виберіть бронювання із списку", Keyboards.MainKeyboard);
+                }
+                await Services.DeleteReservationById(int.Parse(userInput));
                 await SendMessageAsync(userChat, "Бронювання знято", Keyboards.ReturnMainMenu);
                 await Services.ChangePositionAsync(chatId, "/start");
             }
@@ -188,25 +216,22 @@ namespace HotelTelegramBot.Controller
                 await Services.SaveUserTempDataAsync("NumberOfChildren", userInput, chatId);
                 var listRoomTypes = Services.GetAviableRoomTypes(userChat);
 
-                if (listRoomTypes.Count > 0)
+                if (listRoomTypes.Count <= 0)
                 {
-                    List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
-                    foreach (HotelRoomType t in listRoomTypes)
-                    {
-                        keyboards.Add(new List<InlineKeyboardButton>() {
+                    await SendMessageAsync(userChat, "На вказаний період немає доступних номерів.", Keyboards.ReturnMainMenu);
+                }
+
+                // do somtehing
+                List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
+                foreach (HotelRoomType t in listRoomTypes)
+                {
+                    keyboards.Add(new List<InlineKeyboardButton>() {
                         InlineKeyboardButton.WithCallbackData($"Замовити: {t.Name}", t.Name)
                     });
-                    }
-
-                    IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
-
-                    await SendMessageAsync(userChat, "Оберіть тип номеру", markup);
                 }
-                else
-                {
-                    await SendMessageAsync(userChat, "На вказаний період немає доступних номерів.");
-                }
+                IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
 
+                await SendMessageAsync(userChat, "Оберіть тип номеру", markup);
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 5");
             }
             else if (chatPosition == "🏨 Замовити номер 5")
