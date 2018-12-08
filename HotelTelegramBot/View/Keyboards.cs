@@ -1,4 +1,5 @@
-﻿using Telegram.Bot.Types.ReplyMarkups;
+﻿using System.Collections.Generic;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace HotelTelegramBot.View
 {
@@ -23,5 +24,19 @@ namespace HotelTelegramBot.View
             ResizeKeyboard = true,
             OneTimeKeyboard = true
         };
+
+        static public ReplyKeyboardMarkup NextDates(List<string> dates)
+        {
+            return new ReplyKeyboardMarkup
+            {
+                Keyboard = new KeyboardButton[][]
+                {
+                    new KeyboardButton[] { dates[0],  dates[1], dates[2] },
+                    new KeyboardButton[] { dates[3],  dates[4], dates[5] },
+                },
+                ResizeKeyboard = true,
+                OneTimeKeyboard = true
+            };
+        }
     }
 }

@@ -107,7 +107,8 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 0")
             {
-                await SendMessageAsync(userChat, "Введіть дату прибуття");
+                List<string> dates = Services.GetIntermediateDates(DateTime.Now, DateTime.Now.AddDays(6));
+                await SendMessageAsync(userChat, "Введіть дату прибуття", Keyboards.NextDates(dates));
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 1");
             }
             else if (chatPosition == "🏨 Замовити номер 1")
@@ -123,7 +124,12 @@ namespace HotelTelegramBot.Controller
                     return;
                 }
                 await Services.SaveUserTempDataAsync("DateOfArrival", userInput, chatId);
-                await SendMessageAsync(userChat, "Введіть дату відбуття");
+
+                DateTime firstDate = DateTime.Parse(userInput).AddDays(1);
+                DateTime secondDate = firstDate.AddDays(6);
+                List<string> dates = Services.GetIntermediateDates(firstDate, secondDate);
+
+                await SendMessageAsync(userChat, "Введіть дату відбуття", Keyboards.NextDates(dates));
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 2");
             }
             else if (chatPosition == "🏨 Замовити номер 2")
@@ -241,8 +247,7 @@ namespace HotelTelegramBot.Controller
                 await Services.SaveUserTempDataAsync("Email", userInput, chatId);
                 await SendMessageAsync(userChat, "Очікування бронювання");
                 await Services.AddReservationAsync(chatId);
-                await SendMessageAsync(userChat, "Бронювання відбулось успішно");
-                await SendMessageAsync(userChat, "Скачати файл", Keyboards.ReturnMainMenu);
+                await SendMessageAsync(userChat, "Бронювання відбулось успішно", Keyboards.ReturnMainMenu);
                 await Services.ChangePositionAsync(chatId, "/start");
             }
         }

@@ -113,6 +113,11 @@ namespace HotelTelegramBot.Model
             }
         }
 
+        public static List<string> GetIntermediateDates(DateTime firstDate, DateTime lastDate)
+        {
+            return GetIntermediateDates(firstDate.ToShortDateString(), lastDate.ToShortDateString());
+        }
+
         public static List<string> GetIntermediateDates(string firstDate, string lastDate)
         {
             List<string> list = new List<string>();
