@@ -11,7 +11,7 @@ namespace HotelTelegramBot.Controller
         public static readonly string BadNumber = "Введіть число";
         public static readonly string BadNumberRange = "Введіть число в діапазоні 0-10";
         public static readonly string BadEmail = "Введіть коректний e-mail";
-        public static readonly string BadPhoneNumber = "Введіть коректний номер телефону";
+        public static readonly string BadPhoneNumber = "Введіть коректний номер телефону. Приклад: +380501001214";
 
         public static bool CheckDateFormat(string userDate)
         {
@@ -66,7 +66,7 @@ namespace HotelTelegramBot.Controller
 
         public static bool CheckPhoneNumber(string number)
         {
-            return Regex.Match(number, @"^(\+[0-9]{9})$").Success;
+            return Regex.Match(number, @"^(\+[0-9]{12})$").Success;
         }
     }
 }

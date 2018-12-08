@@ -235,6 +235,11 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 9")
             {
+                if (!Validator.CheckPhoneNumber(userInput))
+                {
+                    await SendMessageAsync(userChat, Validator.BadPhoneNumber);
+                    return;
+                }
                 await Services.SaveUserTempDataAsync("Number", userInput, chatId);
                 await SendMessageAsync(userChat, "Email");
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 10");

@@ -76,7 +76,7 @@ namespace HotelTelegramBot.View
                 {
                     Keyboard = new KeyboardButton[][]
                 {
-                    new KeyboardButton[] { "1", "2", "3" },
+                    new KeyboardButton[] { "0", "1", "2", "3" },
                 },
                     ResizeKeyboard = true,
                     OneTimeKeyboard = true
