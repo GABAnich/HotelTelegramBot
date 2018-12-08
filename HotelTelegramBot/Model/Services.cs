@@ -155,6 +155,16 @@ namespace HotelTelegramBot.Model
                 .ToList();
         }
 
+        private static long GetHotelRoomTypeId(string hotelRoomTypeName)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRoomTypes
+                    .Where(t => t.Name == hotelRoomTypeName)
+                    .FirstOrDefault().Id;
+            }
+        }
+
         public static List<HotelRoomType> GetAviableRoomTypes(Chat userChat)
         {
             string dateOfArrival = GetUserTempData(userChat.Id, "DateOfArrival");
@@ -184,6 +194,69 @@ namespace HotelTelegramBot.Model
                 return db.HotelRoomTypeImages
                     .Where(i => i.HotelRoomTypeId == id)
                     .ToList();
+            }
+        }
+
+        internal static async Task AddReservationAsync(long chatId)
+        {
+            var userChat = new UserChat();
+            long hotelRoomId;
+            string hotelRoomTypeName = GetUserTempData(chatId, "HotelRoomTypeName");
+            long hotelRoomTypeId = GetHotelRoomTypeId(hotelRoomTypeName);
+            List<string> dates = GetIntermediateDates(
+                        GetUserTempData(chatId, "DateOfArrival"),
+                        GetUserTempData(chatId, "DateOfDeparture"));
+
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                userChat = db.UserChats
+                    .Where(u => u.IdChat == chatId)
+                    .FirstOrDefault();
+
+                hotelRoomId = GetAviableRooms(dates)
+                    .Where(r => r.HotelRoomTypeId == hotelRoomTypeId)
+                    .FirstOrDefault().Id;
+            }
+
+            AddReservedDatesAsync(hotelRoomId, dates);
+
+            var reservation = new Reservation()
+            {
+                IdUserChat = userChat.Id,
+                HotelRoomId = hotelRoomId,
+                SecondName = GetUserTempData(chatId, "SecondName"),
+                FirstName = GetUserTempData(chatId, "FirstName"),
+                MiddleName = GetUserTempData(chatId, "MiddleName"),
+                Number = GetUserTempData(chatId, "Number"),
+                Email = GetUserTempData(chatId, "Email"),
+                DateOfArrival = GetUserTempData(chatId, "DateOfArrival"),
+                DateOfDeparture = GetUserTempData(chatId, "DateOfDeparture"),
+                NumberOfAdults = int.Parse(GetUserTempData(chatId, "NumberOfAdults")),
+                NumberOfChildren = int.Parse(GetUserTempData(chatId, "NumberOfChildren")),
+            };
+
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                db.Reservations.Add(reservation);
+                await db.SaveChangesAsync();
+            }
+        }
+
+        private static async void AddReservedDatesAsync(long hotelRoomId, List<string> dates)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                foreach (string date in dates)
+                {
+                    var reservedDate = new HotelRoomReservedDate
+                    {
+                        HotelRoomId = hotelRoomId,
+                        ReservedDate = date
+                    };
+
+                    db.HotelRoomReservedDate.Add(reservedDate);
+                    await db.SaveChangesAsync();
+                }
             }
         }
     }

@@ -203,7 +203,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 5")
             {
-                await Services.SaveUserTempDataAsync("HotelRoomType", userInput, chatId);
+                await Services.SaveUserTempDataAsync("HotelRoomTypeName", userInput, chatId);
                 await SendMessageAsync(userChat, "Прізвище");
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 6");
             }
@@ -240,6 +240,7 @@ namespace HotelTelegramBot.Controller
                 }
                 await Services.SaveUserTempDataAsync("Email", userInput, chatId);
                 await SendMessageAsync(userChat, "Очікування бронювання");
+                await Services.AddReservationAsync(chatId);
                 await SendMessageAsync(userChat, "Бронювання відбулось успішно");
                 await SendMessageAsync(userChat, "Скачати файл", Keyboards.ReturnMainMenu);
                 await Services.ChangePositionAsync(chatId, "/start");
