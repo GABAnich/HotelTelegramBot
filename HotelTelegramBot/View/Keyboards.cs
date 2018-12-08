@@ -38,5 +38,50 @@ namespace HotelTelegramBot.View
                 OneTimeKeyboard = true
             };
         }
+
+        static public ReplyKeyboardMarkup Text(string text)
+        {
+            return new ReplyKeyboardMarkup
+            {
+                Keyboard = new KeyboardButton[][]
+                {
+                    new KeyboardButton[] { text },
+                },
+                ResizeKeyboard = true,
+                OneTimeKeyboard = true
+            };
+        }
+
+        static public ReplyKeyboardMarkup Adults
+        {
+            get
+            {
+                return new ReplyKeyboardMarkup
+                {
+                    Keyboard = new KeyboardButton[][]
+                {
+                    new KeyboardButton[] { "1", "2", "3", "4", "5" },
+                },
+                    ResizeKeyboard = true,
+                    OneTimeKeyboard = true
+                };
+            }
+        }
+
+        static public ReplyKeyboardMarkup Children
+        {
+            get
+            {
+                return new ReplyKeyboardMarkup
+                {
+                    Keyboard = new KeyboardButton[][]
+                {
+                    new KeyboardButton[] { "1", "2", "3" },
+                },
+                    ResizeKeyboard = true,
+                    OneTimeKeyboard = true
+                };
+            }
+        }
     }
 }

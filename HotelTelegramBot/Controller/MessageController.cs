@@ -107,7 +107,9 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 0")
             {
-                List<string> dates = Services.GetIntermediateDates(DateTime.Now, DateTime.Now.AddDays(6));
+                DateTime firstDate = DateTime.Now.AddDays(1);
+                DateTime secondDate = firstDate.AddDays(6);
+                List<string> dates = Services.GetIntermediateDates(firstDate, secondDate);
                 await SendMessageAsync(userChat, "Введіть дату прибуття", Keyboards.NextDates(dates));
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 1");
             }
@@ -152,7 +154,7 @@ namespace HotelTelegramBot.Controller
                     return;
                 }
                 await Services.SaveUserTempDataAsync("DateOfDeparture", userInput, chatId);
-                await SendMessageAsync(userChat, "Введіть кількість дорослих");
+                await SendMessageAsync(userChat, "Введіть кількість дорослих", Keyboards.Adults);
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 3");
             }
             else if (chatPosition == "🏨 Замовити номер 3")
@@ -168,7 +170,7 @@ namespace HotelTelegramBot.Controller
                     return;
                 }
                 await Services.SaveUserTempDataAsync("NumberOfAdults", userInput, chatId);
-                await SendMessageAsync(userChat, "Введіть кількість дітей");
+                await SendMessageAsync(userChat, "Введіть кількість дітей", Keyboards.Children);
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 4");
             }
             else if (chatPosition == "🏨 Замовити номер 4")
@@ -210,13 +212,13 @@ namespace HotelTelegramBot.Controller
             else if (chatPosition == "🏨 Замовити номер 5")
             {
                 await Services.SaveUserTempDataAsync("HotelRoomTypeName", userInput, chatId);
-                await SendMessageAsync(userChat, "Прізвище");
+                await SendMessageAsync(userChat, "Прізвище", Keyboards.Text(userChat.LastName));
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 6");
             }
             else if (chatPosition == "🏨 Замовити номер 6")
             {
                 await Services.SaveUserTempDataAsync("SecondName", userInput, chatId);
-                await SendMessageAsync(userChat, "Ім’я");
+                await SendMessageAsync(userChat, "Ім’я", Keyboards.Text(userChat.FirstName));
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 7");
             }
             else if (chatPosition == "🏨 Замовити номер 7")
