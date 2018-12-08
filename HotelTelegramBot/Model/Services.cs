@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Model
@@ -43,7 +42,8 @@ namespace HotelTelegramBot.Model
                 var userChat = db.UserChats
                     .Where(u => u.IdChat == id);
 
-                userChat.First().ChatPosition = position;
+                userChat
+                    .FirstOrDefault().ChatPosition = position;
                 await db.SaveChangesAsync();
             }
         }
@@ -54,7 +54,7 @@ namespace HotelTelegramBot.Model
             {
                 var userChat = db.UserChats
                     .Where(u => u.IdChat == chatId)
-                    .First();
+                    .FirstOrDefault();
 
                 return userChat.ChatPosition;
             }
@@ -158,9 +158,6 @@ namespace HotelTelegramBot.Model
                     .Where(t => t.MaxNumberOfChildren >= numberOfChildren)
                     .Where(t => hotelRooms.Contains(t.Id))
                     .ToList();
-
-                //return db.HotelRoomTypes
-                //    .FirstOrDefault(h => h.Id == 8);
             }
         }
 
