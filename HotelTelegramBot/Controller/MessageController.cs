@@ -65,6 +65,10 @@ namespace HotelTelegramBot.Controller
             {
                 await Services.ChangePositionAsync(chatId, "❌ Зняти бронювання 0");
             }
+            else if (userInput == "⛺️ Номери")
+            {
+                await Services.ChangePositionAsync(chatId, "⛺️ Номери 0");
+            }
         }
 
         private static async Task RouteMessageChatPositionAsync(string chatPosition, string userInput, long chatId, Chat userChat)
@@ -78,6 +82,50 @@ namespace HotelTelegramBot.Controller
             {
                 await Services.ClearUserTempDataAsync(chatId);
                 await SendMessageAsync(userChat, "Виберіть пунк меню", Keyboards.MainKeyboard);
+            }
+            else if (chatPosition == "⛺️ Номери 0")
+            {
+                List<HotelRoomType> listRoomTypes = Services.GetRoomTypes();
+
+                if (listRoomTypes.Count == 0)
+                {
+                    await SendMessageAsync(userChat, "Номерів немає", Keyboards.ReturnMainMenu);
+                    return;
+                }
+
+                List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
+                foreach (HotelRoomType t in listRoomTypes)
+                {
+                    keyboards.Add(new List<InlineKeyboardButton>() {
+                        InlineKeyboardButton.WithCallbackData($"{t.Name}", $"{t.Id}")
+                    });
+                }
+                IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
+
+                await SendMessageAsync(userChat, "Оберіть тип номеру", markup);
+                await Services.ChangePositionAsync(chatId, "⛺️ Номери 1");
+            }
+            else if (chatPosition == "⛺️ Номери 1")
+            {
+                HotelRoomType roomType = Services.GetHotelRoomTypeById(long.Parse(userInput));
+                List<string> photos = Services.GetHotelRoomTypeImagesUrl(long.Parse(userInput));
+
+                if (roomType == null)
+                {
+                    await SendMessageAsync(userChat, "Такого типу номеру не існує", Keyboards.ReturnMainMenu);
+                    return;
+                }
+
+                await SendPhotosAsync(chatId, photos);
+
+                string message = "" +
+                    $"*{roomType.Name}*\n\n" +
+                    $"{roomType.Description}\n\n" +
+                    $"*Площа:* {roomType.Area} м^2\n" +
+                    $"*Послуги:* {roomType.Services}\n\n" +
+                    $"*Ціна за ніч:* {roomType.Price} грн";
+                await SendMessageAsync(userChat, message, Keyboards.ReturnMainMenu);
+                await Services.ChangePositionAsync(chatId, "/start");
             }
             else if (chatPosition == "❌ Зняти бронювання 0")
             {

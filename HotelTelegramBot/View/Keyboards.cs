@@ -9,7 +9,8 @@ namespace HotelTelegramBot.View
         {
             Keyboard = new KeyboardButton[][]
             {
-                new KeyboardButton[] { "🏨 Замовити номер", "❌ Зняти бронювання" },
+                new KeyboardButton[] { "⛺️ Номери", "❌ Зняти бронювання" },
+                new KeyboardButton[] { "🏨 Замовити номер" },
             },
             ResizeKeyboard = true,
             OneTimeKeyboard = true

@@ -118,6 +118,15 @@ namespace HotelTelegramBot.Model
             return GetIntermediateDates(firstDate.ToShortDateString(), lastDate.ToShortDateString());
         }
 
+        public static List<HotelRoomType> GetRoomTypes()
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRoomTypes
+                    .ToList();
+            }
+        }
+
         public static List<string> GetIntermediateDates(string firstDate, string lastDate)
         {
             List<string> list = new List<string>();
@@ -183,11 +192,22 @@ namespace HotelTelegramBot.Model
             }
         }
 
-        public static List<long> GetRoomTypeIds(List<HotelRoom> rooms)
+        public static List<long> GetHotelRoomTypeIds(List<HotelRoom> rooms)
         {
             return rooms
                 .Select(r => r.HotelRoomTypeId)
                 .ToList();
+        }
+
+        public static List<string> GetHotelRoomTypeImagesUrl(long hotelRoomTypeId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRoomTypeImages
+                    .Where(i => i.HotelRoomTypeId == hotelRoomTypeId)
+                    .Select(i => i.ImageURL)
+                    .ToList();
+            }
         }
 
         public static HotelRoomType GetHotelRoomTypeById(long hotelRoomTypeId)
@@ -220,7 +240,7 @@ namespace HotelTelegramBot.Model
             List<string> dates = GetIntermediateDates(dateOfArrival, dateOfDeparture);
 
             var hotelRooms = GetAviableRooms(dates);
-            var hotelRoomIds = GetRoomTypeIds(hotelRooms);
+            var hotelRoomIds = GetHotelRoomTypeIds(hotelRooms);
 
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
