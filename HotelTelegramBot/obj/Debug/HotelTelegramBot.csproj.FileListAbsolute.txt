@@ -9,8 +9,8 @@ C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Debug
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Debug\Newtonsoft.Json.xml
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Debug\Telegram.Bot.xml
-C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.csprojAssemblyReference.cache
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.csproj.CopyComplete
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.exe
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.pdb
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.csprojAssemblyReference.cache

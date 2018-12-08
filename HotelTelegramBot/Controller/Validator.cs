@@ -18,7 +18,7 @@ namespace HotelTelegramBot.Controller
             return DateTime.TryParse(userDate, out date);
         }
 
-        public static bool CheckDateLessCurrent(string userDate)
+        public static bool CheckDateBiigerCurrent(string userDate)
         {
             DateTime date = new DateTime();
             DateTime.TryParse(userDate, out date);

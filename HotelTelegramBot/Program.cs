@@ -14,7 +14,7 @@ namespace HotelTelegramBot
         {
             Console.OutputEncoding = Encoding.UTF8;
 
-            botClient = new TelegramBotClient(ConfigTelegramBot.GetAPIToken());
+            botClient = new TelegramBotClient(ConfigTelegramBot.APIToken);
 
             botClient.OnMessage += MessageController.OnMessageAsync;
             botClient.OnCallbackQuery += MessageController.OnCallbackQueryAsync;

@@ -117,7 +117,7 @@ namespace HotelTelegramBot.Controller
                     await SendMessageAsync(userChat, Validator.BadDateFormat);
                     return;
                 }
-                else if (!Validator.CheckDateLessCurrent(userInput))
+                else if (!Validator.CheckDateBiigerCurrent(userInput))
                 {
                     await SendMessageAsync(userChat, Validator.BadDateLessCurrent);
                     return;
@@ -133,7 +133,7 @@ namespace HotelTelegramBot.Controller
                     await SendMessageAsync(userChat, Validator.BadDateFormat);
                     return;
                 }
-                else if (!Validator.CheckDateLessCurrent(userInput))
+                else if (!Validator.CheckDateBiigerCurrent(userInput))
                 {
                     await SendMessageAsync(userChat, Validator.BadDateLessCurrent);
                     return;
@@ -180,17 +180,25 @@ namespace HotelTelegramBot.Controller
                 await Services.SaveUserTempDataAsync("NumberOfChildren", userInput, chatId);
                 var listRoomTypes = Services.GetAviableRoomTypes(userChat);
 
-                List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
-                foreach (HotelRoomType t in listRoomTypes)
+                if (listRoomTypes.Count > 0)
                 {
-                    keyboards.Add(new List<InlineKeyboardButton>() {
+                    List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
+                    foreach (HotelRoomType t in listRoomTypes)
+                    {
+                        keyboards.Add(new List<InlineKeyboardButton>() {
                         InlineKeyboardButton.WithCallbackData($"Замовити: {t.Name}", t.Name)
                     });
+                    }
+
+                    IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
+
+                    await SendMessageAsync(userChat, "Оберіть тип номеру", markup);
+                }
+                else
+                {
+                    await SendMessageAsync(userChat, "На вказаний період немає доступних номерів.");
                 }
 
-                IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
-
-                await SendMessageAsync(userChat, "Оберіть тип номеру", markup);
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 5");
             }
             else if (chatPosition == "🏨 Замовити номер 5")
@@ -272,17 +280,18 @@ namespace HotelTelegramBot.Controller
         private static async Task SendPhotosAsync(ChatId chatId,
             List<string> photos)
         {
-            InputMedia media = new InputMedia("http://panorama-hotel.com.ua/photos/gallery/IMG_78330209093803.jpg");
             List<InputMediaPhoto> inputMediaPhotos = new List<InputMediaPhoto>();
             foreach(string str in photos)
             {
                 inputMediaPhotos.Add(new InputMediaPhoto(str));
             }
 
+            #pragma warning disable CS0618 // 'ITelegramBotClient.SendMediaGroupAsync(ChatId, IEnumerable<InputMediaBase>, bool, int, CancellationToken)' is obsolete: 'Use the other overload of this method instead. Only photo and video input types are allowed.'
             Message[] msg = await Program.botClient.SendMediaGroupAsync(
                     chatId: chatId,
                     media: inputMediaPhotos
                 );
+            #pragma warning restore CS0618 // 'ITelegramBotClient.SendMediaGroupAsync(ChatId, IEnumerable<InputMediaBase>, bool, int, CancellationToken)' is obsolete: 'Use the other overload of this method instead. Only photo and video input types are allowed.'
         }
     }
 }

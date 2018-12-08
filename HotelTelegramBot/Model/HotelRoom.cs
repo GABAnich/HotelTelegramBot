@@ -5,7 +5,7 @@ namespace HotelTelegramBot.Model
     class HotelRoom
     {
         public long Id { get; set; }
-        public long? HotelRoomTypeId { get; set; }
+        public long HotelRoomTypeId { get; set; }
         public HotelRoomType HotelRoomType { get; set; }
         public ICollection<HotelRoomReservedDate> HotelRoomReservedDate { get; set; }
         public ICollection<Reservation> Reservation { get; set; }

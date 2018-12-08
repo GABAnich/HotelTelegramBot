@@ -9,17 +9,15 @@ namespace HotelTelegramBot.Model
 {
     class Services
     {
-        // public static HotelTelegramBotContext db = new HotelTelegramBotContext();
-
         public static async Task AddUserChatAsync(long id)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 var userChat = db.UserChats
                     .Where(u => u.IdChat == id)
-                    .ToArray();
+                    .FirstOrDefault();
 
-                if (userChat.Length > 0)
+                if (userChat != null)
                 {
                     return;
                 }
@@ -56,9 +54,9 @@ namespace HotelTelegramBot.Model
             {
                 var userChat = db.UserChats
                     .Where(u => u.IdChat == chatId)
-                    .ToArray();
+                    .First();
 
-                return userChat[0].ChatPosition;
+                return userChat.ChatPosition;
             }
         }
 
@@ -72,13 +70,13 @@ namespace HotelTelegramBot.Model
             return AboutHotel.ImageAboutHotel;
         }
 
-        public static async Task SaveUserTempDataAsync(string property, string value, long userChatId)
+        public static async Task SaveUserTempDataAsync(string property, string value, long chatId)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 var obj = new TempInformation()
                 {
-                    IdUserChat = userChatId,
+                    IdUserChat = chatId,
                     Property = property,
                     Value = value
                 };
@@ -88,25 +86,25 @@ namespace HotelTelegramBot.Model
             }
         }
 
-        public static string GetUserTempData(long userChatId, string property)
+        public static string GetUserTempData(long chatId, string property)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 var value = db.TempInformation
-                         .Where(t => t.IdUserChat == userChatId)
+                         .Where(t => t.IdUserChat == chatId)
                          .Where(t => t.Property == property)
-                         .FirstOrDefault();
+                         .First();
 
                 return value.Value;
             }
         }
 
-        public static async Task ClearUserTempDataAsync(long userChatId)
+        public static async Task ClearUserTempDataAsync(long chatId)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 var value = db.TempInformation
-                    .Where(t => t.IdUserChat == userChatId);
+                    .Where(t => t.IdUserChat == chatId);
 
                 db.TempInformation
                     .RemoveRange(value);

@@ -3,9 +3,9 @@
     class Reservation
     {
         public long Id { get; set; }
-        public long? HotelRoomId { get; set; }
+        public long HotelRoomId { get; set; }
         public HotelRoom HotelRoom { get; set; }
-        public long? IdUserChat { get; set; }
+        public long IdUserChat { get; set; }
         public UserChat UserChat { get; set; }
 
         public string SecondName { get; set; }

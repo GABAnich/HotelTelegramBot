@@ -4,12 +4,15 @@ namespace HotelTelegramBot
 {
     class ConfigTelegramBot
     {
-        static public string GetAPIToken()
+        static public string APIToken
         {
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(@"..\..\Config.xml");
+            get
+            {
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.Load(@"..\..\Config.xml");
 
-            return xDoc.SelectSingleNode("//config/APIToken").InnerText;
+                return xDoc.SelectSingleNode("//config/APIToken").InnerText;
+            }
         }
     }
 }
