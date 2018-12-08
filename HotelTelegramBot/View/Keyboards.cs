@@ -5,7 +5,7 @@ namespace HotelTelegramBot.View
 {
     class Keyboards
     {
-        static readonly public ReplyKeyboardMarkup MainKeyboard = new ReplyKeyboardMarkup
+        static readonly public IReplyMarkup MainKeyboard = new ReplyKeyboardMarkup
         {
             Keyboard = new KeyboardButton[][]
             {
@@ -16,7 +16,7 @@ namespace HotelTelegramBot.View
             OneTimeKeyboard = true
         };
 
-        static readonly public ReplyKeyboardMarkup ReturnMainMenu = new ReplyKeyboardMarkup
+        static readonly public IReplyMarkup ReturnMainMenu = new ReplyKeyboardMarkup
         {
             Keyboard = new KeyboardButton[][]
             {
@@ -26,7 +26,7 @@ namespace HotelTelegramBot.View
             OneTimeKeyboard = true
         };
 
-        static public ReplyKeyboardMarkup NextDates(List<string> dates)
+        static public IReplyMarkup NextDates(List<string> dates)
         {
             return new ReplyKeyboardMarkup
             {
@@ -40,8 +40,17 @@ namespace HotelTelegramBot.View
             };
         }
 
-        static public ReplyKeyboardMarkup Text(string text)
+        static public IReplyMarkup Text(string text)
         {
+            if (text == null)
+            {
+                return new ReplyKeyboardRemove();
+            }
+            else if (text.Length == 0)
+            {
+                return new ReplyKeyboardRemove();
+            }
+
             return new ReplyKeyboardMarkup
             {
                 Keyboard = new KeyboardButton[][]
@@ -53,7 +62,7 @@ namespace HotelTelegramBot.View
             };
         }
 
-        static public ReplyKeyboardMarkup Adults
+        static public IReplyMarkup Adults
         {
             get
             {
@@ -69,7 +78,7 @@ namespace HotelTelegramBot.View
             }
         }
 
-        static public ReplyKeyboardMarkup Children
+        static public IReplyMarkup Children
         {
             get
             {

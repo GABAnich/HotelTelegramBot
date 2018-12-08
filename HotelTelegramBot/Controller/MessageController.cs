@@ -17,6 +17,7 @@ namespace HotelTelegramBot.Controller
             string userInput = e.Message.Text;
             long chatId = e.Message.Chat.Id;
             Chat userChat = e.Message.Chat;
+            string chatPosition;
 
             if (e.Message == null)
             {
@@ -28,11 +29,34 @@ namespace HotelTelegramBot.Controller
             if (userMessage == null || userMessage.Type != MessageType.Text)
                 return;
 
-            Console.WriteLine($"{userChat.LastName} {userChat.FirstName} {chatId}: {userInput}");
+            try
+            {
+                await Services.AddUserChatAsync(chatId);
+                await RouteMessageTextAsync(userInput, chatId, userChat);
 
-            await Services.AddUserChatAsync(chatId);
-            await RouteMessageTextAsync(userInput, chatId, userChat);
-            await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
+                chatPosition = Services.GetChatPosition(chatId);
+
+                string text = "" +
+                    $"{e.Message.Date.ToShortDateString()} " +
+                    $"{e.Message.Date.ToShortTimeString()} | " +
+                    $"{chatPosition} | " +
+                    $"{chatId} | " +
+                    $"{userChat.Username} |" +
+                    $"{userChat.LastName} " +
+                    $"{userChat.FirstName} : " +
+                    $"{userInput}\n";
+                System.IO.File.AppendAllText(@"C:\Users\User\Desktop\курсова\HotelTelegramBot\messages.log", text);
+                Console.WriteLine(text);
+
+                await RouteMessageChatPositionAsync(chatPosition, userInput, chatId, userChat);
+            }
+            catch(Telegram.Bot.Exceptions.ApiRequestException exception)
+            {
+                if (exception.Message == "Forbidden: bot was blocked by the user")
+                {
+                    return;
+                }
+            }
         }
 
         internal static async void OnCallbackQueryAsync(object sender, CallbackQueryEventArgs e)
@@ -42,7 +66,6 @@ namespace HotelTelegramBot.Controller
             Chat userChat = e.CallbackQuery.Message.Chat;
 
             await Program.botClient.DeleteMessageAsync(e.CallbackQuery.Message.Chat, e.CallbackQuery.Message.MessageId);
-
             await RouteMessageTextAsync(userInput, chatId, userChat);
             await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
         }
@@ -107,8 +130,15 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "⛺️ Номери 1")
             {
-                HotelRoomType roomType = Services.GetHotelRoomTypeById(long.Parse(userInput));
-                List<string> photos = Services.GetHotelRoomTypeImagesUrl(long.Parse(userInput));
+                if (!Validator.CheckNumber(userInput))
+                {
+                    await SendMessageAsync(userChat, Validator.BadNumber);
+                    return;
+                }
+
+                long roomTypeId = int.Parse(userInput);
+                HotelRoomType roomType = Services.GetHotelRoomTypeById(roomTypeId);
+                List<string> photos = Services.GetHotelRoomTypeImagesUrl(roomTypeId);
 
                 if (roomType == null)
                 {
@@ -268,26 +298,39 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 5")
             {
+                if (!Validator.CheckNumber(userInput))
+                {
+                    await SendMessageAsync(userChat, Validator.BadNumber);
+                    return;
+                }
+                long id = long.Parse(userInput);
+
+                if (Services.GetHotelRoomTypeById(id) == null || !Services.GetAviableRoomTypes(userChat).Exists(t => t.Id == id))
+                {
+                    await SendMessageAsync(userChat, "Оберіть тип номеру", Keyboards.ReturnMainMenu);
+                    return;
+                };
+
                 await Services.SaveUserTempDataAsync("HotelRoomTypeId", userInput, chatId);
-                await SendMessageAsync(userChat, "Прізвище", Keyboards.Text(userChat.LastName));
+                await SendMessageAsync(userChat, "Введіть прізвище", Keyboards.Text(userChat.LastName));
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 6");
             }
             else if (chatPosition == "🏨 Замовити номер 6")
             {
                 await Services.SaveUserTempDataAsync("SecondName", userInput, chatId);
-                await SendMessageAsync(userChat, "Ім’я", Keyboards.Text(userChat.FirstName));
+                await SendMessageAsync(userChat, "Введіть ім’я", Keyboards.Text(userChat.FirstName));
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 7");
             }
             else if (chatPosition == "🏨 Замовити номер 7")
             {
                 await Services.SaveUserTempDataAsync("FirstName", userInput, chatId);
-                await SendMessageAsync(userChat, "По батькові");
+                await SendMessageAsync(userChat, "Введіть по батькові");
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 8");
             }
             else if (chatPosition == "🏨 Замовити номер 8")
             {
                 await Services.SaveUserTempDataAsync("MiddleName", userInput, chatId);
-                await SendMessageAsync(userChat, "Номер телефону");
+                await SendMessageAsync(userChat, "Введіть номер телефону");
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 9");
             }
             else if (chatPosition == "🏨 Замовити номер 9")
@@ -308,7 +351,7 @@ namespace HotelTelegramBot.Controller
                     await SendMessageAsync(userChat, Validator.BadEmail);
                     return;
                 }
-                await Services.SaveUserTempDataAsync("Email", userInput, chatId);
+                await Services.SaveUserTempDataAsync("Введіть email", userInput, chatId);
                 await SendMessageAsync(userChat, "Очікування бронювання");
                 Reservation r = await Services.AddReservationAsync(chatId);
                 HotelRoom room = Services.GetHotelRoomById(r.HotelRoomId);
