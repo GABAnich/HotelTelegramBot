@@ -313,6 +313,7 @@ namespace HotelTelegramBot.Controller
                 Reservation r = await Services.AddReservationAsync(chatId);
                 HotelRoom room = Services.GetHotelRoomById(r.HotelRoomId);
                 HotelRoomType t = Services.GetHotelRoomTypeById(room.HotelRoomTypeId);
+                int countDays = Services.GetIntermediateDates(r.DateOfArrival, r.DateOfArrival).Count;
                 string text = "" +
                     $"*{t.Name}\n*" +
                     $"\n" +
@@ -327,6 +328,8 @@ namespace HotelTelegramBot.Controller
                     $"\n" +
                     $"Кімната: {room.Name}\n" +
                     $"Поверх: {room.Floor}\n" +
+                    $"\n" +
+                    $"До оплати: {countDays * t.Price} грн\n" +
                     $"\n" +
                     $"Ідентифікатор для перевірки: *494ebf5f419ad02a86af25f8db5ed114790399c2aa6b233384b1b4b9ac3458e5*";
                 await SendMessageAsync(userChat, text, Keyboards.ReturnMainMenu);
