@@ -246,8 +246,7 @@ namespace HotelTelegramBot.Model
         {
             UserChat userChat = GetUserChatByChatId(chatId);
             long hotelRoomId;
-            string hotelRoomTypeName = GetUserTempData(chatId, "HotelRoomTypeName");
-            HotelRoomType hotelRoomType = GetHotelRoomTypeByName(hotelRoomTypeName);
+            long hotelRoomTypeId = long.Parse(GetUserTempData(chatId, "HotelRoomTypeId"));
             List<string> dates = GetIntermediateDates(
                         GetUserTempData(chatId, "DateOfArrival"),
                         GetUserTempData(chatId, "DateOfDeparture"));
@@ -256,7 +255,7 @@ namespace HotelTelegramBot.Model
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 hotelRoomId = GetAviableRooms(dates)
-                    .Where(r => r.HotelRoomTypeId == hotelRoomType.Id)
+                    .Where(r => r.HotelRoomTypeId == hotelRoomTypeId)
                     .FirstOrDefault().Id;
             }
 

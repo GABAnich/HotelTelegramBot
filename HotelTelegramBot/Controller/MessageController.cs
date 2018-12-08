@@ -28,23 +28,11 @@ namespace HotelTelegramBot.Controller
             if (userMessage == null || userMessage.Type != MessageType.Text)
                 return;
 
-            // Loger придумати куда запихнути
             Console.WriteLine($"{userChat.LastName} {userChat.FirstName} {chatId}: {userInput}");
 
             await Services.AddUserChatAsync(chatId);
             await RouteMessageTextAsync(userInput, chatId, userChat);
             await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
-
-            //try
-            //{
-            //    await Services.AddUserChatAsync(chatId);
-            //    await RouteMessageTextAsync(userInput, chatId, userChat);
-            //    await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
-            //}
-            //catch(Exception exception)
-            //{
-            //    Console.WriteLine(exception.ToString());
-            //}
         }
 
         internal static async void OnCallbackQueryAsync(object sender, CallbackQueryEventArgs e)
@@ -53,12 +41,7 @@ namespace HotelTelegramBot.Controller
             long chatId = e.CallbackQuery.Message.Chat.Id;
             Chat userChat = e.CallbackQuery.Message.Chat;
 
-            await Program.botClient.EditMessageTextAsync(
-                chatId: e.CallbackQuery.Message.Chat.Id,
-                messageId: e.CallbackQuery.Message.MessageId,
-                text: $"*{e.CallbackQuery.Data}*",
-                parseMode: ParseMode.Markdown
-                );
+            await Program.botClient.DeleteMessageAsync(e.CallbackQuery.Message.Chat, e.CallbackQuery.Message.MessageId);
 
             await RouteMessageTextAsync(userInput, chatId, userChat);
             await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
@@ -226,7 +209,7 @@ namespace HotelTelegramBot.Controller
                 foreach (HotelRoomType t in listRoomTypes)
                 {
                     keyboards.Add(new List<InlineKeyboardButton>() {
-                        InlineKeyboardButton.WithCallbackData($"Замовити: {t.Name}", t.Name)
+                        InlineKeyboardButton.WithCallbackData($"Замовити: {t.Name}", $"{t.Id}")
                     });
                 }
                 IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
@@ -236,7 +219,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 5")
             {
-                await Services.SaveUserTempDataAsync("HotelRoomTypeName", userInput, chatId);
+                await Services.SaveUserTempDataAsync("HotelRoomTypeId", userInput, chatId);
                 await SendMessageAsync(userChat, "Прізвище", Keyboards.Text(userChat.LastName));
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 6");
             }
