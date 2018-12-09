@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\HotelTelegramBot.exe.config
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\HotelTelegramBot.exe
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\HotelTelegramBot.pdb
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\EntityFramework.dll
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\Newtonsoft.Json.dll
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\Telegram.Bot.dll
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\EntityFramework.xml
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\Newtonsoft.Json.xml
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\bin\Release\Telegram.Bot.xml
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.csproj.CopyComplete
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.exe
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.pdb

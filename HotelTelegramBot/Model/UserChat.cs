@@ -1,7 +1,6 @@
-﻿using HotelTelegramBot.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace HotelTelegramBot
+namespace HotelTelegramBot.Model
 {
     class UserChat
     {
