@@ -317,18 +317,33 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 6")
             {
+                if (!Validator.CheckName(userInput))
+                {
+                    await SendMessageAsync(userChat, Validator.BadName);
+                    return;
+                }
                 await Services.SaveUserTempDataAsync("SecondName", userInput, chatId);
                 await SendMessageAsync(userChat, "Введіть ім’я", Keyboards.Text(userChat.FirstName));
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 7");
             }
             else if (chatPosition == "🏨 Замовити номер 7")
             {
+                if (!Validator.CheckName(userInput))
+                {
+                    await SendMessageAsync(userChat, Validator.BadName);
+                    return;
+                }
                 await Services.SaveUserTempDataAsync("FirstName", userInput, chatId);
                 await SendMessageAsync(userChat, "Введіть по батькові");
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 8");
             }
             else if (chatPosition == "🏨 Замовити номер 8")
             {
+                if (!Validator.CheckName(userInput))
+                {
+                    await SendMessageAsync(userChat, Validator.BadName);
+                    return;
+                }
                 await Services.SaveUserTempDataAsync("MiddleName", userInput, chatId);
                 await SendMessageAsync(userChat, "Введіть номер телефону");
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 9");
@@ -341,7 +356,7 @@ namespace HotelTelegramBot.Controller
                     return;
                 }
                 await Services.SaveUserTempDataAsync("Number", userInput, chatId);
-                await SendMessageAsync(userChat, "Email");
+                await SendMessageAsync(userChat, "Введіть Email");
                 await Services.ChangePositionAsync(chatId, "🏨 Замовити номер 10");
             }
             else if (chatPosition == "🏨 Замовити номер 10")
@@ -351,7 +366,7 @@ namespace HotelTelegramBot.Controller
                     await SendMessageAsync(userChat, Validator.BadEmail);
                     return;
                 }
-                await Services.SaveUserTempDataAsync("Введіть email", userInput, chatId);
+                await Services.SaveUserTempDataAsync("Email", userInput, chatId);
                 await SendMessageAsync(userChat, "Очікування бронювання");
                 Reservation r = await Services.AddReservationAsync(chatId);
                 HotelRoom room = Services.GetHotelRoomById(r.HotelRoomId);
