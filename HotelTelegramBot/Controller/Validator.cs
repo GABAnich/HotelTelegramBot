@@ -72,7 +72,7 @@ namespace HotelTelegramBot.Controller
 
         public static bool CheckName(string name)
         {
-            return Regex.IsMatch(name, @"^[a-zA-ZА-Яа-яІі]+$");
+            return Regex.IsMatch(name, @"^[a-zA-ZА-Яа-яІіЇїЄєЬь]+$");
         }
     }
 }
