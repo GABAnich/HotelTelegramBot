@@ -13,3 +13,4 @@ C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Relea
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.csproj.CopyComplete
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.exe
 C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.pdb
+C:\Users\User\Desktop\курсова\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.csprojAssemblyReference.cache

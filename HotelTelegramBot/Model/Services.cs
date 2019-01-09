@@ -252,6 +252,34 @@ namespace HotelTelegramBot.Model
             }
         }
 
+        // Should delete hotelRoomReservedDates from reservation
+        // But deleting all reservedDates by RoomId
+        internal static async Task DeleteHotelRoomReservedDateByRoomIdAsync(long hotelRoomId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                List<HotelRoomReservedDate> dates = GetHotelRoomReservedDateByIdHotelRoom(hotelRoomId);
+
+                foreach (HotelRoomReservedDate date in dates)
+                {
+                    db.HotelRoomReservedDate.Attach(date);
+                    db.HotelRoomReservedDate.Remove(date);
+                }
+
+                await db.SaveChangesAsync();
+            }
+        }
+
+        private static List<HotelRoomReservedDate> GetHotelRoomReservedDateByIdHotelRoom(long hotelRoomId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRoomReservedDate
+                    .Where(date => date.HotelRoomId == hotelRoomId)
+                    .ToList();
+            }
+        }
+
         public static List<HotelRoomTypeImage> GetRoomTypeImages(long id)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
