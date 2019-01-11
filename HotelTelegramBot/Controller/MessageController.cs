@@ -160,7 +160,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "❌ Зняти бронювання 0")
             {
-                var listReservation = DbServices.GetReservation(chatId, DateTime.Now);
+                var listReservation = DbServices.GetValidReservation(chatId, DateTime.Now);
                 if (listReservation.Count == 0)
                 {
                     await SendMessageAsync(userChat, "Бронювань немає", Keyboards.ReturnMainMenu);

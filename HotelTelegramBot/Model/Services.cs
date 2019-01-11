@@ -306,26 +306,27 @@ namespace HotelTelegramBot.Model
             return departureDate < lastDate;
         }
 
-        public static List<Reservation> GetReservation(long chatId, DateTime lastDate)
+        public static List<Reservation> GetValidReservation(long chatId, DateTime lastDate)
         {
             UserChat userChat = GetUserChatByChatId(chatId);
+            List<Reservation> reservation;
 
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                List<Reservation> reservation = db.Reservations
+                reservation = db.Reservations
                     .Where(r => r.IdUserChat == userChat.Id)
                     .ToList();
-
-                for (int i = reservation.Count - 1; i > -1; i--)
-                {
-                    if (IsAviableDate(reservation[i].DateOfDeparture, lastDate))
-                    {
-                        reservation.RemoveAt(i);
-                    }
-                }
-
-                return reservation;
             }
+
+            for (int i = reservation.Count - 1; i > -1; i--)
+            {
+                if (IsAviableDate(reservation[i].DateOfDeparture, lastDate))
+                {
+                    reservation.RemoveAt(i);
+                }
+            }
+            
+            return reservation;
         }
 
         private static async void AddReservedDatesAsync(long hotelRoomId, List<string> dates)
