@@ -148,16 +148,6 @@ namespace HotelTelegramBot.Model
             return list;
         }
 
-        public static UserChat GetUserChatByChatId(long chatId)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                return db.UserChats
-                    .Where(u => u.IdChat == chatId)
-                    .FirstOrDefault();
-            }
-        }
-
         public static List<HotelRoom> GetAviableRooms(List<string> dates)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
@@ -253,7 +243,7 @@ namespace HotelTelegramBot.Model
 
         internal static async Task<Reservation> AddReservationAsync(long chatId)
         {
-            UserChat userChat = GetUserChatByChatId(chatId);
+            UserChat userChat = ServicesUserChat.GetUserChatByChatId(chatId);
             long hotelRoomId;
             long hotelRoomTypeId = long.Parse(GetUserTempData(chatId, "HotelRoomTypeId"));
             List<string> dates = GetIntermediateDates(
@@ -298,7 +288,7 @@ namespace HotelTelegramBot.Model
 
         public static List<Reservation> GetValidReservation(long chatId, DateTime lastDate)
         {
-            UserChat userChat = GetUserChatByChatId(chatId);
+            UserChat userChat = ServicesUserChat.GetUserChatByChatId(chatId);
             List<Reservation> reservation = ServicesReservation.GetReservationByChatId(userChat.Id);
 
             // Returns current bookings
