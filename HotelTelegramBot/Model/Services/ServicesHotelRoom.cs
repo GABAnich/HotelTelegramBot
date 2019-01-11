@@ -2,7 +2,7 @@
 
 namespace HotelTelegramBot.Model.Services
 {
-    class ServicesHotelRoom
+    internal class ServicesHotelRoom
     {
         public static HotelRoom GetHotelRoomById(long id)
         {

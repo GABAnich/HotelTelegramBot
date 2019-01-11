@@ -1,4 +1,5 @@
 ﻿using HotelTelegramBot.Model;
+using HotelTelegramBot.Model.Services;
 using HotelTelegramBot.View;
 using System;
 using System.Collections.Generic;
@@ -67,7 +68,7 @@ namespace HotelTelegramBot.Controller
 
             await Program.botClient.DeleteMessageAsync(e.CallbackQuery.Message.Chat, e.CallbackQuery.Message.MessageId);
             await RouteMessageTextAsync(userInput, chatId, userChat);
-            await RouteMessageChatPositionAsync(Services.GetChatPosition(chatId), userInput, chatId, userChat);
+            await RouteMessageChatPositionAsync(DbServices.GetChatPosition(chatId), userInput, chatId, userChat);
         }
 
         public static async Task RouteMessageTextAsync(string userInput, long chatId, Chat userChat)
@@ -99,7 +100,7 @@ namespace HotelTelegramBot.Controller
             if (chatPosition == "/start")
             {
                 await DbServices.ClearUserTempDataAsync(chatId);
-                await SendPhotoAsync(userChat, DbServices.GetImageAboutHotel(), Services.GetInfoAboutHotel(), Keyboards.MainKeyboard);
+                await SendPhotoAsync(userChat, DbServices.GetImageAboutHotel(), DbServices.GetInfoAboutHotel(), Keyboards.MainKeyboard);
             }
             else if (chatPosition == "🎛 Головне меню")
             {
@@ -170,7 +171,7 @@ namespace HotelTelegramBot.Controller
                 List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
                 foreach (Reservation r in listReservation)
                 {
-                    HotelRoom room = DbServices.GetHotelRoomById(r.HotelRoomId);
+                    HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
                     HotelRoomType roomType = DbServices.GetHotelRoomTypeById(room.HotelRoomTypeId);
                     keyboards.Add(new List<InlineKeyboardButton>() {
                         InlineKeyboardButton.WithCallbackData(
@@ -309,7 +310,7 @@ namespace HotelTelegramBot.Controller
                 }
                 long id = long.Parse(userInput);
 
-                if (DbServices.GetHotelRoomTypeById(id) == null || !Services.GetAviableRoomTypes(userChat).Exists(t => t.Id == id))
+                if (DbServices.GetHotelRoomTypeById(id) == null || !DbServices.GetAviableRoomTypes(userChat).Exists(t => t.Id == id))
                 {
                     await SendMessageAsync(userChat, "Оберіть тип номеру", Keyboards.ReturnMainMenu);
                     return;
@@ -373,7 +374,7 @@ namespace HotelTelegramBot.Controller
                 await DbServices.SaveUserTempDataAsync("Email", userInput, chatId);
                 await SendMessageAsync(userChat, "Очікування бронювання");
                 Reservation r = await DbServices.AddReservationAsync(chatId);
-                HotelRoom room = DbServices.GetHotelRoomById(r.HotelRoomId);
+                HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
                 HotelRoomType t = DbServices.GetHotelRoomTypeById(room.HotelRoomTypeId);
                 int countDays = DbServices.GetIntermediateDates(r.DateOfArrival, r.DateOfArrival).Count;
                 string text = "" +
