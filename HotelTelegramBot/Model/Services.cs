@@ -331,29 +331,6 @@ namespace HotelTelegramBot.Model
             }
         }
 
-        public static Reservation GetReservationById(long id)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                return db.Reservations
-                    .Where(r => r.Id == id)
-                    .FirstOrDefault();
-            }
-        }
-
-        public static async Task DeleteReservationById(long id)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                Reservation r = GetReservationById(id);
-
-                db.Reservations.Attach(r);
-                db.Reservations.Remove(r);
-
-                await db.SaveChangesAsync();
-            }
-        }
-
         private static async void AddReservedDatesAsync(long hotelRoomId, List<string> dates)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
