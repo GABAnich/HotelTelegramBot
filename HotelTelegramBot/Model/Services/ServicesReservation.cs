@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace HotelTelegramBot.Model.Services
@@ -12,6 +13,16 @@ namespace HotelTelegramBot.Model.Services
                 return db.Reservations
                     .Where(r => r.Id == id)
                     .FirstOrDefault();
+            }
+        }
+
+        public static List<Reservation> GetReservationByChatId(long chatId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.Reservations
+                    .Where(r => r.IdUserChat == chatId)
+                    .ToList();
             }
         }
 

@@ -309,14 +309,7 @@ namespace HotelTelegramBot.Model
         public static List<Reservation> GetValidReservation(long chatId, DateTime lastDate)
         {
             UserChat userChat = GetUserChatByChatId(chatId);
-            List<Reservation> reservation;
-
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                reservation = db.Reservations
-                    .Where(r => r.IdUserChat == userChat.Id)
-                    .ToList();
-            }
+            List<Reservation> reservation = ServicesReservation.GetReservationByChatId(userChat.Id);
 
             for (int i = reservation.Count - 1; i > -1; i--)
             {
