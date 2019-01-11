@@ -14,7 +14,7 @@ namespace HotelTelegramBot.Model.Services
             }
         }
 
-        public static string GetChatPosition(long chatId)
+        public static string GetChatPositionById(long chatId)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
