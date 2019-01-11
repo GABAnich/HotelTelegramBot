@@ -6,7 +6,7 @@ using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Model
 {
-    class Services
+    internal class DbServices
     {
         public static async Task AddUserChatAsync(long id)
         {
