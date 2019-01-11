@@ -30,5 +30,15 @@ namespace HotelTelegramBot.Model.Services
                 await db.SaveChangesAsync();
             }
         }
+
+        public static async Task<Reservation> AddReservation(Reservation reservation)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                Reservation r = db.Reservations.Add(reservation);
+                await db.SaveChangesAsync();
+                return r;
+            }
+        }
     }
 }

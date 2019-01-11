@@ -1,4 +1,6 @@
-﻿namespace HotelTelegramBot.Model
+﻿using System;
+
+namespace HotelTelegramBot.Model
 {
     class Reservation
     {
@@ -17,5 +19,6 @@
         public string DateOfDeparture { get; set; }
         public int NumberOfAdults { get; set; }
         public int NumberOfChildren { get; set; }
+
     }
 }

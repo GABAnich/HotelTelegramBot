@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelTelegramBot.Model.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -294,12 +295,8 @@ namespace HotelTelegramBot.Model
                 NumberOfChildren = int.Parse(GetUserTempData(chatId, "NumberOfChildren")),
             };
 
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                Reservation r = db.Reservations.Add(reservation);
-                await db.SaveChangesAsync();
-                return r;
-            }
+            Reservation res = await ServicesReservation.AddReservation(reservation);
+            return res;
         }
 
         private static bool IsAviableDate(string departure, DateTime lastDate)
