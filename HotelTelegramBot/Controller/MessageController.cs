@@ -35,7 +35,7 @@ namespace HotelTelegramBot.Controller
                 await DbServices.AddUserChatAsync(chatId);
                 await RouteMessageTextAsync(userInput, chatId, userChat);
 
-                chatPosition = ServicesUserChat.GetChatPositionId(chatId);
+                chatPosition = ServicesUserChat.GetChatPositionById(chatId);
 
                 string text = "" +
                     $"{e.Message.Date.ToShortDateString()} " +
