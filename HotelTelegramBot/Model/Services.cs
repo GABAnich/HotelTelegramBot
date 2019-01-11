@@ -182,16 +182,6 @@ namespace HotelTelegramBot.Model
             }
         }
 
-        public static HotelRoom GetHotelRoomById(long id)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                return db.HotelRooms
-                    .Where(r => r.Id == id)
-                    .FirstOrDefault();
-            }
-        }
-
         public static List<long> GetHotelRoomTypeIds(List<HotelRoom> rooms)
         {
             return rooms
