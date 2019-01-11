@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace HotelTelegramBot.Model.Services
 {
@@ -21,6 +22,15 @@ namespace HotelTelegramBot.Model.Services
                 return db.HotelRoomTypes
                     .Where(t => t.Name == hotelRoomTypeName)
                     .FirstOrDefault();
+            }
+        }
+
+        public static List<HotelRoomType> GetRoomTypes()
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRoomTypes
+                    .ToList();
             }
         }
     }
