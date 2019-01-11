@@ -1,2 +1,9 @@
 HotelTelegramBot/Config.xml
+HotelTelegramBot/obj/Release/HotelTelegramBot.pdb
+HotelTelegramBot/obj/Release/HotelTelegramBot.exe
+HotelTelegramBot/obj/Release/HotelTelegramBot.csprojAssemblyReference.cache
+HotelTelegramBot/obj/Release/HotelTelegramBot.csproj.CoreCompileInputs.cache
+HotelTelegramBot/bin/Release/HotelTelegramBot.pdb
+HotelTelegramBot/bin/Release/HotelTelegramBot.exe
+HotelTelegramBot/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
 messages.log
