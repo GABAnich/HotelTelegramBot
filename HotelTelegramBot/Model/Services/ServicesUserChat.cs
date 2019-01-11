@@ -13,5 +13,17 @@ namespace HotelTelegramBot.Model.Services
                     .FirstOrDefault();
             }
         }
+
+        public static string GetChatPosition(long chatId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                var userChat = db.UserChats
+                    .Where(u => u.IdChat == chatId)
+                    .FirstOrDefault();
+
+                return userChat.ChatPosition;
+            }
+        }
     }
 }
