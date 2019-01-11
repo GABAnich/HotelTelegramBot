@@ -138,7 +138,7 @@ namespace HotelTelegramBot.Controller
                 }
 
                 long roomTypeId = int.Parse(userInput);
-                HotelRoomType roomType = DbServices.GetHotelRoomTypeById(roomTypeId);
+                HotelRoomType roomType = ServicesHotelRoomType.GetHotelRoomTypeById(roomTypeId);
                 List<string> photos = DbServices.GetHotelRoomTypeImagesUrl(roomTypeId);
 
                 if (roomType == null)
@@ -172,7 +172,7 @@ namespace HotelTelegramBot.Controller
                 foreach (Reservation r in listReservation)
                 {
                     HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
-                    HotelRoomType roomType = DbServices.GetHotelRoomTypeById(room.HotelRoomTypeId);
+                    HotelRoomType roomType = ServicesHotelRoomType.GetHotelRoomTypeById(room.HotelRoomTypeId);
                     keyboards.Add(new List<InlineKeyboardButton>() {
                         InlineKeyboardButton.WithCallbackData(
                             $"{roomType.Name}: {r.DateOfArrival}-{r.DateOfDeparture}",
@@ -310,7 +310,7 @@ namespace HotelTelegramBot.Controller
                 }
                 long id = long.Parse(userInput);
 
-                if (DbServices.GetHotelRoomTypeById(id) == null || !DbServices.GetAviableRoomTypes(userChat).Exists(t => t.Id == id))
+                if (ServicesHotelRoomType.GetHotelRoomTypeById(id) == null || !DbServices.GetAviableRoomTypes(userChat).Exists(t => t.Id == id))
                 {
                     await SendMessageAsync(userChat, "Оберіть тип номеру", Keyboards.ReturnMainMenu);
                     return;
@@ -375,7 +375,7 @@ namespace HotelTelegramBot.Controller
                 await SendMessageAsync(userChat, "Очікування бронювання");
                 Reservation r = await DbServices.AddReservationAsync(chatId);
                 HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
-                HotelRoomType t = DbServices.GetHotelRoomTypeById(room.HotelRoomTypeId);
+                HotelRoomType t = ServicesHotelRoomType.GetHotelRoomTypeById(room.HotelRoomTypeId);
                 int countDays = DbServices.GetIntermediateDates(r.DateOfArrival, r.DateOfArrival).Count;
                 string text = "" +
                     $"*{t.Name}\n*" +
