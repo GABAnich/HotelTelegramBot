@@ -49,16 +49,6 @@ namespace HotelTelegramBot.Model
             }
         }
 
-        public static string GetInfoAboutHotel()
-        {
-            return AboutHotel.InfoAboutHotel;
-        }
-
-        public static string GetImageAboutHotel()
-        {
-            return AboutHotel.ImageAboutHotel;
-        }
-
         public static async Task SaveUserTempDataAsync(string property, string value, long chatId)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())

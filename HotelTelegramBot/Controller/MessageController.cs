@@ -100,7 +100,7 @@ namespace HotelTelegramBot.Controller
             if (chatPosition == "/start")
             {
                 await DbServices.ClearUserTempDataAsync(chatId);
-                await SendPhotoAsync(userChat, DbServices.GetImageAboutHotel(), DbServices.GetInfoAboutHotel(), Keyboards.MainKeyboard);
+                await SendPhotoAsync(userChat, AboutHotel.ImageAboutHotel, AboutHotel.InfoAboutHotel, Keyboards.MainKeyboard);
             }
             else if (chatPosition == "🎛 Головне меню")
             {
