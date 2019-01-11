@@ -13,5 +13,15 @@ namespace HotelTelegramBot.Model.Services
                     .FirstOrDefault();
             }
         }
+
+        public static List<HotelRoom> GetHotelRoomsByTypeId(long hotelRoomTypeId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRooms
+                    .Where(r => r.HotelRoomTypeId == hotelRoomTypeId)
+                    .ToList();
+            }
+        }
     }
 }
