@@ -311,6 +311,7 @@ namespace HotelTelegramBot.Model
             UserChat userChat = GetUserChatByChatId(chatId);
             List<Reservation> reservation = ServicesReservation.GetReservationByChatId(userChat.Id);
 
+            // Returns current bookings
             for (int i = reservation.Count - 1; i > -1; i--)
             {
                 if (IsAviableDate(reservation[i].DateOfDeparture, lastDate))
