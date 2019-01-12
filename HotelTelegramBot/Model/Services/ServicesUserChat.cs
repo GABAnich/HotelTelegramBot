@@ -36,5 +36,17 @@ namespace HotelTelegramBot.Model.Services
                 await db.SaveChangesAsync();
             }
         }
+
+        public static async Task UpdateChatPositionAsync(long idChat, string position)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                db.UserChats
+                    .Where(u => u.IdChat == idChat)
+                    .FirstOrDefault().ChatPosition = position;
+
+                await db.SaveChangesAsync();
+            }
+        }
     }
 }
