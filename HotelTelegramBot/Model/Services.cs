@@ -32,7 +32,7 @@ namespace HotelTelegramBot.Model
             await ServicesTempInformation.AddTempInformationAsync(chatId, property, value);
         }
 
-        public static string GetUserTempData(long chatId, string property)
+        public static string GetUserTempDataValue(long chatId, string property)
         {
             return ServicesTempInformation.GetTempInformationByChatIdAndProperty(chatId, property).Value;
         }
@@ -102,10 +102,10 @@ namespace HotelTelegramBot.Model
 
         public static List<HotelRoomType> GetAviableRoomTypes(Chat userChat)
         {
-            string dateOfArrival = GetUserTempData(userChat.Id, "DateOfArrival");
-            string dateOfDeparture = GetUserTempData(userChat.Id, "DateOfDeparture");
-            int numberOfAdults = int.Parse(GetUserTempData(userChat.Id, "NumberOfAdults"));
-            int numberOfChildren = int.Parse(GetUserTempData(userChat.Id, "NumberOfChildren"));
+            string dateOfArrival = GetUserTempDataValue(userChat.Id, "DateOfArrival");
+            string dateOfDeparture = GetUserTempDataValue(userChat.Id, "DateOfDeparture");
+            int numberOfAdults = int.Parse(GetUserTempDataValue(userChat.Id, "NumberOfAdults"));
+            int numberOfChildren = int.Parse(GetUserTempDataValue(userChat.Id, "NumberOfChildren"));
 
             List<string> dates = GetIntermediateDates(dateOfArrival, dateOfDeparture);
 
@@ -154,10 +154,10 @@ namespace HotelTelegramBot.Model
         {
             UserChat userChat = ServicesUserChat.GetUserChatByIdChat(chatId);
             long hotelRoomId;
-            long hotelRoomTypeId = long.Parse(GetUserTempData(chatId, "HotelRoomTypeId"));
-            List<string> dates = GetIntermediateDates(
-                        GetUserTempData(chatId, "DateOfArrival"),
-                        GetUserTempData(chatId, "DateOfDeparture"));
+            long hotelRoomTypeId = long.Parse(GetUserTempDataValue(chatId, "HotelRoomTypeId"));
+            string arrival = GetUserTempDataValue(chatId, "DateOfArrival");
+            string departure = GetUserTempDataValue(chatId, "DateOfDeparture");
+            List<string> dates = GetIntermediateDates(arrival, departure);
 
             // Geting first aviable room
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
@@ -167,25 +167,23 @@ namespace HotelTelegramBot.Model
                     .FirstOrDefault().Id;
             }
 
-            ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync(hotelRoomId, dates);
-
             var reservation = new Reservation()
             {
                 IdUserChat = userChat.Id,
                 HotelRoomId = hotelRoomId,
-                SecondName = GetUserTempData(chatId, "SecondName"),
-                FirstName = GetUserTempData(chatId, "FirstName"),
-                MiddleName = GetUserTempData(chatId, "MiddleName"),
-                Number = GetUserTempData(chatId, "Number"),
-                Email = GetUserTempData(chatId, "Email"),
-                DateOfArrival = GetUserTempData(chatId, "DateOfArrival"),
-                DateOfDeparture = GetUserTempData(chatId, "DateOfDeparture"),
-                NumberOfAdults = int.Parse(GetUserTempData(chatId, "NumberOfAdults")),
-                NumberOfChildren = int.Parse(GetUserTempData(chatId, "NumberOfChildren")),
+                SecondName = GetUserTempDataValue(chatId, "SecondName"),
+                FirstName = GetUserTempDataValue(chatId, "FirstName"),
+                MiddleName = GetUserTempDataValue(chatId, "MiddleName"),
+                Number = GetUserTempDataValue(chatId, "Number"),
+                Email = GetUserTempDataValue(chatId, "Email"),
+                DateOfArrival = GetUserTempDataValue(chatId, "DateOfArrival"),
+                DateOfDeparture = GetUserTempDataValue(chatId, "DateOfDeparture"),
+                NumberOfAdults = int.Parse(GetUserTempDataValue(chatId, "NumberOfAdults")),
+                NumberOfChildren = int.Parse(GetUserTempDataValue(chatId, "NumberOfChildren")),
             };
 
-            Reservation res = await ServicesReservation.AddReservation(reservation);
-            return res;
+            await ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync(hotelRoomId, dates);
+            return await ServicesReservation.AddReservation(reservation);
         }
 
         private static bool IsAviableDate(string departure, DateTime lastDate)

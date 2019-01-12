@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace HotelTelegramBot.Model.Services
 {
@@ -15,7 +16,7 @@ namespace HotelTelegramBot.Model.Services
             }
         }
 
-        public static async void AddHotelRoomReservedDatesAsync(long hotelRoomId, List<string> dates)
+        public static async Task AddHotelRoomReservedDatesAsync(long hotelRoomId, List<string> dates)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {

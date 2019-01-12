@@ -242,7 +242,7 @@ namespace HotelTelegramBot.Controller
                     return;
                 }
                 else if (!Validator.CheckDateRange(
-                    DbServices.GetUserTempData(chatId, "DateOfArrival"),
+                    DbServices.GetUserTempDataValue(chatId, "DateOfArrival"),
                     userInput))
                 {
                     await SendMessageAsync(userChat, Validator.BadDateRange);
