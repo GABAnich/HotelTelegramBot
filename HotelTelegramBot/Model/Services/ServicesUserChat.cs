@@ -25,5 +25,15 @@ namespace HotelTelegramBot.Model.Services
                 return userChat.ChatPosition;
             }
         }
+
+        public static async void AddUserChatAsync(long id, long idChat, string chatPosition)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                UserChat user = new UserChat(0, idChat, chatPosition);
+                db.UserChats.Add(user);
+                await db.SaveChangesAsync();
+            }
+        }
     }
 }
