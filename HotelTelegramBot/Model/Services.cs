@@ -167,10 +167,19 @@ namespace HotelTelegramBot.Model
                     .FirstOrDefault().Id;
             }
 
-            var reservation = new Reservation()
+            await SaveUserTempDataAsync("HotelRoomId", hotelRoomId.ToString(), chatId);
+            Reservation reservation = GetReservationFromTempData(chatId);
+            await ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync(hotelRoomId, dates);
+
+            return await ServicesReservation.AddReservation(reservation);
+        }
+
+        private static Reservation GetReservationFromTempData(long chatId)
+        {
+            return new Reservation()
             {
-                IdUserChat = userChat.Id,
-                HotelRoomId = hotelRoomId,
+                IdUserChat = chatId,
+                HotelRoomId = long.Parse(GetUserTempDataValue(chatId, "HotelRoomId")),
                 SecondName = GetUserTempDataValue(chatId, "SecondName"),
                 FirstName = GetUserTempDataValue(chatId, "FirstName"),
                 MiddleName = GetUserTempDataValue(chatId, "MiddleName"),
@@ -181,9 +190,6 @@ namespace HotelTelegramBot.Model
                 NumberOfAdults = int.Parse(GetUserTempDataValue(chatId, "NumberOfAdults")),
                 NumberOfChildren = int.Parse(GetUserTempDataValue(chatId, "NumberOfChildren")),
             };
-
-            await ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync(hotelRoomId, dates);
-            return await ServicesReservation.AddReservation(reservation);
         }
 
         private static bool IsAviableDate(string departure, DateTime lastDate)
