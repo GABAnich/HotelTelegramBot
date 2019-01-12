@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 
 namespace HotelTelegramBot.Model.Services
 {
@@ -17,6 +18,17 @@ namespace HotelTelegramBot.Model.Services
                 db.TempInformation.Add(obj);
 
                 await db.SaveChangesAsync();
+            }
+        }
+
+        public static TempInformation GetTempInformationByChatIdAndProperty(long chatId, string property)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.TempInformation
+                    .Where(t => t.IdUserChat == chatId)
+                    .Where(t => t.Property == property)
+                    .First();
             }
         }
     }
