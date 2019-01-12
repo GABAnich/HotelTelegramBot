@@ -15,18 +15,6 @@ namespace HotelTelegramBot.Model.Services
             }
         }
 
-        public static string GetChatPositionByIdChat(long idChat)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                var userChat = db.UserChats
-                    .Where(u => u.IdChat == idChat)
-                    .FirstOrDefault();
-
-                return userChat.ChatPosition;
-            }
-        }
-
         public static async Task AddUserChatAsync(long id, long idChat, string chatPosition)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
