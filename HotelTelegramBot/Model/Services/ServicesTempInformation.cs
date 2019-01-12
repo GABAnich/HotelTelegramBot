@@ -31,5 +31,19 @@ namespace HotelTelegramBot.Model.Services
                     .First();
             }
         }
+
+        public static async Task RemoveRangeTempInformationByChatIdAsync(long chatId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                var values = db.TempInformation
+                    .Where(t => t.IdUserChat == chatId);
+
+                db.TempInformation
+                    .RemoveRange(values);
+
+                await db.SaveChangesAsync();
+            }
+        }
     }
 }

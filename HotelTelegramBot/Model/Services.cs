@@ -42,16 +42,7 @@ namespace HotelTelegramBot.Model
 
         public static async Task ClearUserTempDataAsync(long chatId)
         {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                var value = db.TempInformation
-                    .Where(t => t.IdUserChat == chatId);
-
-                db.TempInformation
-                    .RemoveRange(value);
-
-                await db.SaveChangesAsync();
-            }
+            await ServicesTempInformation.RemoveRangeTempInformationByChatIdAsync(chatId);
         }
 
         public static List<string> GetIntermediateDates(DateTime firstDate, DateTime lastDate)
