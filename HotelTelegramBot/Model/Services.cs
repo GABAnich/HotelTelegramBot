@@ -9,30 +9,26 @@ namespace HotelTelegramBot.Model
 {
     internal class DbServices
     {
-        public static async Task AddUserChatAsync(long id)
+        public static async Task AddUserChatAsync(long idChat)
         {
+            UserChat userChat;
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                var userChat = db.UserChats
-                    .Where(u => u.IdChat == id)
+                userChat = db.UserChats
+                    .Where(u => u.IdChat == idChat)
                     .FirstOrDefault();
+            }
 
-                if (userChat != null)
-                {
-                    return;
-                }
+            if (userChat != null)
+            {
+                return;
+            }
 
-                try
-                {
-                    UserChat user = new UserChat(0, id, "/start");
-                    db.UserChats.Add(user);
-                    await db.SaveChangesAsync();
-                    return;
-                }
-                catch
-                {
-                    return;
-                }
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                UserChat user = new UserChat(0, idChat, "/start");
+                db.UserChats.Add(user);
+                await db.SaveChangesAsync();
             }
         }
 
