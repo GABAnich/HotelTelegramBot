@@ -200,7 +200,7 @@ namespace HotelTelegramBot.Model
                     .FirstOrDefault().Id;
             }
 
-            AddReservedDatesAsync(hotelRoomId, dates);
+            ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync(hotelRoomId, dates);
 
             var reservation = new Reservation()
             {
@@ -243,24 +243,6 @@ namespace HotelTelegramBot.Model
             }
             
             return reservation;
-        }
-
-        private static async void AddReservedDatesAsync(long hotelRoomId, List<string> dates)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                foreach (string date in dates)
-                {
-                    var reservedDate = new HotelRoomReservedDate
-                    {
-                        HotelRoomId = hotelRoomId,
-                        ReservedDate = date
-                    };
-
-                    db.HotelRoomReservedDate.Add(reservedDate);
-                    await db.SaveChangesAsync();
-                }
-            }
         }
     }
 }
