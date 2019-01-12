@@ -9,27 +9,12 @@ namespace HotelTelegramBot.Model
 {
     internal class DbServices
     {
-        public static async Task AddUserChatAsync(long idChat)
+        public static async Task CrateIfNotExistUserChatAsync(long idChat)
         {
-            UserChat userChat;
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                userChat = db.UserChats
-                    .Where(u => u.IdChat == idChat)
-                    .FirstOrDefault();
-            }
+            UserChat userChat = ServicesUserChat.GetUserChatByIdChat(idChat);
+            if (userChat != null) return;
 
-            if (userChat != null)
-            {
-                return;
-            }
-
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                UserChat user = new UserChat(0, idChat, "/start");
-                db.UserChats.Add(user);
-                await db.SaveChangesAsync();
-            }
+            await ServicesUserChat.AddUserChatAsync(0, idChat, "/start");
         }
 
         public static async Task ChangePositionAsync(long id, string position)
@@ -208,7 +193,7 @@ namespace HotelTelegramBot.Model
 
         internal static async Task<Reservation> AddReservationAsync(long chatId)
         {
-            UserChat userChat = ServicesUserChat.GetUserChatByChatId(chatId);
+            UserChat userChat = ServicesUserChat.GetUserChatByIdChat(chatId);
             long hotelRoomId;
             long hotelRoomTypeId = long.Parse(GetUserTempData(chatId, "HotelRoomTypeId"));
             List<string> dates = GetIntermediateDates(
@@ -253,7 +238,7 @@ namespace HotelTelegramBot.Model
 
         public static List<Reservation> GetValidReservation(long chatId, DateTime lastDate)
         {
-            UserChat userChat = ServicesUserChat.GetUserChatByChatId(chatId);
+            UserChat userChat = ServicesUserChat.GetUserChatByIdChat(chatId);
             List<Reservation> reservation = ServicesReservation.GetReservationByChatId(userChat.Id);
 
             // Returns current bookings

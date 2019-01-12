@@ -32,10 +32,10 @@ namespace HotelTelegramBot.Controller
 
             try
             {
-                await DbServices.AddUserChatAsync(chatId);
+                await DbServices.CrateIfNotExistUserChatAsync(chatId);
                 await RouteMessageTextAsync(userInput, chatId, userChat);
 
-                chatPosition = ServicesUserChat.GetChatPositionById(chatId);
+                chatPosition = ServicesUserChat.GetChatPositionByIdChat(chatId);
 
                 string text = "" +
                     $"{e.Message.Date.ToShortDateString()} " +
@@ -68,7 +68,7 @@ namespace HotelTelegramBot.Controller
 
             await Program.botClient.DeleteMessageAsync(e.CallbackQuery.Message.Chat, e.CallbackQuery.Message.MessageId);
             await RouteMessageTextAsync(userInput, chatId, userChat);
-            await RouteMessageChatPositionAsync(ServicesUserChat.GetChatPositionById(chatId), userInput, chatId, userChat);
+            await RouteMessageChatPositionAsync(ServicesUserChat.GetChatPositionByIdChat(chatId), userInput, chatId, userChat);
         }
 
         public static async Task RouteMessageTextAsync(string userInput, long chatId, Chat userChat)
