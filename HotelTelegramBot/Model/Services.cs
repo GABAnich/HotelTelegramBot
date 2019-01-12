@@ -9,8 +9,6 @@ namespace HotelTelegramBot.Model
 {
     internal class DbServices
     {
-        public static object SerivcesHotelRoomReservedDate { get; private set; }
-
         public static async Task CrateIfNotExistUserChatAsync(long idChat)
         {
             UserChat userChat = ServicesUserChat.GetUserChatByIdChat(idChat);
@@ -34,18 +32,7 @@ namespace HotelTelegramBot.Model
 
         public static async Task SaveUserTempDataAsync(string property, string value, long chatId)
         {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                var obj = new TempInformation()
-                {
-                    IdUserChat = chatId,
-                    Property = property,
-                    Value = value
-                };
-                db.TempInformation.Add(obj);
-
-                await db.SaveChangesAsync();
-            }
+            await ServicesTempInformation.AddTempInformationAsync(chatId, property, value);
         }
 
         public static string GetUserTempData(long chatId, string property)

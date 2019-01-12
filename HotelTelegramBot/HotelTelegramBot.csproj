@@ -70,6 +70,7 @@
     <Compile Include="Model\Services\ServicesHotelRoomReservedDate.cs" />
     <Compile Include="Model\Services\ServicesHotelRoomType.cs" />
     <Compile Include="Model\Services\ServicesReservation.cs" />
+    <Compile Include="Model\Services\ServicesTempInformation.cs" />
     <Compile Include="Model\Services\ServicesUserChat.cs" />
     <Compile Include="Model\TempInformation.cs" />
     <Compile Include="Model\UserChat.cs" />
