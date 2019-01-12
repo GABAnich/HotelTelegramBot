@@ -46,7 +46,7 @@ namespace HotelTelegramBot.Controller
                     $"{userChat.LastName} " +
                     $"{userChat.FirstName} : " +
                     $"{userInput}\n";
-                System.IO.File.AppendAllText(@"C:\Users\User\Desktop\курсова\HotelTelegramBot\messages.log", text);
+                System.IO.File.AppendAllText(@"..\..\..\messages.log", text);
                 Console.WriteLine(text);
 
                 await RouteMessageChatPositionAsync(chatPosition, userInput, chatId, userChat);
