@@ -9,6 +9,8 @@ namespace HotelTelegramBot.Model
 {
     internal class DbServices
     {
+        public static object SerivcesHotelRoomReservedDate { get; private set; }
+
         public static async Task CrateIfNotExistUserChatAsync(long idChat)
         {
             UserChat userChat = ServicesUserChat.GetUserChatByIdChat(idChat);
@@ -159,7 +161,7 @@ namespace HotelTelegramBot.Model
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                List<HotelRoomReservedDate> dates = GetHotelRoomReservedDateByIdHotelRoom(hotelRoomId);
+                List<HotelRoomReservedDate> dates = ServicesHotelRoomReservedDate.GetHotelRoomReservedDatesByHotelRoomId(hotelRoomId);
 
                 foreach (HotelRoomReservedDate date in dates)
                 {
@@ -168,16 +170,6 @@ namespace HotelTelegramBot.Model
                 }
 
                 await db.SaveChangesAsync();
-            }
-        }
-
-        private static List<HotelRoomReservedDate> GetHotelRoomReservedDateByIdHotelRoom(long hotelRoomId)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                return db.HotelRoomReservedDate
-                    .Where(date => date.HotelRoomId == hotelRoomId)
-                    .ToList();
             }
         }
 
