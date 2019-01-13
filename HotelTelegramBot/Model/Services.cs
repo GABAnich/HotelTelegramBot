@@ -110,14 +110,9 @@ namespace HotelTelegramBot.Model
             var hotelRooms = GetAviableRooms(dates);
             var hotelRoomIds = GetHotelRoomTypeIds(hotelRooms);
 
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                return db.HotelRoomTypes
-                    .Where(t => t.MaxNumberOfAdults >= numberOfAdults)
-                    .Where(t => t.MaxNumberOfChildren >= numberOfChildren)
-                    .Where(t => hotelRoomIds.Contains(t.Id))
-                    .ToList();
-            }
+            return ServicesHotelRoomType.GetHotelRoomTypes(numberOfAdults, numberOfChildren)
+                .Where(t => hotelRoomIds.Contains(t.Id))
+                .ToList();
         }
 
         // Should delete hotelRoomReservedDates from reservation
