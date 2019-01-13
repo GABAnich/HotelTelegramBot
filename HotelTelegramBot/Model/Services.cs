@@ -96,21 +96,6 @@ namespace HotelTelegramBot.Model
                 .ToList();
         }
 
-        public static List<HotelRoomType> GetAviableRoomTypes(Chat userChat)
-        {
-            string dateOfArrival = GetUserTempDataValue(userChat.Id, "DateOfArrival");
-            string dateOfDeparture = GetUserTempDataValue(userChat.Id, "DateOfDeparture");
-            int numberOfAdults = int.Parse(GetUserTempDataValue(userChat.Id, "NumberOfAdults"));
-            int numberOfChildren = int.Parse(GetUserTempDataValue(userChat.Id, "NumberOfChildren"));
-            List<string> dates = GetIntermediateDates(dateOfArrival, dateOfDeparture);
-            var hotelRooms = GetAviableRooms(dates);
-            var hotelRoomIds = GetHotelRoomTypeIds(hotelRooms);
-
-            return ServicesHotelRoomType.GetHotelRoomTypes(numberOfAdults, numberOfChildren)
-                .Where(t => hotelRoomIds.Contains(t.Id))
-                .ToList();
-        }
-
         // Should delete hotelRoomReservedDates from reservation
         // But deleting all reservedDates by RoomId
         internal static async Task DeleteHotelRoomReservedDateByRoomIdAsync(long hotelRoomId)
@@ -131,25 +116,39 @@ namespace HotelTelegramBot.Model
 
         internal static async Task<Reservation> AddReservationAsync(long chatId)
         {
-            long hotelRoomId;
             long hotelRoomTypeId = long.Parse(GetUserTempDataValue(chatId, "HotelRoomTypeId"));
             string arrival = GetUserTempDataValue(chatId, "DateOfArrival");
             string departure = GetUserTempDataValue(chatId, "DateOfDeparture");
             List<string> dates = GetIntermediateDates(arrival, departure);
-
-            // Geting first aviable room
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                hotelRoomId = GetAviableRooms(dates)
-                    .Where(r => r.HotelRoomTypeId == hotelRoomTypeId)
-                    .FirstOrDefault().Id;
-            }
+            long hotelRoomId = GetHotelRoom(hotelRoomTypeId, dates).Id;
 
             await SaveUserTempDataAsync("HotelRoomId", hotelRoomId.ToString(), chatId);
             Reservation reservation = GetReservationFromTempData(chatId);
             await ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync(hotelRoomId, dates);
 
             return await ServicesReservation.AddReservation(reservation);
+        }
+
+        public static List<HotelRoomType> GetAviableRoomTypes(Chat userChat)
+        {
+            string dateOfArrival = GetUserTempDataValue(userChat.Id, "DateOfArrival");
+            string dateOfDeparture = GetUserTempDataValue(userChat.Id, "DateOfDeparture");
+            int numberOfAdults = int.Parse(GetUserTempDataValue(userChat.Id, "NumberOfAdults"));
+            int numberOfChildren = int.Parse(GetUserTempDataValue(userChat.Id, "NumberOfChildren"));
+            List<string> dates = GetIntermediateDates(dateOfArrival, dateOfDeparture);
+            var hotelRooms = GetAviableRooms(dates);
+            var hotelRoomIds = GetHotelRoomTypeIds(hotelRooms);
+
+            return ServicesHotelRoomType.GetHotelRoomTypes(numberOfAdults, numberOfChildren)
+                .Where(t => hotelRoomIds.Contains(t.Id))
+                .ToList();
+        }
+
+        private static HotelRoom GetHotelRoom(long hotelRoomTypeId, List<string> dates)
+        {
+            return GetAviableRooms(dates)
+                .Where(r => r.HotelRoomTypeId == hotelRoomTypeId)
+                .FirstOrDefault();
         }
 
         private static Reservation GetReservationFromTempData(long chatId)
