@@ -100,10 +100,9 @@ namespace HotelTelegramBot.Model
         // But deleting all reservedDates by RoomId
         internal static async Task DeleteHotelRoomReservedDateByRoomIdAsync(long hotelRoomId)
         {
+            List<HotelRoomReservedDate> dates = ServicesHotelRoomReservedDate.GetHotelRoomReservedDatesByHotelRoomId(hotelRoomId);
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                List<HotelRoomReservedDate> dates = ServicesHotelRoomReservedDate.GetHotelRoomReservedDatesByHotelRoomId(hotelRoomId);
-
                 foreach (HotelRoomReservedDate date in dates)
                 {
                     db.HotelRoomReservedDate.Attach(date);
