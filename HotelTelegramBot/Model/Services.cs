@@ -106,9 +106,7 @@ namespace HotelTelegramBot.Model
             string dateOfDeparture = GetUserTempDataValue(userChat.Id, "DateOfDeparture");
             int numberOfAdults = int.Parse(GetUserTempDataValue(userChat.Id, "NumberOfAdults"));
             int numberOfChildren = int.Parse(GetUserTempDataValue(userChat.Id, "NumberOfChildren"));
-
             List<string> dates = GetIntermediateDates(dateOfArrival, dateOfDeparture);
-
             var hotelRooms = GetAviableRooms(dates);
             var hotelRoomIds = GetHotelRoomTypeIds(hotelRooms);
 
@@ -142,7 +140,6 @@ namespace HotelTelegramBot.Model
 
         internal static async Task<Reservation> AddReservationAsync(long chatId)
         {
-            UserChat userChat = ServicesUserChat.GetUserChatByIdChat(chatId);
             long hotelRoomId;
             long hotelRoomTypeId = long.Parse(GetUserTempDataValue(chatId, "HotelRoomTypeId"));
             string arrival = GetUserTempDataValue(chatId, "DateOfArrival");
@@ -191,8 +188,7 @@ namespace HotelTelegramBot.Model
 
         public static List<Reservation> GetValidReservation(long chatId, DateTime lastDate)
         {
-            UserChat userChat = ServicesUserChat.GetUserChatByIdChat(chatId);
-            List<Reservation> reservation = ServicesReservation.GetReservationByChatId(userChat.Id);
+            List<Reservation> reservation = ServicesReservation.GetReservationByChatId(chatId);
 
             // Returns current bookings
             for (int i = reservation.Count - 1; i > -1; i--)
