@@ -140,16 +140,6 @@ namespace HotelTelegramBot.Model
             }
         }
 
-        public static List<HotelRoomTypeImage> GetRoomTypeImages(long id)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                return db.HotelRoomTypeImages
-                    .Where(i => i.HotelRoomTypeId == id)
-                    .ToList();
-            }
-        }
-
         internal static async Task<Reservation> AddReservationAsync(long chatId)
         {
             UserChat userChat = ServicesUserChat.GetUserChatByIdChat(chatId);
