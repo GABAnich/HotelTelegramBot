@@ -91,13 +91,9 @@ namespace HotelTelegramBot.Model
 
         public static List<string> GetHotelRoomTypeImagesUrl(long hotelRoomTypeId)
         {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                return db.HotelRoomTypeImages
-                    .Where(i => i.HotelRoomTypeId == hotelRoomTypeId)
-                    .Select(i => i.ImageURL)
-                    .ToList();
-            }
+            return ServicesHotelRoomTypeImages.GetHotelRoomTypeImages(hotelRoomTypeId)
+                .Select(i => i.ImageURL)
+                .ToList();
         }
 
         public static List<HotelRoomType> GetAviableRoomTypes(Chat userChat)
