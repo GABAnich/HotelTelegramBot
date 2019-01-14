@@ -128,6 +128,13 @@ namespace HotelTelegramBot.Model
             return await ServicesReservation.AddReservation(reservation);
         }
 
+        private static HotelRoom GetHotelRoom(long hotelRoomTypeId, List<string> dates)
+        {
+            return GetAviableRooms(dates)
+                .Where(r => r.HotelRoomTypeId == hotelRoomTypeId)
+                .FirstOrDefault();
+        }
+
         public static List<HotelRoomType> GetAviableRoomTypes(Chat userChat)
         {
             string dateOfArrival = GetUserTempDataValue(userChat.Id, "DateOfArrival");
@@ -141,13 +148,6 @@ namespace HotelTelegramBot.Model
             return ServicesHotelRoomType.GetHotelRoomTypes(numberOfAdults, numberOfChildren)
                 .Where(t => hotelRoomIds.Contains(t.Id))
                 .ToList();
-        }
-
-        private static HotelRoom GetHotelRoom(long hotelRoomTypeId, List<string> dates)
-        {
-            return GetAviableRooms(dates)
-                .Where(r => r.HotelRoomTypeId == hotelRoomTypeId)
-                .FirstOrDefault();
         }
 
         private static Reservation GetReservationFromTempData(long chatId)
