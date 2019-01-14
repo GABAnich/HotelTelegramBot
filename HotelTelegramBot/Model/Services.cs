@@ -69,17 +69,34 @@ namespace HotelTelegramBot.Model
 
         public static List<HotelRoom> GetAviableRooms(List<string> dates)
         {
+            List<long> reservedDatesId;
+            List<long> reservedHotelRoomId;
+            List<HotelRoom> aviableRooms;
+
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                var idReservedRooms = db.HotelRoomReservedDate
+                reservedDatesId = db.HotelRoomReservedDate
                     .Where(d => dates.Contains(d.ReservedDate))
-                    .Select(d => d.HotelRoomId)
-                    .ToList();
-
-                return db.HotelRooms
-                    .Where(r => !idReservedRooms.Contains(r.Id))
+                    .Select(d => d.ReservationId)
                     .ToList();
             }
+
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                reservedHotelRoomId = db.Reservations
+                    .Where(r => reservedDatesId.Contains(r.Id))
+                    .Select(r => r.HotelRoomId)
+                    .ToList();
+            }
+
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                aviableRooms = db.HotelRooms
+                    .Where(r => !reservedHotelRoomId.Contains(r.Id))
+                    .ToList();
+            }
+
+            return aviableRooms;
         }
 
         public static List<long> GetHotelRoomTypeIds(List<HotelRoom> rooms)
@@ -98,9 +115,9 @@ namespace HotelTelegramBot.Model
 
         // Should delete hotelRoomReservedDates from reservation
         // But deleting all reservedDates by RoomId
-        internal static async Task DeleteHotelRoomReservedDateByRoomIdAsync(long hotelRoomId)
+        internal static async Task DeleteHotelRoomReservedDateByRoomIdAsync(long reservationId)
         {
-            List<HotelRoomReservedDate> dates = ServicesHotelRoomReservedDate.GetHotelRoomReservedDatesByHotelRoomId(hotelRoomId);
+            List<HotelRoomReservedDate> dates = ServicesHotelRoomReservedDate.GetHotelRoomReservedDatesByReservationId(reservationId);
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 foreach (HotelRoomReservedDate date in dates)
@@ -123,9 +140,9 @@ namespace HotelTelegramBot.Model
 
             await SaveUserTempDataAsync("HotelRoomId", hotelRoomId.ToString(), chatId);
             Reservation reservation = GetReservationFromTempData(chatId);
-            await ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync(hotelRoomId, dates);
-
-            return await ServicesReservation.AddReservation(reservation);
+            Reservation r = await ServicesReservation.AddReservation(reservation);
+            await ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync(r.Id, dates);
+            return r;
         }
 
         private static HotelRoom GetHotelRoom(long hotelRoomTypeId, List<string> dates)

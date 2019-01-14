@@ -58,6 +58,15 @@
     <Compile Include="ConfigTelegramBot.cs" />
     <Compile Include="Controller\MessageController.cs" />
     <Compile Include="Controller\Validator.cs" />
+    <Compile Include="Migrations\201812080709146_InitialCreate.cs" />
+    <Compile Include="Migrations\201812080709146_InitialCreate.Designer.cs">
+      <DependentUpon>201812080709146_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901140716283_HotelTelegamBot.cs" />
+    <Compile Include="Migrations\201901140716283_HotelTelegamBot.Designer.cs">
+      <DependentUpon>201901140716283_HotelTelegamBot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Services\AboutHotel.cs" />
     <Compile Include="Model\HotelRoom.cs" />
     <Compile Include="Model\HotelRoomReservedDate.cs" />
@@ -88,6 +97,14 @@
     <Content Include="Model\AboutHotel.xml">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812080709146_InitialCreate.resx">
+      <DependentUpon>201812080709146_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901140716283_HotelTelegamBot.resx">
+      <DependentUpon>201901140716283_HotelTelegamBot.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

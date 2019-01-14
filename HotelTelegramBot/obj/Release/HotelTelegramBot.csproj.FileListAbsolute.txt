@@ -46,3 +46,6 @@ C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\bin\Release\EntityFramew
 C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\bin\Release\Newtonsoft.Json.xml
 C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\bin\Release\Telegram.Bot.xml
 C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.csproj.CopyComplete
+C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.Migrations.InitialCreate.resources
+C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.csproj.GenerateResource.cache
+C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\obj\Release\HotelTelegramBot.Migrations.HotelTelegamBot.resources

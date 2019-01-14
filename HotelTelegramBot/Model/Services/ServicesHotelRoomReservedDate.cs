@@ -6,17 +6,17 @@ namespace HotelTelegramBot.Model.Services
 {
     class ServicesHotelRoomReservedDate
     {
-        public static List<HotelRoomReservedDate> GetHotelRoomReservedDatesByHotelRoomId(long hotelRoomId)
+        public static List<HotelRoomReservedDate> GetHotelRoomReservedDatesByReservationId(long reservationId)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
                 return db.HotelRoomReservedDate
-                    .Where(date => date.HotelRoomId == hotelRoomId)
+                    .Where(date => date.ReservationId == reservationId)
                     .ToList();
             }
         }
 
-        public static async Task AddHotelRoomReservedDatesAsync(long hotelRoomId, List<string> dates)
+        public static async Task AddHotelRoomReservedDatesAsync(long reservationId, List<string> dates)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
@@ -24,7 +24,7 @@ namespace HotelTelegramBot.Model.Services
                 {
                     var reservedDate = new HotelRoomReservedDate
                     {
-                        HotelRoomId = hotelRoomId,
+                        ReservationId = reservationId,
                         ReservedDate = date
                     };
 

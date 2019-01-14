@@ -194,8 +194,8 @@ namespace HotelTelegramBot.Controller
                 }
                 await SendMessageAsync(userChat, "Знаття бронювання...");
                 // ERROR DOWN
-                await DbServices.DeleteHotelRoomReservedDateByRoomIdAsync(r.HotelRoomId);
-                await ServicesReservation.DeleteReservationById(int.Parse(userInput));
+                await DbServices.DeleteHotelRoomReservedDateByRoomIdAsync(r.Id);
+                await ServicesReservation.DeleteReservationById(r.Id);
                 // ERROR UP
                 await SendMessageAsync(userChat, "Бронювання знято", Keyboards.ReturnMainMenu);
                 await DbServices.ChangePositionAsync(chatId, "/start");
