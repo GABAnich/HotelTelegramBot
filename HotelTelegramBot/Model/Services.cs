@@ -69,34 +69,42 @@ namespace HotelTelegramBot.Model
 
         public static List<HotelRoom> GetAviableRooms(List<string> dates)
         {
-            List<long> reservationIds;
-            List<long> reservedHotelRoomId;
-            List<HotelRoom> aviableRooms;
+            List<long> reservationIds = GetReservationIds(dates);
+            List<long> reservedHotelRoomId = GetReservedHotelRoomIds(reservationIds);
 
+            return GetAviableHotelRooms(reservedHotelRoomId);
+        }
+
+        public static List<long> GetReservationIds(List<string> dates)
+        {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                reservationIds = db.HotelRoomReservedDate
+                return db.HotelRoomReservedDate
                     .Where(d => dates.Contains(d.ReservedDate))
                     .Select(d => d.ReservationId)
                     .ToList();
             }
+        }
 
+        public static List<long> GetReservedHotelRoomIds(List<long> reservationIds)
+        {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                reservedHotelRoomId = db.Reservations
+                return db.Reservations
                     .Where(r => reservationIds.Contains(r.Id))
                     .Select(r => r.HotelRoomId)
                     .ToList();
             }
+        }
 
+        public static List<HotelRoom> GetAviableHotelRooms(List<long> reservedHotelRoomId)
+        {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
-                aviableRooms = db.HotelRooms
+                return db.HotelRooms
                     .Where(r => !reservedHotelRoomId.Contains(r.Id))
                     .ToList();
             }
-
-            return aviableRooms;
         }
 
         public static List<long> GetHotelRoomTypeIds(List<HotelRoom> rooms)
