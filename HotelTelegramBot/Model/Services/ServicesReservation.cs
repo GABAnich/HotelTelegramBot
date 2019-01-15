@@ -48,5 +48,16 @@ namespace HotelTelegramBot.Model.Services
                 return r;
             }
         }
+
+        public static List<long> GetReservedHotelRoomIds(List<long> reservationIds)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.Reservations
+                    .Where(r => reservationIds.Contains(r.Id))
+                    .Select(r => r.HotelRoomId)
+                    .ToList();
+            }
+        }
     }
 }
