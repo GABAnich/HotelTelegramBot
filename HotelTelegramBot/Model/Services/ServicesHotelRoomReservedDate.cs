@@ -33,5 +33,19 @@ namespace HotelTelegramBot.Model.Services
                 await db.SaveChangesAsync();
             }
         }
+
+        internal static async Task DeleteHotelRoomReservedDateDatesAsync(List<HotelRoomReservedDate> dates)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                foreach (HotelRoomReservedDate date in dates)
+                {
+                    db.HotelRoomReservedDate.Attach(date);
+                    db.HotelRoomReservedDate.Remove(date);
+                }
+
+                await db.SaveChangesAsync();
+            }
+        }
     }
 }
