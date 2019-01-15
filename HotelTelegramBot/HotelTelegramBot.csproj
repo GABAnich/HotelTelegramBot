@@ -67,7 +67,7 @@
       <DependentUpon>201901140716283_HotelTelegamBot.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Services\AboutHotel.cs" />
+    <Compile Include="Model\Services\ServicesAboutHotel.cs" />
     <Compile Include="Model\HotelRoom.cs" />
     <Compile Include="Model\HotelRoomReservedDate.cs" />
     <Compile Include="Model\HotelRoomType.cs" />
