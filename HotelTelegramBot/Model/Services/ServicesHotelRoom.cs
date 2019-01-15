@@ -24,5 +24,15 @@ namespace HotelTelegramBot.Model.Services
                     .ToList();
             }
         }
+
+        public static List<HotelRoom> GetAviableHotelRooms(List<long> reservedHotelRoomId)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.HotelRooms
+                    .Where(r => !reservedHotelRoomId.Contains(r.Id))
+                    .ToList();
+            }
+        }
     }
 }
