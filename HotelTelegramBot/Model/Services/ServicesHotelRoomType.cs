@@ -26,7 +26,7 @@ namespace HotelTelegramBot.Model.Services
             }
         }
 
-        public static List<HotelRoomType> GetRoomTypes()
+        public static List<HotelRoomType> GetHotelRoomTypes()
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {

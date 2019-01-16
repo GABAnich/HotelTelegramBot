@@ -109,7 +109,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "⛺️ Номери 0")
             {
-                List<HotelRoomType> listRoomTypes = ServicesHotelRoomType.GetRoomTypes();
+                List<HotelRoomType> listRoomTypes = ServicesHotelRoomType.GetHotelRoomTypes();
 
                 if (listRoomTypes.Count == 0)
                 {
