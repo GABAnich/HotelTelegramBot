@@ -37,7 +37,7 @@ namespace HotelTelegramBot.Model.Services
             }
         }
 
-        public static async Task DeleteReservationById(long id)
+        public static async Task DeleteReservationByIdAsync(long id)
         {
             Reservation r = GetReservationById(id);
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
