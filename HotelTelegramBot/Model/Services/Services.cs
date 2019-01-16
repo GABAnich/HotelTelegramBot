@@ -34,7 +34,7 @@ namespace HotelTelegramBot.Model
 
         public static string GetUserTempDataValue(long chatId, string property)
         {
-            return ServicesTempInformation.GetTempInformationByChatIdAndProperty(chatId, property).Value;
+            return ServicesTempInformation.GetTempInformation(chatId, property).Value;
         }
 
         public static async Task ClearUserTempDataAsync(long chatId)

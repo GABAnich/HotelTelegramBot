@@ -21,7 +21,7 @@ namespace HotelTelegramBot.Model.Services
             }
         }
 
-        public static TempInformation GetTempInformationByChatIdAndProperty(long chatId, string property)
+        public static TempInformation GetTempInformation(long chatId, string property)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {
