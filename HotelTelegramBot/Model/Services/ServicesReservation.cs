@@ -26,6 +26,17 @@ namespace HotelTelegramBot.Model.Services
             }
         }
 
+        public static List<long> GetReservedHotelRoomIds(List<long> reservationIds)
+        {
+            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
+            {
+                return db.Reservations
+                    .Where(r => reservationIds.Contains(r.Id))
+                    .Select(r => r.HotelRoomId)
+                    .ToList();
+            }
+        }
+
         public static async Task DeleteReservationById(long id)
         {
             Reservation r = GetReservationById(id);
@@ -45,17 +56,6 @@ namespace HotelTelegramBot.Model.Services
                 Reservation r = db.Reservations.Add(reservation);
                 await db.SaveChangesAsync();
                 return r;
-            }
-        }
-
-        public static List<long> GetReservedHotelRoomIds(List<long> reservationIds)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                return db.Reservations
-                    .Where(r => reservationIds.Contains(r.Id))
-                    .Select(r => r.HotelRoomId)
-                    .ToList();
             }
         }
     }
