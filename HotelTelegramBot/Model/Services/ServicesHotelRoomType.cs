@@ -15,16 +15,6 @@ namespace HotelTelegramBot.Model.Services
             }
         }
 
-        public static HotelRoomType GetHotelRoomTypeByName(string hotelRoomTypeName)
-        {
-            using (HotelTelegramBotContext db = new HotelTelegramBotContext())
-            {
-                return db.HotelRoomTypes
-                    .Where(t => t.Name == hotelRoomTypeName)
-                    .FirstOrDefault();
-            }
-        }
-
         public static List<HotelRoomType> GetHotelRoomTypes(int numberOfAdults, int numberOfChildren)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
