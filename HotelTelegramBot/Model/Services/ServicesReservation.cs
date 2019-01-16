@@ -49,7 +49,7 @@ namespace HotelTelegramBot.Model.Services
             }
         }
 
-        public static async Task<Reservation> AddReservation(Reservation reservation)
+        public static async Task<Reservation> AddReservationAsync(Reservation reservation)
         {
             using (HotelTelegramBotContext db = new HotelTelegramBotContext())
             {

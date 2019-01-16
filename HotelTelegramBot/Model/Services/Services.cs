@@ -105,7 +105,7 @@ namespace HotelTelegramBot.Model
 
             await SaveUserTempDataAsync("HotelRoomId", hotelRoomId.ToString(), chatId);
             Reservation reservation = GetReservationFromTempData(chatId);
-            Reservation r = await ServicesReservation.AddReservation(reservation);
+            Reservation r = await ServicesReservation.AddReservationAsync(reservation);
             await ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync(r.Id, dates);
             return r;
         }
