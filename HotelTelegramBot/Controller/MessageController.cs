@@ -103,8 +103,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🎛 Головне меню")
             {
-                await DbServices.ClearUserTempDataAsync(chatId);
-                await ServicesMessageController.SendMessageAsync(userChat, "Виберіть пунк меню", Keyboards.MainKeyboard);
+                await ServicesChatPosition.MainMenuAsync(userChat);
             }
             else if (chatPosition == "⛺️ Номери 0")
             {
