@@ -107,25 +107,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "⛺️ Номери 0")
             {
-                List<HotelRoomType> listRoomTypes = ServicesHotelRoomType.GetHotelRoomTypes();
-
-                if (listRoomTypes.Count == 0)
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, "Номерів немає", Keyboards.ReturnMainMenu);
-                    return;
-                }
-
-                List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
-                foreach (HotelRoomType t in listRoomTypes)
-                {
-                    keyboards.Add(new List<InlineKeyboardButton>() {
-                        InlineKeyboardButton.WithCallbackData($"{t.Name}", $"{t.Id}")
-                    });
-                }
-                IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
-
-                await ServicesMessageController.SendMessageAsync(userChat, "Оберіть тип номеру", markup);
-                await DbServices.ChangePositionAsync(chatId, "⛺️ Номери 1");
+                await ServicesChatPosition.HotelRoom_0(userChat);
             }
             else if (chatPosition == "⛺️ Номери 1")
             {
