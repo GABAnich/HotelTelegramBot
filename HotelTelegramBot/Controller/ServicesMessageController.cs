@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace HotelTelegramBot.Controller
 {
@@ -20,6 +23,19 @@ namespace HotelTelegramBot.Controller
                     media: inputMediaPhotos
                 );
 #pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        internal static async Task SendPhotoAsync(ChatId chatId,
+            string photo,
+            string caption,
+            IReplyMarkup keyboard)
+        {
+            await Program.botClient.SendPhotoAsync(
+                chatId: chatId,
+                photo: photo,
+                caption: caption,
+                parseMode: ParseMode.Markdown,
+                replyMarkup: keyboard);
         }
     }
 }

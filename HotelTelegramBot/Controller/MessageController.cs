@@ -100,7 +100,7 @@ namespace HotelTelegramBot.Controller
             if (chatPosition == "/start")
             {
                 await DbServices.ClearUserTempDataAsync(chatId);
-                await SendPhotoAsync(userChat, AboutHotel.ImageAboutHotel, AboutHotel.InfoAboutHotel, Keyboards.MainKeyboard);
+                await ServicesMessageController.SendPhotoAsync(userChat, AboutHotel.ImageAboutHotel, AboutHotel.InfoAboutHotel, Keyboards.MainKeyboard);
             }
             else if (chatPosition == "🎛 Головне меню")
             {
@@ -414,19 +414,6 @@ namespace HotelTelegramBot.Controller
                     disableNotification: true,
                     replyMarkup: keyboard
                 );
-        }
-
-        private static async Task SendPhotoAsync(ChatId chatId,
-            string photo,
-            string caption,
-            IReplyMarkup keyboard)
-        {
-            await Program.botClient.SendPhotoAsync(
-                chatId: chatId,
-                photo: photo,
-                caption: caption,
-                parseMode: ParseMode.Markdown,
-                replyMarkup: keyboard);
         }
     }
 }
