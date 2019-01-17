@@ -147,7 +147,7 @@ namespace HotelTelegramBot.Controller
                     return;
                 }
 
-                await SendPhotosAsync(chatId, photos);
+                await ServicesMessageController.SendPhotosAsync(chatId, photos);
 
                 string message = "" +
                     $"*{roomType.Name}*\n\n" +
@@ -427,23 +427,6 @@ namespace HotelTelegramBot.Controller
                 caption: caption,
                 parseMode: ParseMode.Markdown,
                 replyMarkup: keyboard);
-        }
-
-        private static async Task SendPhotosAsync(ChatId chatId,
-            List<string> photos)
-        {
-            List<InputMediaPhoto> inputMediaPhotos = new List<InputMediaPhoto>();
-            foreach(string str in photos)
-            {
-                inputMediaPhotos.Add(new InputMediaPhoto(str));
-            }
-
-            #pragma warning disable CS0618 // 'ITelegramBotClient.SendMediaGroupAsync(ChatId, IEnumerable<InputMediaBase>, bool, int, CancellationToken)' is obsolete: 'Use the other overload of this method instead. Only photo and video input types are allowed.'
-            Message[] msg = await Program.botClient.SendMediaGroupAsync(
-                    chatId: chatId,
-                    media: inputMediaPhotos
-                );
-            #pragma warning restore CS0618 // 'ITelegramBotClient.SendMediaGroupAsync(ChatId, IEnumerable<InputMediaBase>, bool, int, CancellationToken)' is obsolete: 'Use the other overload of this method instead. Only photo and video input types are allowed.'
         }
     }
 }
