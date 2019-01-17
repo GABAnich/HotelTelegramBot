@@ -20,6 +20,7 @@ namespace HotelTelegramBot.Controller
                 return;
             }
 
+            // Remake this. Should be at least one method in View. Maybe two methods.
             List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
             foreach (HotelRoomType t in listRoomTypes)
             {
