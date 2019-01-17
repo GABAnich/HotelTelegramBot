@@ -17,12 +17,12 @@ namespace HotelTelegramBot.Controller
                 inputMediaPhotos.Add(new InputMediaPhoto(str));
             }
 
-#pragma warning disable CS0618 // Type or member is obsolete
+            #pragma warning disable CS0618 // Type or member is obsolete
             Message[] msg = await Program.botClient.SendMediaGroupAsync(
                     chatId: chatId,
                     media: inputMediaPhotos
                 );
-#pragma warning restore CS0618 // Type or member is obsolete
+            #pragma warning restore CS0618 // Type or member is obsolete
         }
 
         internal static async Task SendPhotoAsync(ChatId chatId,
@@ -36,6 +36,24 @@ namespace HotelTelegramBot.Controller
                 caption: caption,
                 parseMode: ParseMode.Markdown,
                 replyMarkup: keyboard);
+        }
+
+        internal static async Task SendMessageAsync(ChatId chatId,
+            string text,
+            IReplyMarkup keyboard = null)
+        {
+            if (keyboard == null)
+            {
+                keyboard = new ReplyKeyboardRemove();
+            }
+
+            Message message = await Program.botClient.SendTextMessageAsync(
+                    chatId: chatId,
+                    text: text,
+                    parseMode: ParseMode.Markdown,
+                    disableNotification: true,
+                    replyMarkup: keyboard
+                );
         }
     }
 }
