@@ -111,32 +111,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "⛺️ Номери 1")
             {
-                if (!Validator.CheckNumber(userInput))
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, Validator.BadNumber);
-                    return;
-                }
-
-                long roomTypeId = int.Parse(userInput);
-                HotelRoomType roomType = ServicesHotelRoomType.GetHotelRoomTypeById(roomTypeId);
-                List<string> photos = DbServices.GetHotelRoomTypeImagesUrl(roomTypeId);
-
-                if (roomType == null)
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, "Такого типу номеру не існує", Keyboards.ReturnMainMenu);
-                    return;
-                }
-
-                await ServicesMessageController.SendPhotosAsync(chatId, photos);
-
-                string message = "" +
-                    $"*{roomType.Name}*\n\n" +
-                    $"{roomType.Description}\n\n" +
-                    $"*Площа:* {roomType.Area} м^2\n" +
-                    $"*Послуги:* {roomType.Services}\n\n" +
-                    $"*Ціна за ніч:* {roomType.Price} грн";
-                await ServicesMessageController.SendMessageAsync(userChat, message, Keyboards.ReturnMainMenu);
-                await DbServices.ChangePositionAsync(chatId, "/start");
+                await ServicesChatPosition.HotelRoom_1(userChat, userInput);
             }
             else if (chatPosition == "❌ Зняти бронювання 0")
             {
