@@ -115,30 +115,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "❌ Зняти бронювання 0")
             {
-                var listReservation = DbServices.GetValidReservation(chatId, DateTime.Now);
-                if (listReservation.Count == 0)
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, "Бронювань немає", Keyboards.ReturnMainMenu);
-                    await DbServices.ChangePositionAsync(chatId, "/start");
-                    return;
-                }
-
-                List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
-                foreach (Reservation r in listReservation)
-                {
-                    HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
-                    HotelRoomType roomType = ServicesHotelRoomType.GetHotelRoomTypeById(room.HotelRoomTypeId);
-                    keyboards.Add(new List<InlineKeyboardButton>() {
-                        InlineKeyboardButton.WithCallbackData(
-                            $"{roomType.Name}: {r.DateOfArrival}-{r.DateOfDeparture}",
-                            $"{r.Id}"
-                        )
-                    });
-                }
-                IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
-
-                await ServicesMessageController.SendMessageAsync(userChat, "Бронювання: ", markup);
-                await DbServices.ChangePositionAsync(chatId, "❌ Зняти бронювання 1");
+                await ServicesChatPosition.CancelReservation_0(userChat);
             }
             else if (chatPosition == "❌ Зняти бронювання 1")
             {
