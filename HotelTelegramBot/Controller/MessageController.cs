@@ -119,16 +119,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "❌ Зняти бронювання 1")
             {
-                Reservation r = ServicesReservation.GetReservationById(int.Parse(userInput));
-                if (r == null)
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, "Виберіть бронювання із списку", Keyboards.MainKeyboard);
-                }
-                await ServicesMessageController.SendMessageAsync(userChat, "Знаття бронювання...");
-                await DbServices.DeleteHotelRoomReservedDateByRoomIdAsync(r.Id);
-                await ServicesReservation.DeleteReservationByIdAsync(r.Id);
-                await ServicesMessageController.SendMessageAsync(userChat, "Бронювання знято", Keyboards.ReturnMainMenu);
-                await DbServices.ChangePositionAsync(chatId, "/start");
+                await ServicesChatPosition.CancelReservation_1(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 0")
             {

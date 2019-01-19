@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="ConfigTelegramBot.cs" />
     <Compile Include="Controller\MessageController.cs" />
+    <Compile Include="Controller\ServicesChatPosition\CancelReservation_1.cs" />
     <Compile Include="Controller\ServicesChatPosition\CancelReservation_0 .cs" />
     <Compile Include="Controller\ServicesChatPosition\HotelRoom_1.cs" />
     <Compile Include="Controller\ServicesChatPosition\MainMenu.cs" />
