@@ -123,11 +123,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 0")
             {
-                DateTime firstDate = DateTime.Now.AddDays(1);
-                DateTime secondDate = firstDate.AddDays(6);
-                List<string> dates = DbServices.GetIntermediateDates(firstDate, secondDate);
-                await ServicesMessageController.SendMessageAsync(userChat, "Введіть дату прибуття", Keyboards.NextDates(dates));
-                await DbServices.ChangePositionAsync(chatId, "🏨 Замовити номер 1");
+                await ServicesChatPosition.BookRoom_0(userChat);
             }
             else if (chatPosition == "🏨 Замовити номер 1")
             {
