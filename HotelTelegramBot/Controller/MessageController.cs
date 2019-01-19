@@ -139,36 +139,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 4")
             {
-                if (!Validator.CheckNumber(userInput))
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, Validator.BadNumber);
-                    return;
-                }
-                else if (!Validator.CheckNumberRange(userInput))
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, Validator.BadNumberRange);
-                    return;
-                }
-                await DbServices.SaveUserTempDataAsync("NumberOfChildren", userInput, chatId);
-                var listRoomTypes = DbServices.GetAviableRoomTypes(userChat);
-
-                if (listRoomTypes.Count <= 0)
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, "На вказаний період немає доступних номерів.", Keyboards.ReturnMainMenu);
-                }
-
-                // do somtehing
-                List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
-                foreach (HotelRoomType t in listRoomTypes)
-                {
-                    keyboards.Add(new List<InlineKeyboardButton>() {
-                        InlineKeyboardButton.WithCallbackData($"Замовити: {t.Name}", $"{t.Id}")
-                    });
-                }
-                IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
-
-                await ServicesMessageController.SendMessageAsync(userChat, "Оберіть тип номеру", markup);
-                await DbServices.ChangePositionAsync(chatId, "🏨 Замовити номер 5");
+                await ServicesChatPosition.BookRoom_4(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 5")
             {

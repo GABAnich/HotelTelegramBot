@@ -58,6 +58,7 @@
     <Compile Include="ConfigTelegramBot.cs" />
     <Compile Include="Controller\MessageController.cs" />
     <Compile Include="Controller\ServicesChatPosition\BookRoom_0.cs" />
+    <Compile Include="Controller\ServicesChatPosition\BookRoom_4.cs" />
     <Compile Include="Controller\ServicesChatPosition\BookRoom_3.cs" />
     <Compile Include="Controller\ServicesChatPosition\BookRoom_2.cs" />
     <Compile Include="Controller\ServicesChatPosition\BookRoom_1.cs" />
