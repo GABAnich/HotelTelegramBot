@@ -135,19 +135,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 3")
             {
-                if (!Validator.CheckNumber(userInput))
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, Validator.BadNumber);
-                    return;
-                }
-                else if (!Validator.CheckNumberRange(userInput))
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, Validator.BadNumberRange);
-                    return;
-                }
-                await DbServices.SaveUserTempDataAsync("NumberOfAdults", userInput, chatId);
-                await ServicesMessageController.SendMessageAsync(userChat, "Введіть кількість дітей", Keyboards.Children);
-                await DbServices.ChangePositionAsync(chatId, "🏨 Замовити номер 4");
+                await ServicesChatPosition.BookRoom_3(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 4")
             {
