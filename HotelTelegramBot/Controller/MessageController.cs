@@ -143,22 +143,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 5")
             {
-                if (!Validator.CheckNumber(userInput))
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, Validator.BadNumber);
-                    return;
-                }
-                long id = long.Parse(userInput);
-
-                if (ServicesHotelRoomType.GetHotelRoomTypeById(id) == null || !DbServices.GetAviableRoomTypes(userChat).Exists(t => t.Id == id))
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, "Оберіть тип номеру", Keyboards.ReturnMainMenu);
-                    return;
-                };
-
-                await DbServices.SaveUserTempDataAsync("HotelRoomTypeId", userInput, chatId);
-                await ServicesMessageController.SendMessageAsync(userChat, "Введіть прізвище", Keyboards.Text(userChat.LastName));
-                await DbServices.ChangePositionAsync(chatId, "🏨 Замовити номер 6");
+                await ServicesChatPosition.BookRoom_5(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 6")
             {
