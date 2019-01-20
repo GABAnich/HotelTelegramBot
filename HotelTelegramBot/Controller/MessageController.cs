@@ -163,37 +163,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 10")
             {
-                if (!Validator.CheckEmail(userInput))
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, Validator.BadEmail);
-                    return;
-                }
-                await DbServices.SaveUserTempDataAsync("Email", userInput, chatId);
-                await ServicesMessageController.SendMessageAsync(userChat, "Очікування бронювання");
-                Reservation r = await DbServices.AddReservationAsync(chatId);
-                HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
-                HotelRoomType t = ServicesHotelRoomType.GetHotelRoomTypeById(room.HotelRoomTypeId);
-                int countDays = DbServices.GetIntermediateDates(r.DateOfArrival, r.DateOfArrival).Count;
-                string text = "" +
-                    $"*{t.Name}\n*" +
-                    $"\n" +
-                    $"Прізвище: {r.SecondName}\n" +
-                    $"Ім’я: {r.FirstName}\n" +
-                    $"По батькові: {r.MiddleName}\n" +
-                    $"Номер телефону: {r.Number}\n" +
-                    $"Email: {r.Email}\n" +
-                    $"Період: {r.DateOfArrival}-{r.DateOfDeparture}\n" +
-                    $"Дорослих: {r.NumberOfAdults}\n" +
-                    $"Дітей: {r.NumberOfChildren}\n" +
-                    $"\n" +
-                    $"Кімната: {room.Name}\n" +
-                    $"Поверх: {room.Floor}\n" +
-                    $"\n" +
-                    $"До оплати: {countDays * t.Price} грн\n" +
-                    $"\n" +
-                    $"Ідентифікатор для перевірки: *494ebf5f419ad02a86af25f8db5ed114790399c2aa6b233384b1b4b9ac3458e5*";
-                await ServicesMessageController.SendMessageAsync(userChat, text, Keyboards.ReturnMainMenu);
-                await DbServices.ChangePositionAsync(chatId, "/start");
+                await ServicesChatPosition.BookRoom_10(userChat, userInput);
             }
         }
     }
