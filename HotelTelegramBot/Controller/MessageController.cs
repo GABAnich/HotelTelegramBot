@@ -151,14 +151,7 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 7")
             {
-                if (!Validator.CheckName(userInput))
-                {
-                    await ServicesMessageController.SendMessageAsync(userChat, Validator.BadName);
-                    return;
-                }
-                await DbServices.SaveUserTempDataAsync("FirstName", userInput, chatId);
-                await ServicesMessageController.SendMessageAsync(userChat, "Введіть по батькові");
-                await DbServices.ChangePositionAsync(chatId, "🏨 Замовити номер 8");
+                await ServicesChatPosition.BookRoom_7(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 8")
             {
