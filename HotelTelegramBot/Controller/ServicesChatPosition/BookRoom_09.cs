@@ -6,7 +6,7 @@ namespace HotelTelegramBot.Controller
 {
     partial class ServicesChatPosition
     {
-        internal static async Task BookRoom_9(Chat chat, string userInput)
+        internal static async Task BookRoom_09(Chat chat, string userInput)
         {
             if (!Validator.CheckPhoneNumber(userInput))
             {

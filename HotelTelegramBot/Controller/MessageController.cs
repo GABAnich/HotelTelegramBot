@@ -123,43 +123,43 @@ namespace HotelTelegramBot.Controller
             }
             else if (chatPosition == "🏨 Замовити номер 0")
             {
-                await ServicesChatPosition.BookRoom_0(userChat);
+                await ServicesChatPosition.BookRoom_00(userChat);
             }
             else if (chatPosition == "🏨 Замовити номер 1")
             {
-                await ServicesChatPosition.BookRoom_1(userChat, userInput);
+                await ServicesChatPosition.BookRoom_01(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 2")
             {
-                await ServicesChatPosition.BookRoom_2(userChat, userInput);
+                await ServicesChatPosition.BookRoom_02(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 3")
             {
-                await ServicesChatPosition.BookRoom_3(userChat, userInput);
+                await ServicesChatPosition.BookRoom_03(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 4")
             {
-                await ServicesChatPosition.BookRoom_4(userChat, userInput);
+                await ServicesChatPosition.BookRoom_04(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 5")
             {
-                await ServicesChatPosition.BookRoom_5(userChat, userInput);
+                await ServicesChatPosition.BookRoom_05(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 6")
             {
-                await ServicesChatPosition.BookRoom_6(userChat, userInput);
+                await ServicesChatPosition.BookRoom_06(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 7")
             {
-                await ServicesChatPosition.BookRoom_7(userChat, userInput);
+                await ServicesChatPosition.BookRoom_07(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 8")
             {
-                await ServicesChatPosition.BookRoom_8(userChat, userInput);
+                await ServicesChatPosition.BookRoom_08(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 9")
             {
-                await ServicesChatPosition.BookRoom_9(userChat, userInput);
+                await ServicesChatPosition.BookRoom_09(userChat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 10")
             {

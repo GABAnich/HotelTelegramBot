@@ -9,7 +9,7 @@ namespace HotelTelegramBot.Controller
 {
     partial class ServicesChatPosition
     {
-        internal static async Task BookRoom_1(Chat chat, string userInput)
+        internal static async Task BookRoom_02(Chat chat, string userInput)
         {
             if (!Validator.CheckDateFormat(userInput))
             {
@@ -21,14 +21,16 @@ namespace HotelTelegramBot.Controller
                 await ServicesMessageController.SendMessageAsync(chat, Validator.BadDateLessCurrent);
                 return;
             }
-            await DbServices.SaveUserTempDataAsync("DateOfArrival", userInput, chat.Id);
-
-            DateTime firstDate = DateTime.Parse(userInput).AddDays(1);
-            DateTime secondDate = firstDate.AddDays(6);
-            List<string> dates = DbServices.GetIntermediateDates(firstDate, secondDate);
-
-            await ServicesMessageController.SendMessageAsync(chat, "Введіть дату відбуття", Keyboards.NextDates(dates));
-            await DbServices.ChangePositionAsync(chat.Id, "🏨 Замовити номер 2");
+            else if (!Validator.CheckDateRange(
+                DbServices.GetUserTempDataValue(chat.Id, "DateOfArrival"),
+                userInput))
+            {
+                await ServicesMessageController.SendMessageAsync(chat, Validator.BadDateRange);
+                return;
+            }
+            await DbServices.SaveUserTempDataAsync("DateOfDeparture", userInput, chat.Id);
+            await ServicesMessageController.SendMessageAsync(chat, "Введіть кількість дорослих", Keyboards.Adults);
+            await DbServices.ChangePositionAsync(chat.Id, "🏨 Замовити номер 3");
         }
     }
 }

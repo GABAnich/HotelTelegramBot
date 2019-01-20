@@ -9,7 +9,7 @@ namespace HotelTelegramBot.Controller
 {
     partial class ServicesChatPosition
     {
-        internal static async Task BookRoom_0(Chat chat)
+        internal static async Task BookRoom_00(Chat chat)
         {
             DateTime firstDate = DateTime.Now.AddDays(1);
             DateTime secondDate = firstDate.AddDays(6);
