@@ -15,15 +15,10 @@ namespace HotelTelegramBot.Controller
             Chat chat = e.Message.Chat;
             string chatPosition;
 
-            if (e.Message == null)
+            if (e.Message == null || e.Message.Type != MessageType.Text)
             {
                 return;
             }
-
-            var userMessage = e.Message;
-
-            if (userMessage == null || userMessage.Type != MessageType.Text)
-                return;
 
             try
             {
