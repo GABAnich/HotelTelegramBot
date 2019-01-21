@@ -28,7 +28,7 @@ namespace HotelTelegramBot.Controller
             try
             {
                 await DbServices.CrateIfNotExistUserChatAsync(chat.Id);
-                await RouteMessageTextAsync(userInput, chat.Id, chat);
+                await RouteMessageTextAsync(userInput, chat);
 
                 chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
 
@@ -62,31 +62,31 @@ namespace HotelTelegramBot.Controller
             Chat userChat = e.CallbackQuery.Message.Chat;
 
             await Program.botClient.DeleteMessageAsync(e.CallbackQuery.Message.Chat, e.CallbackQuery.Message.MessageId);
-            await RouteMessageTextAsync(userInput, chatId, userChat);
+            await RouteMessageTextAsync(userInput, userChat);
             await RouteMessageChatPositionAsync(DbServices.GetChatPositionByIdChat(chatId), userInput, chatId, userChat);
         }
 
-        public static async Task RouteMessageTextAsync(string userInput, long chatId, Chat userChat)
+        public static async Task RouteMessageTextAsync(string userInput, Chat chat)
         {
             if (userInput == "/start")
             {
-                await DbServices.ChangePositionAsync(chatId, "/start");
+                await DbServices.ChangePositionAsync(chat.Id, "/start");
             }
             else if (userInput == "🎛 Головне меню")
             {
-                await DbServices.ChangePositionAsync(chatId, "🎛 Головне меню");
+                await DbServices.ChangePositionAsync(chat.Id, "🎛 Головне меню");
             }
             else if (userInput == "🏨 Замовити номер")
             {
-                await DbServices.ChangePositionAsync(chatId, "🏨 Замовити номер 0");
+                await DbServices.ChangePositionAsync(chat.Id, "🏨 Замовити номер 0");
             }
             else if (userInput == "❌ Зняти бронювання")
             {
-                await DbServices.ChangePositionAsync(chatId, "❌ Зняти бронювання 0");
+                await DbServices.ChangePositionAsync(chat.Id, "❌ Зняти бронювання 0");
             }
             else if (userInput == "⛺️ Номери")
             {
-                await DbServices.ChangePositionAsync(chatId, "⛺️ Номери 0");
+                await DbServices.ChangePositionAsync(chat.Id, "⛺️ Номери 0");
             }
         }
 
