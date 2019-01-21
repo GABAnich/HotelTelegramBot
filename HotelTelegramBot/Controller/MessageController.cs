@@ -44,7 +44,7 @@ namespace HotelTelegramBot.Controller
                 System.IO.File.AppendAllText(@"..\..\..\messages.log", text);
                 Console.WriteLine(text);
 
-                await RouteMessageChatPositionAsync(chatPosition, userInput, chat.Id, chat);
+                await RouteMessageChatPositionAsync(chatPosition, userInput, chat);
             }
             catch(Telegram.Bot.Exceptions.ApiRequestException exception)
             {
@@ -57,13 +57,14 @@ namespace HotelTelegramBot.Controller
 
         internal static async void OnCallbackQueryAsync(object sender, CallbackQueryEventArgs e)
         {
+            Chat chat = e.CallbackQuery.Message.Chat;
+            int messageId = e.CallbackQuery.Message.MessageId;
+            string chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
             string userInput = e.CallbackQuery.Data;
-            long chatId = e.CallbackQuery.Message.Chat.Id;
-            Chat userChat = e.CallbackQuery.Message.Chat;
 
-            await Program.botClient.DeleteMessageAsync(e.CallbackQuery.Message.Chat, e.CallbackQuery.Message.MessageId);
-            await RouteMessageTextAsync(userInput, userChat);
-            await RouteMessageChatPositionAsync(DbServices.GetChatPositionByIdChat(chatId), userInput, chatId, userChat);
+            await Program.botClient.DeleteMessageAsync(chat, messageId);
+            await RouteMessageTextAsync(userInput, chat);
+            await RouteMessageChatPositionAsync(chatPosition, userInput, chat);
         }
 
         public static async Task RouteMessageTextAsync(string userInput, Chat chat)
@@ -90,75 +91,75 @@ namespace HotelTelegramBot.Controller
             }
         }
 
-        private static async Task RouteMessageChatPositionAsync(string chatPosition, string userInput, long chatId, Chat userChat)
+        private static async Task RouteMessageChatPositionAsync(string chatPosition, string userInput, Chat chat)
         {
             if (chatPosition == "/start")
             {
-                await ServicesChatPosition.StartAsync(userChat);
+                await ServicesChatPosition.StartAsync(chat);
             }
             else if (chatPosition == "🎛 Головне меню")
             {
-                await ServicesChatPosition.MainMenuAsync(userChat);
+                await ServicesChatPosition.MainMenuAsync(chat);
             }
             else if (chatPosition == "⛺️ Номери 0")
             {
-                await ServicesChatPosition.HotelRoom_0(userChat);
+                await ServicesChatPosition.HotelRoom_0(chat);
             }
             else if (chatPosition == "⛺️ Номери 1")
             {
-                await ServicesChatPosition.HotelRoom_1(userChat, userInput);
+                await ServicesChatPosition.HotelRoom_1(chat, userInput);
             }
             else if (chatPosition == "❌ Зняти бронювання 0")
             {
-                await ServicesChatPosition.CancelReservation_0(userChat);
+                await ServicesChatPosition.CancelReservation_0(chat);
             }
             else if (chatPosition == "❌ Зняти бронювання 1")
             {
-                await ServicesChatPosition.CancelReservation_1(userChat, userInput);
+                await ServicesChatPosition.CancelReservation_1(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 0")
             {
-                await ServicesChatPosition.BookRoom_00(userChat);
+                await ServicesChatPosition.BookRoom_00(chat);
             }
             else if (chatPosition == "🏨 Замовити номер 1")
             {
-                await ServicesChatPosition.BookRoom_01(userChat, userInput);
+                await ServicesChatPosition.BookRoom_01(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 2")
             {
-                await ServicesChatPosition.BookRoom_02(userChat, userInput);
+                await ServicesChatPosition.BookRoom_02(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 3")
             {
-                await ServicesChatPosition.BookRoom_03(userChat, userInput);
+                await ServicesChatPosition.BookRoom_03(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 4")
             {
-                await ServicesChatPosition.BookRoom_04(userChat, userInput);
+                await ServicesChatPosition.BookRoom_04(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 5")
             {
-                await ServicesChatPosition.BookRoom_05(userChat, userInput);
+                await ServicesChatPosition.BookRoom_05(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 6")
             {
-                await ServicesChatPosition.BookRoom_06(userChat, userInput);
+                await ServicesChatPosition.BookRoom_06(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 7")
             {
-                await ServicesChatPosition.BookRoom_07(userChat, userInput);
+                await ServicesChatPosition.BookRoom_07(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 8")
             {
-                await ServicesChatPosition.BookRoom_08(userChat, userInput);
+                await ServicesChatPosition.BookRoom_08(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 9")
             {
-                await ServicesChatPosition.BookRoom_09(userChat, userInput);
+                await ServicesChatPosition.BookRoom_09(chat, userInput);
             }
             else if (chatPosition == "🏨 Замовити номер 10")
             {
-                await ServicesChatPosition.BookRoom_10(userChat, userInput);
+                await ServicesChatPosition.BookRoom_10(chat, userInput);
             }
         }
     }
