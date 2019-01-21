@@ -1,13 +1,9 @@
 ﻿using HotelTelegramBot.Model;
-using HotelTelegramBot.Model.Services;
-using HotelTelegramBot.View;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-using Telegram.Bot.Types.ReplyMarkups;
 
 namespace HotelTelegramBot.Controller
 {
@@ -16,8 +12,7 @@ namespace HotelTelegramBot.Controller
         internal static async void OnMessageAsync(object sender, MessageEventArgs e)
         {
             string userInput = e.Message.Text;
-            long chatId = e.Message.Chat.Id;
-            Chat userChat = e.Message.Chat;
+            Chat chat = e.Message.Chat;
             string chatPosition;
 
             if (e.Message == null)
@@ -32,24 +27,24 @@ namespace HotelTelegramBot.Controller
 
             try
             {
-                await DbServices.CrateIfNotExistUserChatAsync(chatId);
-                await RouteMessageTextAsync(userInput, chatId, userChat);
+                await DbServices.CrateIfNotExistUserChatAsync(chat.Id);
+                await RouteMessageTextAsync(userInput, chat.Id, chat);
 
-                chatPosition = DbServices.GetChatPositionByIdChat(chatId);
+                chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
 
                 string text = "" +
                     $"{e.Message.Date.ToShortDateString()} " +
                     $"{e.Message.Date.ToShortTimeString()} | " +
                     $"{chatPosition} | " +
-                    $"{chatId} | " +
-                    $"{userChat.Username} |" +
-                    $"{userChat.LastName} " +
-                    $"{userChat.FirstName} : " +
+                    $"{chat.Id} | " +
+                    $"{chat.Username} |" +
+                    $"{chat.LastName} " +
+                    $"{chat.FirstName} : " +
                     $"{userInput}\n";
                 System.IO.File.AppendAllText(@"..\..\..\messages.log", text);
                 Console.WriteLine(text);
 
-                await RouteMessageChatPositionAsync(chatPosition, userInput, chatId, userChat);
+                await RouteMessageChatPositionAsync(chatPosition, userInput, chat.Id, chat);
             }
             catch(Telegram.Bot.Exceptions.ApiRequestException exception)
             {
