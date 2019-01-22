@@ -27,7 +27,8 @@ namespace HotelTelegramBot.Controller
             DateTime secondDate = firstDate.AddDays(6);
             List<string> dates = DbServices.GetIntermediateDates(firstDate, secondDate);
 
-            await ServicesMessageController.SendMessageAsync(chat, "Введіть дату відбуття", Keyboards.NextDates(dates));
+            await ServicesMessageController.SendMessageAsync(
+                chat, "Введіть дату відбуття", Keyboards.NextDates(dates));
             await DbServices.ChangePositionAsync(chat.Id, "🏨 Замовити номер 2");
         }
     }
