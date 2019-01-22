@@ -26,19 +26,7 @@ namespace HotelTelegramBot.Controller
                 await RouteMessageTextAsync(userInput, chat);
 
                 chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
-
-                string text = "" +
-                    $"{e.Message.Date.ToShortDateString()} " +
-                    $"{e.Message.Date.ToShortTimeString()} | " +
-                    $"{chatPosition} | " +
-                    $"{chat.Id} | " +
-                    $"{chat.Username} |" +
-                    $"{chat.LastName} " +
-                    $"{chat.FirstName} : " +
-                    $"{userInput}\n";
-                System.IO.File.AppendAllText(@"..\..\..\messages.log", text);
-                Console.WriteLine(text);
-
+                Logger.Log(chatPosition, e);
                 await RouteMessageChatPositionAsync(chatPosition, userInput, chat);
             }
             catch(Telegram.Bot.Exceptions.ApiRequestException exception)
