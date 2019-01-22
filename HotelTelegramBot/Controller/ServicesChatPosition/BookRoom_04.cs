@@ -26,7 +26,8 @@ namespace HotelTelegramBot.Controller
 
             if (listRoomTypes.Count <= 0)
             {
-                await ServicesMessageController.SendMessageAsync(chat, "На вказаний період немає доступних номерів.", Keyboards.ReturnMainMenu);
+                await ServicesMessageController.SendMessageAsync(
+                    chat, "На вказаний період немає доступних номерів.", Keyboards.ReturnMainMenu);
             }
 
             // do somtehing
