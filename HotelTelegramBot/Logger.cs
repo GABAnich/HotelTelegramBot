@@ -30,7 +30,7 @@ namespace HotelTelegramBot
                     $"{e.CallbackQuery.Message.Chat.Username} |" +
                     $"{e.CallbackQuery.Message.Chat.LastName} " +
                     $"{e.CallbackQuery.Message.Chat.FirstName} : " +
-                    $"{e.CallbackQuery.Message.Text}\n";
+                    $"{e.CallbackQuery.Data}\n";
             System.IO.File.AppendAllText(@"..\..\..\messages.log", text);
             Console.WriteLine(text);
         }
