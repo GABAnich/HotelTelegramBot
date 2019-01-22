@@ -20,12 +20,14 @@ namespace HotelTelegramBot.Controller
             if (ServicesHotelRoomType.GetHotelRoomTypeById(id) == null || 
                 !DbServices.GetAviableRoomTypes(chat).Exists(t => t.Id == id))
             {
-                await ServicesMessageController.SendMessageAsync(chat, "Оберіть тип номеру", Keyboards.ReturnMainMenu);
+                await ServicesMessageController.SendMessageAsync(
+                    chat, "Оберіть тип номеру", Keyboards.ReturnMainMenu);
                 return;
             };
 
             await DbServices.SaveUserTempDataAsync("HotelRoomTypeId", userInput, chat.Id);
-            await ServicesMessageController.SendMessageAsync(chat, "Введіть прізвище", Keyboards.Text(chat.LastName));
+            await ServicesMessageController.SendMessageAsync(
+                chat, "Введіть прізвище", Keyboards.Text(chat.LastName));
             await DbServices.ChangePositionAsync(chat.Id, "🏨 Замовити номер 6");
         }
     }
