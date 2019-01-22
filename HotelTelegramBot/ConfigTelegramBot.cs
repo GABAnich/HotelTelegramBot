@@ -14,5 +14,16 @@ namespace HotelTelegramBot
                 return xDoc.SelectSingleNode("//config/APIToken").InnerText;
             }
         }
+
+        static public string LogFile
+        {
+            get
+            {
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.Load(@"..\..\Config.xml");
+
+                return xDoc.SelectSingleNode("//config/LogFile").InnerText;
+            }
+        }
     }
 }

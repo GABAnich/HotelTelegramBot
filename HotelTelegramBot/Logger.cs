@@ -16,7 +16,7 @@ namespace HotelTelegramBot
                     $"{e.Message.Chat.LastName} " +
                     $"{e.Message.Chat.FirstName} : " +
                     $"{e.Message.Text}\n";
-            System.IO.File.AppendAllText(@"..\..\..\messages.log", text);
+            System.IO.File.AppendAllText(ConfigTelegramBot.LogFile, text);
             Console.WriteLine(text);
         }
 
@@ -31,7 +31,7 @@ namespace HotelTelegramBot
                     $"{e.CallbackQuery.Message.Chat.LastName} " +
                     $"{e.CallbackQuery.Message.Chat.FirstName} : " +
                     $"{e.CallbackQuery.Data}\n";
-            System.IO.File.AppendAllText(@"..\..\..\messages.log", text);
+            System.IO.File.AppendAllText(ConfigTelegramBot.LogFile, text);
             Console.WriteLine(text);
         }
     }
