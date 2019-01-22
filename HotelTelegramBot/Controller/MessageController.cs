@@ -45,6 +45,8 @@ namespace HotelTelegramBot.Controller
             string chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
             string userInput = e.CallbackQuery.Data;
 
+            Logger.Log(chatPosition, e);
+
             await Program.botClient.DeleteMessageAsync(chat, messageId);
             await RouteMessageTextAsync(userInput, chat);
             await RouteMessageChatPositionAsync(chatPosition, userInput, chat);
