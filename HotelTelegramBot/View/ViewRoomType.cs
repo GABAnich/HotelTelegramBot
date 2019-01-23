@@ -2,7 +2,7 @@
 
 namespace HotelTelegramBot.View
 {
-    class RoomType
+    class ViewRoomType
     {
         public static string GetTextAboutRoomType(HotelRoomType roomType)
         {
