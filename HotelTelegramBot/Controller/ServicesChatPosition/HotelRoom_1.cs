@@ -28,9 +28,8 @@ namespace HotelTelegramBot.Controller
                 return;
             }
 
-            await ServicesMessageController.SendPhotosAsync(chat.Id, photos);
-
             string message = RoomType.GetTextAboutRoomType(roomType);
+            await ServicesMessageController.SendPhotosAsync(chat.Id, photos);
             await ServicesMessageController.SendMessageAsync(chat, message, Keyboards.ReturnMainMenu);
             await DbServices.ChangePositionAsync(chat.Id, "/start");
         }
