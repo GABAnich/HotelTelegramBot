@@ -23,7 +23,8 @@ namespace HotelTelegramBot.Controller
 
             if (roomType == null)
             {
-                await ServicesMessageController.SendMessageAsync(chat, "Такого типу номеру не існує", Keyboards.ReturnMainMenu);
+                await ServicesMessageController.SendMessageAsync(
+                    chat, "Такого типу номеру не існує", Keyboards.ReturnMainMenu);
                 return;
             }
 
