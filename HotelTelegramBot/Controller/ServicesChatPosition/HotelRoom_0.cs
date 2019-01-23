@@ -20,16 +20,7 @@ namespace HotelTelegramBot.Controller
                 return;
             }
 
-            // Remake this. Should be at least one method in View. Maybe two methods.
-            List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
-            foreach (HotelRoomType t in listRoomTypes)
-            {
-                keyboards.Add(new List<InlineKeyboardButton>() {
-                    InlineKeyboardButton.WithCallbackData($"{t.Name}", $"{t.Id}")
-                });
-            }
-            IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
-
+            IReplyMarkup markup = Keyboards.GetRoomTypesMenu(listRoomTypes);
             await ServicesMessageController.SendMessageAsync(chat, "Оберіть тип номеру", markup);
             await DbServices.ChangePositionAsync(chat.Id, "⛺️ Номери 1");
 

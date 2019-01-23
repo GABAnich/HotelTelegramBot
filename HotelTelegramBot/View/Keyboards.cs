@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HotelTelegramBot.Model;
+using System.Collections.Generic;
 using Telegram.Bot.Types.ReplyMarkups;
 
 namespace HotelTelegramBot.View
@@ -92,6 +93,19 @@ namespace HotelTelegramBot.View
                     OneTimeKeyboard = true
                 };
             }
+        }
+
+        static public IReplyMarkup GetRoomTypesMenu(List<HotelRoomType> listRoomTypes)
+        {
+            List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
+            foreach (HotelRoomType t in listRoomTypes)
+            {
+                keyboards.Add(new List<InlineKeyboardButton>() {
+                    InlineKeyboardButton.WithCallbackData($"{t.Name}", $"{t.Id}")
+                });
+            }
+
+            return new InlineKeyboardMarkup(keyboards);
         }
     }
 }
