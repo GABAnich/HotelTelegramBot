@@ -30,12 +30,7 @@ namespace HotelTelegramBot.Controller
 
             await ServicesMessageController.SendPhotosAsync(chat.Id, photos);
 
-            string message = "" +
-                $"*{roomType.Name}*\n\n" +
-                $"{roomType.Description}\n\n" +
-                $"*Площа:* {roomType.Area} м^2\n" +
-                $"*Послуги:* {roomType.Services}\n\n" +
-                $"*Ціна за ніч:* {roomType.Price} грн";
+            string message = RoomType.GetTextAboutRoomType(roomType);
             await ServicesMessageController.SendMessageAsync(chat, message, Keyboards.ReturnMainMenu);
             await DbServices.ChangePositionAsync(chat.Id, "/start");
         }
