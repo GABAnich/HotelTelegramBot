@@ -30,15 +30,7 @@ namespace HotelTelegramBot.Controller
                     chat, "На вказаний період немає доступних номерів.", Keyboards.ReturnMainMenu);
             }
 
-            // do somtehing
-            List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
-            foreach (HotelRoomType t in listRoomTypes)
-            {
-                keyboards.Add(new List<InlineKeyboardButton>() {
-                        InlineKeyboardButton.WithCallbackData($"Замовити: {t.Name}", $"{t.Id}")
-                    });
-            }
-            IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
+            IReplyMarkup markup = Keyboards.GetRoomTypesMenu(listRoomTypes, "Замовити: ");
 
             await ServicesMessageController.SendMessageAsync(chat, "Оберіть тип номеру", markup);
             await DbServices.ChangePositionAsync(chat.Id, "🏨 Замовити номер 5");
