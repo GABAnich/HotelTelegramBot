@@ -95,13 +95,13 @@ namespace HotelTelegramBot.View
             }
         }
 
-        static public IReplyMarkup GetRoomTypesMenu(List<HotelRoomType> listRoomTypes)
+        static public IReplyMarkup GetRoomTypesMenu(List<HotelRoomType> listRoomTypes, string text = "")
         {
             List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
             foreach (HotelRoomType t in listRoomTypes)
             {
                 keyboards.Add(new List<InlineKeyboardButton>() {
-                    InlineKeyboardButton.WithCallbackData($"{t.Name}", $"{t.Id}")
+                    InlineKeyboardButton.WithCallbackData($"{text} {t.Name}", $"{t.Id}")
                 });
             }
 
