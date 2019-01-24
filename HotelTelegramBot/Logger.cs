@@ -5,7 +5,7 @@ namespace HotelTelegramBot
 {
     class Logger
     {
-        public static void Log(string chatPosition, MessageEventArgs e)
+        internal static void Log(string chatPosition, MessageEventArgs e)
         {
             string text = "" +
                     $"{e.Message.Date.ToShortDateString()} " +
@@ -20,7 +20,7 @@ namespace HotelTelegramBot
             Console.WriteLine(text);
         }
 
-        public static void Log(string chatPosition, CallbackQueryEventArgs e)
+        internal static void Log(string chatPosition, CallbackQueryEventArgs e)
         {
             string text = "" +
                     $"{e.CallbackQuery.Message.Date.ToShortDateString()} " +
