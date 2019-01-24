@@ -1,5 +1,4 @@
 ﻿using HotelTelegramBot.Model;
-using System;
 using System.Threading.Tasks;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
@@ -52,7 +51,7 @@ namespace HotelTelegramBot.Controller
             await RouteMessageChatPositionAsync(chatPosition, userInput, chat);
         }
 
-        public static async Task RouteMessageTextAsync(string userInput, Chat chat)
+        private static async Task RouteMessageTextAsync(string userInput, Chat chat)
         {
             if (userInput == "/start")
             {
