@@ -4,7 +4,7 @@ namespace HotelTelegramBot
 {
     class ConfigTelegramBot
     {
-        public static string APIToken
+        internal static string APIToken
         {
             get
             {
@@ -15,7 +15,7 @@ namespace HotelTelegramBot
             }
         }
 
-        public static string LogFile
+        internal static string LogFile
         {
             get
             {
