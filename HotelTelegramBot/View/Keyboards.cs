@@ -6,7 +6,7 @@ namespace HotelTelegramBot.View
 {
     class Keyboards
     {
-        static readonly public IReplyMarkup MainKeyboard = new ReplyKeyboardMarkup
+        public static readonly IReplyMarkup MainKeyboard = new ReplyKeyboardMarkup
         {
             Keyboard = new KeyboardButton[][]
             {
@@ -17,7 +17,7 @@ namespace HotelTelegramBot.View
             OneTimeKeyboard = true
         };
 
-        static readonly public IReplyMarkup ReturnMainMenu = new ReplyKeyboardMarkup
+        public static readonly IReplyMarkup ReturnMainMenu = new ReplyKeyboardMarkup
         {
             Keyboard = new KeyboardButton[][]
             {
@@ -27,7 +27,7 @@ namespace HotelTelegramBot.View
             OneTimeKeyboard = true
         };
 
-        static public IReplyMarkup NextDates(List<string> dates)
+        public static IReplyMarkup NextDates(List<string> dates)
         {
             return new ReplyKeyboardMarkup
             {
@@ -41,7 +41,7 @@ namespace HotelTelegramBot.View
             };
         }
 
-        static public IReplyMarkup Text(string text)
+        public static IReplyMarkup Text(string text)
         {
             if (text == null)
             {
@@ -63,7 +63,7 @@ namespace HotelTelegramBot.View
             };
         }
 
-        static public IReplyMarkup Adults
+        public static IReplyMarkup Adults
         {
             get
             {
@@ -79,7 +79,7 @@ namespace HotelTelegramBot.View
             }
         }
 
-        static public IReplyMarkup Children
+        public static IReplyMarkup Children
         {
             get
             {
@@ -95,7 +95,7 @@ namespace HotelTelegramBot.View
             }
         }
 
-        static public IReplyMarkup GetRoomTypesMenu(List<HotelRoomType> listRoomTypes, string text = "")
+        public static IReplyMarkup GetRoomTypesMenu(List<HotelRoomType> listRoomTypes, string text = "")
         {
             List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
             foreach (HotelRoomType t in listRoomTypes)
