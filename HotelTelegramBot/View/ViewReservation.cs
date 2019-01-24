@@ -4,7 +4,7 @@ namespace HotelTelegramBot.View
 {
     class ViewReservation
     {
-        public static string GetTextAboutReservation(Reservation r, HotelRoomType t, HotelRoom room, int countDays)
+        internal static string GetTextAboutReservation(Reservation r, HotelRoomType t, HotelRoom room, int countDays)
         {
             return "" +
                 $"*{t.Name}\n*" +
