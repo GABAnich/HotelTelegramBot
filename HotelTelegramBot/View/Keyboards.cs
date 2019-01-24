@@ -6,7 +6,7 @@ namespace HotelTelegramBot.View
 {
     class Keyboards
     {
-        public static readonly IReplyMarkup MainKeyboard = new ReplyKeyboardMarkup
+        internal static readonly IReplyMarkup MainKeyboard = new ReplyKeyboardMarkup
         {
             Keyboard = new KeyboardButton[][]
             {
@@ -17,7 +17,7 @@ namespace HotelTelegramBot.View
             OneTimeKeyboard = true
         };
 
-        public static readonly IReplyMarkup ReturnMainMenu = new ReplyKeyboardMarkup
+        internal static readonly IReplyMarkup ReturnMainMenu = new ReplyKeyboardMarkup
         {
             Keyboard = new KeyboardButton[][]
             {
@@ -27,7 +27,7 @@ namespace HotelTelegramBot.View
             OneTimeKeyboard = true
         };
 
-        public static IReplyMarkup NextDates(List<string> dates)
+        internal static IReplyMarkup NextDates(List<string> dates)
         {
             return new ReplyKeyboardMarkup
             {
@@ -41,7 +41,7 @@ namespace HotelTelegramBot.View
             };
         }
 
-        public static IReplyMarkup Text(string text)
+        internal static IReplyMarkup Text(string text)
         {
             if (text == null)
             {
@@ -63,7 +63,7 @@ namespace HotelTelegramBot.View
             };
         }
 
-        public static IReplyMarkup Adults
+        internal static IReplyMarkup Adults
         {
             get
             {
@@ -79,7 +79,7 @@ namespace HotelTelegramBot.View
             }
         }
 
-        public static IReplyMarkup Children
+        internal static IReplyMarkup Children
         {
             get
             {
@@ -95,7 +95,7 @@ namespace HotelTelegramBot.View
             }
         }
 
-        public static IReplyMarkup GetRoomTypesMenu(List<HotelRoomType> listRoomTypes, string text = "")
+        internal static IReplyMarkup GetRoomTypesMenu(List<HotelRoomType> listRoomTypes, string text = "")
         {
             List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
             foreach (HotelRoomType t in listRoomTypes)
