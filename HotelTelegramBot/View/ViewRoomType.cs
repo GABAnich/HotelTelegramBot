@@ -4,7 +4,7 @@ namespace HotelTelegramBot.View
 {
     class ViewRoomType
     {
-        public static string GetTextAboutRoomType(HotelRoomType roomType)
+        internal static string GetTextAboutRoomType(HotelRoomType roomType)
         {
             return "" +
                 $"*{roomType.Name}*\n\n" +
