@@ -20,20 +20,7 @@ namespace HotelTelegramBot.Controller
                 await DbServices.ChangePositionAsync(chat.Id, "/start");
                 return;
             }
-
-            List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
-            foreach (Reservation r in listReservation)
-            {
-                HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
-                HotelRoomType roomType = ServicesHotelRoomType.GetHotelRoomTypeById(room.HotelRoomTypeId);
-                keyboards.Add(new List<InlineKeyboardButton>() {
-                        InlineKeyboardButton.WithCallbackData(
-                            $"{roomType.Name}: {r.DateOfArrival}-{r.DateOfDeparture}",
-                            $"{r.Id}"
-                        )
-                    });
-            }
-            IReplyMarkup markup = new InlineKeyboardMarkup(keyboards);
+            IReplyMarkup markup = Keyboards.GetReservationsMenu(listReservation);
 
             await ServicesMessageController.SendMessageAsync(chat, "Бронювання: ", markup);
             await DbServices.ChangePositionAsync(chat.Id, "❌ Зняти бронювання 1");

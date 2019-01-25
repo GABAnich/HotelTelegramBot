@@ -1,4 +1,5 @@
 ﻿using HotelTelegramBot.Model;
+using HotelTelegramBot.Model.Services;
 using System.Collections.Generic;
 using Telegram.Bot.Types.ReplyMarkups;
 
@@ -105,6 +106,23 @@ namespace HotelTelegramBot.View
                 });
             }
 
+            return new InlineKeyboardMarkup(keyboards);
+        }
+
+        internal static IReplyMarkup GetReservationsMenu(List<Reservation> listReservation)
+        {
+            List<List<InlineKeyboardButton>> keyboards = new List<List<InlineKeyboardButton>>();
+            foreach (Reservation r in listReservation)
+            {
+                HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
+                HotelRoomType roomType = ServicesHotelRoomType.GetHotelRoomTypeById(room.HotelRoomTypeId);
+                keyboards.Add(new List<InlineKeyboardButton>() {
+                        InlineKeyboardButton.WithCallbackData(
+                            $"{roomType.Name}: {r.DateOfArrival}-{r.DateOfDeparture}",
+                            $"{r.Id}"
+                        )
+                    });
+            }
             return new InlineKeyboardMarkup(keyboards);
         }
     }
