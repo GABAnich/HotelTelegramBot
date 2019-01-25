@@ -34,5 +34,11 @@ namespace HotelTelegramBot
             System.IO.File.AppendAllText(ConfigTelegramBot.LogFile, text);
             Console.WriteLine(text);
         }
+
+        internal static void Log(string text)
+        {
+            System.IO.File.AppendAllText(ConfigTelegramBot.LogFile, text);
+            Console.WriteLine(text);
+        }
     }
 }
