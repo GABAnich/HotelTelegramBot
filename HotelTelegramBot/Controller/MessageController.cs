@@ -34,7 +34,7 @@ namespace HotelTelegramBot.Controller
             try
             {
                 await DbServices.CrateIfNotExistUserChatAsync(chat.Id);
-                await RouteMessageTextAsync(userInput, chat);
+                await RouteMenuAsync(userInput, chat);
 
                 chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
                 Logger.Log(chatPosition, e);
@@ -60,11 +60,11 @@ namespace HotelTelegramBot.Controller
             Logger.Log(chatPosition, e);
 
             await Program.botClient.DeleteMessageAsync(chat, messageId);
-            await RouteMessageTextAsync(userInput, chat);
+            await RouteMenuAsync(userInput, chat);
             await RouteMessageChatPositionAsync(chatPosition, userInput, chat);
         }
 
-        private static async Task RouteMessageTextAsync(string userInput, Chat chat)
+        private static async Task RouteMenuAsync(string userInput, Chat chat)
         {
             if (userInput == "/start")
             {
