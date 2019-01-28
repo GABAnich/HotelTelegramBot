@@ -20,7 +20,7 @@ namespace HotelTelegramBot.Controller
             {
                 Keyboard = new KeyboardButton[][]
                 {
-                    new KeyboardButton[] { KeyboardButton.WithRequestContact("Мій номер") },
+                    new KeyboardButton[] { KeyboardButton.WithRequestContact("📞 Мій номер") },
                 },
                 ResizeKeyboard = true,
                 OneTimeKeyboard = true,
