@@ -1,6 +1,7 @@
 ﻿using HotelTelegramBot.Model;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace HotelTelegramBot.Controller
 {
@@ -14,7 +15,19 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             await DbServices.SaveUserTempDataAsync("MiddleName", userInput, chat.Id);
-            await ServicesMessageController.SendMessageAsync(chat, "Введіть номер телефону");
+            // Fix me please!!! [Horrible piece of shit]
+            IReplyMarkup markup = new ReplyKeyboardMarkup
+            {
+                Keyboard = new KeyboardButton[][]
+                {
+                    new KeyboardButton[] { KeyboardButton.WithRequestContact("Мій номер") },
+                },
+                ResizeKeyboard = true,
+                OneTimeKeyboard = true,
+                
+            };
+            // Fix me please!!! [Horrible piece of shit]
+            await ServicesMessageController.SendMessageAsync(chat, "Введіть номер телефону", markup);
             await DbServices.ChangePositionAsync(chat.Id, "🏨 Замовити номер 9");
         }
     }

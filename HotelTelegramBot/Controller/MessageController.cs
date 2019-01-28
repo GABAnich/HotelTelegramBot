@@ -14,10 +14,22 @@ namespace HotelTelegramBot.Controller
             Chat chat = e.Message.Chat;
             string chatPosition;
 
-            if (e.Message == null || e.Message.Type != MessageType.Text)
+            if (e.Message == null)
             {
                 return;
             }
+
+            if (e.Message.Type != MessageType.Text && e.Message.Type != MessageType.Contact)
+            {
+                return;
+            }
+
+            // Fix me please!!! [Horrible piece of shit]
+            if (e.Message.Type == MessageType.Contact)
+            {
+                userInput = e.Message.Contact.PhoneNumber;
+            }
+            // Fix me please!!! [Horrible piece of shit]
 
             try
             {
