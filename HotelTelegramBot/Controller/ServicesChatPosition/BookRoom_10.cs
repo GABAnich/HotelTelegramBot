@@ -2,13 +2,21 @@
 using HotelTelegramBot.Model.Services;
 using HotelTelegramBot.View;
 using System.Threading.Tasks;
+using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
     partial class ServicesChatPosition
     {
-        internal static async Task BookRoom_10(Chat chat, string userInput)
+        internal static async Task BookRoom_10(MessageEventArgs e)
+        {
+            Chat chat = e.Message.Chat;
+            string userInput = e.Message.Text;
+            await BookRoom_10(chat, userInput);
+        }
+
+        private static async Task BookRoom_10(Chat chat, string userInput)
         {
             if (!Validator.CheckEmail(userInput))
             {

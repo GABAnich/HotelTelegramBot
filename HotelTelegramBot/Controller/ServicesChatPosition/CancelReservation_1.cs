@@ -2,13 +2,21 @@
 using HotelTelegramBot.Model.Services;
 using HotelTelegramBot.View;
 using System.Threading.Tasks;
+using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
     partial class ServicesChatPosition
     {
-        internal static async Task CancelReservation_1(Chat chat, string userInput)
+        internal static async Task CancelReservation_1(CallbackQueryEventArgs e)
+        {
+            Chat chat = e.CallbackQuery.Message.Chat;
+            string userInput = e.CallbackQuery.Data;
+            await CancelReservation_1(chat, userInput);
+        }
+
+        private static async Task CancelReservation_1(Chat chat, string userInput)
         {
             Reservation r = ServicesReservation.GetReservationById(int.Parse(userInput));
             if (r == null)

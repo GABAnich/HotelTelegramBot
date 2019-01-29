@@ -2,13 +2,21 @@
 using HotelTelegramBot.Model.Services;
 using HotelTelegramBot.View;
 using System.Threading.Tasks;
+using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
     partial class ServicesChatPosition
     {
-        internal static async Task BookRoom_05(Chat chat, string userInput)
+        internal static async Task BookRoom_05(CallbackQueryEventArgs e)
+        {
+            Chat chat = e.CallbackQuery.Message.Chat;
+            string userInput = e.CallbackQuery.Data;
+            await BookRoom_05(chat, userInput);
+        }
+
+        private static async Task BookRoom_05(Chat chat, string userInput)
         {
             if (!Validator.CheckNumber(userInput))
             {
@@ -17,7 +25,7 @@ namespace HotelTelegramBot.Controller
             }
             long id = long.Parse(userInput);
 
-            if (ServicesHotelRoomType.GetHotelRoomTypeById(id) == null || 
+            if (ServicesHotelRoomType.GetHotelRoomTypeById(id) == null ||
                 !DbServices.GetAviableRoomTypes(chat).Exists(t => t.Id == id))
             {
                 await ServicesMessageController.SendMessageAsync(

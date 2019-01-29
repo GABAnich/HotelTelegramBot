@@ -1,6 +1,7 @@
 ﻿using HotelTelegramBot.Model;
 using HotelTelegramBot.View;
 using System.Threading.Tasks;
+using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 
@@ -8,7 +9,14 @@ namespace HotelTelegramBot.Controller
 {
     partial class ServicesChatPosition
     {
-        internal static async Task BookRoom_04(Chat chat, string userInput)
+        internal static async Task BookRoom_04(MessageEventArgs e)
+        {
+            Chat chat = e.Message.Chat;
+            string userInput = e.Message.Text;
+            await BookRoom_04(chat, userInput);
+        }
+
+        private static async Task BookRoom_04(Chat chat, string userInput)
         {
             if (!Validator.CheckNumber(userInput))
             {

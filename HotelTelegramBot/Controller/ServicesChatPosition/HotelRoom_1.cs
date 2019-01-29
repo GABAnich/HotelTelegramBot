@@ -3,13 +3,21 @@ using HotelTelegramBot.Model.Services;
 using HotelTelegramBot.View;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
     partial class ServicesChatPosition
     {
-        internal static async Task HotelRoom_1(Chat chat, string userInput)
+        internal static async Task HotelRoom_1(CallbackQueryEventArgs e)
+        {
+            Chat chat = e.CallbackQuery.Message.Chat;
+            string userInput = e.CallbackQuery.Data;
+            await HotelRoom_1(chat, userInput);
+        }
+
+        private static async Task HotelRoom_1(Chat chat, string userInput)
         {
             if (!Validator.CheckNumber(userInput))
             {

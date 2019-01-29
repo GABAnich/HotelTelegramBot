@@ -24,13 +24,6 @@ namespace HotelTelegramBot.Controller
                 return;
             }
 
-            // Fix me please!!! [Horrible piece of shit]
-            if (e.Message.Type == MessageType.Contact)
-            {
-                userInput = e.Message.Contact.PhoneNumber;
-            }
-            // Fix me please!!! [Horrible piece of shit]
-
             try
             {
                 await DbServices.CrateIfNotExistUserChatAsync(chat.Id);
@@ -38,7 +31,7 @@ namespace HotelTelegramBot.Controller
 
                 chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
                 Logger.Log(chatPosition, e);
-                await RouteMessageChatPositionAsync(chatPosition, userInput, chat);
+                await RouteMessageChatPositionAsync(chatPosition, e);
             }
             catch(Telegram.Bot.Exceptions.ApiRequestException exception)
             {
@@ -61,7 +54,7 @@ namespace HotelTelegramBot.Controller
 
             await Program.botClient.DeleteMessageAsync(chat, messageId);
             await RouteMenuAsync(userInput, chat);
-            await RouteMessageChatPositionAsync(chatPosition, userInput, chat);
+            await RouteMessageChatPositionAsync(chatPosition, e);
         }
 
         private static async Task RouteMenuAsync(string userInput, Chat chat)
@@ -88,75 +81,79 @@ namespace HotelTelegramBot.Controller
             }
         }
 
-        private static async Task RouteMessageChatPositionAsync(string chatPosition, string userInput, Chat chat)
+        private static async Task RouteMessageChatPositionAsync(string chatPosition, MessageEventArgs e)
         {
             if (chatPosition == "/start")
             {
-                await ServicesChatPosition.StartAsync(chat);
+                await ServicesChatPosition.StartAsync(e);
             }
             else if (chatPosition == "🎛 Головне меню")
             {
-                await ServicesChatPosition.MainMenuAsync(chat);
+                await ServicesChatPosition.MainMenuAsync(e);
             }
             else if (chatPosition == "⛺️ Номери 0")
             {
-                await ServicesChatPosition.HotelRoom_0(chat);
-            }
-            else if (chatPosition == "⛺️ Номери 1")
-            {
-                await ServicesChatPosition.HotelRoom_1(chat, userInput);
+                await ServicesChatPosition.HotelRoom_0(e);
             }
             else if (chatPosition == "❌ Зняти бронювання 0")
             {
-                await ServicesChatPosition.CancelReservation_0(chat);
-            }
-            else if (chatPosition == "❌ Зняти бронювання 1")
-            {
-                await ServicesChatPosition.CancelReservation_1(chat, userInput);
+                await ServicesChatPosition.CancelReservation_0(e);
             }
             else if (chatPosition == "🏨 Замовити номер 0")
             {
-                await ServicesChatPosition.BookRoom_00(chat);
+                await ServicesChatPosition.BookRoom_00(e);
             }
             else if (chatPosition == "🏨 Замовити номер 1")
             {
-                await ServicesChatPosition.BookRoom_01(chat, userInput);
+                await ServicesChatPosition.BookRoom_01(e);
             }
             else if (chatPosition == "🏨 Замовити номер 2")
             {
-                await ServicesChatPosition.BookRoom_02(chat, userInput);
+                await ServicesChatPosition.BookRoom_02(e);
             }
             else if (chatPosition == "🏨 Замовити номер 3")
             {
-                await ServicesChatPosition.BookRoom_03(chat, userInput);
+                await ServicesChatPosition.BookRoom_03(e);
             }
             else if (chatPosition == "🏨 Замовити номер 4")
             {
-                await ServicesChatPosition.BookRoom_04(chat, userInput);
-            }
-            else if (chatPosition == "🏨 Замовити номер 5")
-            {
-                await ServicesChatPosition.BookRoom_05(chat, userInput);
+                await ServicesChatPosition.BookRoom_04(e);
             }
             else if (chatPosition == "🏨 Замовити номер 6")
             {
-                await ServicesChatPosition.BookRoom_06(chat, userInput);
+                await ServicesChatPosition.BookRoom_06(e);
             }
             else if (chatPosition == "🏨 Замовити номер 7")
             {
-                await ServicesChatPosition.BookRoom_07(chat, userInput);
+                await ServicesChatPosition.BookRoom_07(e);
             }
             else if (chatPosition == "🏨 Замовити номер 8")
             {
-                await ServicesChatPosition.BookRoom_08(chat, userInput);
+                await ServicesChatPosition.BookRoom_08(e);
             }
             else if (chatPosition == "🏨 Замовити номер 9")
             {
-                await ServicesChatPosition.BookRoom_09(chat, userInput);
+                await ServicesChatPosition.BookRoom_09(e);
             }
             else if (chatPosition == "🏨 Замовити номер 10")
             {
-                await ServicesChatPosition.BookRoom_10(chat, userInput);
+                await ServicesChatPosition.BookRoom_10(e);
+            }
+        }
+
+        private static async Task RouteMessageChatPositionAsync(string chatPosition, CallbackQueryEventArgs e)
+        {
+            if (chatPosition == "⛺️ Номери 1")
+            {
+                await ServicesChatPosition.HotelRoom_1(e);
+            }
+            else if (chatPosition == "❌ Зняти бронювання 1")
+            {
+                await ServicesChatPosition.CancelReservation_1(e);
+            }
+            else if (chatPosition == "🏨 Замовити номер 5")
+            {
+                await ServicesChatPosition.BookRoom_05(e);
             }
         }
     }

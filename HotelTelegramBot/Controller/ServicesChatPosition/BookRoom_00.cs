@@ -3,13 +3,20 @@ using HotelTelegramBot.View;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
     partial class ServicesChatPosition
     {
-        internal static async Task BookRoom_00(Chat chat)
+        internal static async Task BookRoom_00(MessageEventArgs e)
+        {
+            Chat chat = e.Message.Chat;
+            await BookRoom_00(chat);
+        }
+
+        private static async Task BookRoom_00(Chat chat)
         {
             DateTime firstDate = DateTime.Now.AddDays(1);
             DateTime secondDate = firstDate.AddDays(6);
