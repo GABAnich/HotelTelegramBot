@@ -19,11 +19,6 @@ namespace HotelTelegramBot.Controller
                 return;
             }
 
-            if (e.Message.Type != MessageType.Text && e.Message.Type != MessageType.Contact)
-            {
-                return;
-            }
-
             try
             {
                 await DbServices.CrateIfNotExistUserChatAsync(chat.Id);
