@@ -48,23 +48,7 @@ namespace HotelTelegramBot.Controller
 
             await Program.botClient.DeleteMessageAsync(chat, messageId);
             await ServicesMessageController.RouteMenuAsync(userInput, chat);
-            await RouteMessageChatPositionAsync(chatPosition, e);
-        }
-
-        private static async Task RouteMessageChatPositionAsync(string chatPosition, CallbackQueryEventArgs e)
-        {
-            if (chatPosition == "⛺️ Номери 1")
-            {
-                await ServicesChatPosition.HotelRoom_1(e);
-            }
-            else if (chatPosition == "❌ Зняти бронювання 1")
-            {
-                await ServicesChatPosition.CancelReservation_1(e);
-            }
-            else if (chatPosition == "🏨 Замовити номер 5")
-            {
-                await ServicesChatPosition.BookRoom_05(e);
-            }
+            await ServicesMessageController.RouteMessageChatPositionAsync(chatPosition, e);
         }
     }
 }

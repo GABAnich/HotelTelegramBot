@@ -94,6 +94,22 @@ namespace HotelTelegramBot.Controller
             }
         }
 
+        internal static async Task RouteMessageChatPositionAsync(string chatPosition, CallbackQueryEventArgs e)
+        {
+            if (chatPosition == "⛺️ Номери 1")
+            {
+                await ServicesChatPosition.HotelRoom_1(e);
+            }
+            else if (chatPosition == "❌ Зняти бронювання 1")
+            {
+                await ServicesChatPosition.CancelReservation_1(e);
+            }
+            else if (chatPosition == "🏨 Замовити номер 5")
+            {
+                await ServicesChatPosition.BookRoom_05(e);
+            }
+        }
+
         internal static async Task SendPhotosAsync(long chatId, List<string> photos)
         {
             List<InputMediaPhoto> inputMediaPhotos = new List<InputMediaPhoto>();
