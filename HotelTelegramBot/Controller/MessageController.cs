@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
 
 namespace HotelTelegramBot.Controller
 {
@@ -22,7 +21,7 @@ namespace HotelTelegramBot.Controller
             try
             {
                 await DbServices.CrateIfNotExistUserChatAsync(chat.Id);
-                await RouteMenuAsync(userInput, chat);
+                await ServicesMessageController.RouteMenuAsync(userInput, chat);
 
                 chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
                 Logger.Log(chatPosition, e);
@@ -48,32 +47,8 @@ namespace HotelTelegramBot.Controller
             Logger.Log(chatPosition, e);
 
             await Program.botClient.DeleteMessageAsync(chat, messageId);
-            await RouteMenuAsync(userInput, chat);
+            await ServicesMessageController.RouteMenuAsync(userInput, chat);
             await RouteMessageChatPositionAsync(chatPosition, e);
-        }
-
-        private static async Task RouteMenuAsync(string userInput, Chat chat)
-        {
-            if (userInput == "/start")
-            {
-                await DbServices.ChangePositionAsync(chat.Id, "/start");
-            }
-            else if (userInput == "🎛 Головне меню")
-            {
-                await DbServices.ChangePositionAsync(chat.Id, "🎛 Головне меню");
-            }
-            else if (userInput == "🏨 Замовити номер")
-            {
-                await DbServices.ChangePositionAsync(chat.Id, "🏨 Замовити номер 0");
-            }
-            else if (userInput == "❌ Зняти бронювання")
-            {
-                await DbServices.ChangePositionAsync(chat.Id, "❌ Зняти бронювання 0");
-            }
-            else if (userInput == "⛺️ Номери")
-            {
-                await DbServices.ChangePositionAsync(chat.Id, "⛺️ Номери 0");
-            }
         }
 
         private static async Task RouteMessageChatPositionAsync(string chatPosition, MessageEventArgs e)
