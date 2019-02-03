@@ -125,5 +125,19 @@ namespace HotelTelegramBot.View
             }
             return new InlineKeyboardMarkup(keyboards);
         }
+
+        internal static IReplyMarkup GetRequestcontactKeyboard(string text)
+        {
+            return new ReplyKeyboardMarkup
+            {
+                Keyboard = new KeyboardButton[][]
+                {
+                    new KeyboardButton[] { KeyboardButton.WithRequestContact(text) },
+                },
+                ResizeKeyboard = true,
+                OneTimeKeyboard = true,
+
+            };
+        }
     }
 }

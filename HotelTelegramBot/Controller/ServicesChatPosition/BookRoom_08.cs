@@ -23,18 +23,7 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             await DbServices.SaveUserTempDataAsync("MiddleName", userInput, chat.Id);
-            // Fix me please!!! [Horrible piece of shit]
-            IReplyMarkup markup = new ReplyKeyboardMarkup
-            {
-                Keyboard = new KeyboardButton[][]
-                {
-                    new KeyboardButton[] { KeyboardButton.WithRequestContact("📞 Мій номер") },
-                },
-                ResizeKeyboard = true,
-                OneTimeKeyboard = true,
-
-            };
-            // Fix me please!!! [Horrible piece of shit]
+            IReplyMarkup markup = View.Keyboards.GetRequestcontactKeyboard("📞 Мій номер");
             await ServicesMessageController.SendMessageAsync(chat, "Введіть номер телефону", markup);
             await DbServices.ChangePositionAsync(chat.Id, "🏨 Замовити номер 9");
         }
