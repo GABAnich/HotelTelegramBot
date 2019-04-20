@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace HotelTelegramBot.Controller
 {
-    class Validator
+    public class Validator
     {
         public static readonly string BadDateFormat = "Введіть дату у форматі day/month/yaer. Приклад: 01/12/2001";
         public static readonly string BadDateLessCurrent = "Введіть дату, яка більша за поточну";

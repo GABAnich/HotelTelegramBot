@@ -1,14 +1,30 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using HotelTelegramBot.Controller;
 
 namespace HotelTelegramBot.UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class ValidatorTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CheckDateFormat_CorectFormat_ReturnsTrue()
         {
+            string userDate = "31.12.99";
+
+            bool result = Validator.CheckDateFormat(userDate);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CheckDateFormat_CorectFormat_ReturnsFalse()
+        {
+            string userDate = "3199";
+
+            bool result = Validator.CheckDateFormat(userDate);
+
+            Assert.IsFalse(result);
         }
     }
 }
