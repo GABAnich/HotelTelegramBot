@@ -18,7 +18,7 @@ namespace HotelTelegramBot.UnitTest
         }
 
         [TestMethod]
-        public void CheckDateFormat_CorectFormat_ReturnsFalse()
+        public void CheckDateFormat_IncorectFormat_ReturnsFalse()
         {
             string userDate = "3199";
 
