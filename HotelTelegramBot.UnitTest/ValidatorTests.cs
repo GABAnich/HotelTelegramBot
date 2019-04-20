@@ -26,5 +26,15 @@ namespace HotelTelegramBot.UnitTest
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void CheckDateBigerCurrent_DateIsBefor_ReturnsFalse()
+        {
+            string userDate = "31.12.99";
+
+            bool result = Validator.CheckDateBigerCurrent(userDate);
+
+            Assert.IsFalse(result);
+        }
     }
 }
