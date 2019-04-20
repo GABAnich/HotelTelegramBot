@@ -24,7 +24,7 @@ namespace HotelTelegramBot.Controller
                 await ServicesMessageController.SendMessageAsync(chat, Validator.BadDateFormat);
                 return;
             }
-            else if (!Validator.CheckDateBiigerCurrent(userInput))
+            else if (!Validator.CheckDateBigerCurrent(userInput))
             {
                 await ServicesMessageController.SendMessageAsync(chat, Validator.BadDateLessCurrent);
                 return;
