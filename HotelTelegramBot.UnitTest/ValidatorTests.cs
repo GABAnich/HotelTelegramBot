@@ -138,5 +138,15 @@ namespace HotelTelegramBot.UnitTest
 
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void CheckPhoneNumber_IncorrectFormat_ReturnFalse()
+        {
+            string phone = "0506006669";
+
+            bool result = Validator.CheckPhoneNumber(phone);
+
+            Assert.IsFalse(result);
+        }
     }
 }
