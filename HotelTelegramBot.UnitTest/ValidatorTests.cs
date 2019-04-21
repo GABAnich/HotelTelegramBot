@@ -98,5 +98,15 @@ namespace HotelTelegramBot.UnitTest
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void CheckNumberRange_NegativeNumberOutOfRange_ReturnFalse()
+        {
+            string number = "-999";
+
+            bool result = Validator.CheckNumberRange(number);
+
+            Assert.IsFalse(result);
+        }
     }
 }
