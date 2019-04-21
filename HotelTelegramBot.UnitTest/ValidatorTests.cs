@@ -118,5 +118,15 @@ namespace HotelTelegramBot.UnitTest
 
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void CheckEmail_CorrectFormat_ReturnFalse()
+        {
+            string email = "doofixxom";
+
+            bool result = Validator.CheckEmail(email);
+
+            Assert.IsFalse(result);
+        }
     }
 }
