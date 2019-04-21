@@ -68,5 +68,15 @@ namespace HotelTelegramBot.UnitTest
 
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void CheckNumber_InvalidNumber_ReturnFalse()
+        {
+            string number = "_11235";
+
+            bool result = Validator.CheckNumber(number);
+
+            Assert.IsFalse(result);
+        }
     }
 }
