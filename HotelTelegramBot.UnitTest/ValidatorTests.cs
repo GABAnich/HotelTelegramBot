@@ -148,5 +148,18 @@ namespace HotelTelegramBot.UnitTest
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void CheckName_CorrectFormat_ReturnTrue()
+        {
+            string[] names = { "James", "михайло", "Іван" };
+
+            bool result = false;
+            foreach (string name in names)
+            {
+                result = Validator.CheckName(name);
+                Assert.IsTrue(result);
+            }
+        }
     }
 }
