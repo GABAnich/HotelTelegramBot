@@ -78,5 +78,15 @@ namespace HotelTelegramBot.UnitTest
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void CheckNumberRange_NumberInRange_ReturnTrue()
+        {
+            string number = "9";
+
+            bool result = Validator.CheckNumberRange(number);
+
+            Assert.IsTrue(result);
+        }
     }
 }
