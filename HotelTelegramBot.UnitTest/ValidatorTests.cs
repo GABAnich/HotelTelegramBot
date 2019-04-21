@@ -47,5 +47,16 @@ namespace HotelTelegramBot.UnitTest
 
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void CheckDateRange_StartDateIsLateEndDate_ReturnFalse()
+        {
+            string start = "12.02.2019";
+            string end = "11.02.2019";
+
+            bool result = Validator.CheckDateRange(start, end);
+
+            Assert.IsFalse(result);
+        }
     }
 }
