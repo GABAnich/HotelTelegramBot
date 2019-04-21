@@ -9,7 +9,7 @@ namespace HotelTelegramBot.Model
         public ICollection<Reservation> Reservation { get; set; }
 
         public long IdChat { get; set; }
-        public string ChatPosition { get; set; }       
+        public string ChatPosition { get; set; }
 
         public UserChat()
         { }

@@ -169,7 +169,7 @@ namespace HotelTelegramBot.Model
                     reservation.RemoveAt(i);
                 }
             }
-            
+
             return reservation;
         }
     }

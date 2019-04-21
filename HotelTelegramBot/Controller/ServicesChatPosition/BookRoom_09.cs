@@ -12,7 +12,7 @@ namespace HotelTelegramBot.Controller
         {
             Chat chat = e.Message.Chat;
             string userInput;
-            
+
             if (e.Message.Type == MessageType.Text)
             {
                 userInput = e.Message.Text;

@@ -1,6 +1,5 @@
-﻿using System;
+﻿using HotelTelegramBot.Controller;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HotelTelegramBot.Controller;
 
 namespace HotelTelegramBot.UnitTest
 {

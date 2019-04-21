@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HotelTelegramBot.Model
+﻿namespace HotelTelegramBot.Model
 {
     class Reservation
     {

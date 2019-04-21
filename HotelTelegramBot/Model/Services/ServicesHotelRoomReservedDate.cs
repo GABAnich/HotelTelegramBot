@@ -28,7 +28,7 @@ namespace HotelTelegramBot.Model.Services
                         ReservedDate = date
                     };
 
-                    db.HotelRoomReservedDate.Add(reservedDate); 
+                    db.HotelRoomReservedDate.Add(reservedDate);
                 }
                 await db.SaveChangesAsync();
             }

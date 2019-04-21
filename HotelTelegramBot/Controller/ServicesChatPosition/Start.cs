@@ -14,9 +14,9 @@ namespace HotelTelegramBot.Controller
 
             await DbServices.ClearUserTempDataAsync(chat.Id);
             await ServicesMessageController.SendPhotoAsync(
-                chat, 
-                AboutHotel.ImageAboutHotel, 
-                AboutHotel.InfoAboutHotel, 
+                chat,
+                AboutHotel.ImageAboutHotel,
+                AboutHotel.InfoAboutHotel,
                 Keyboards.MainKeyboard);
         }
     }

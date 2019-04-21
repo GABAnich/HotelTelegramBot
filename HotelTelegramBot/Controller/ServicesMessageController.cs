@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using HotelTelegramBot.Model;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using HotelTelegramBot.Model;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -118,12 +118,12 @@ namespace HotelTelegramBot.Controller
                 inputMediaPhotos.Add(new InputMediaPhoto(str));
             }
 
-            #pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
             Message[] msg = await Program.botClient.SendMediaGroupAsync(
                     chatId: chatId,
                     media: inputMediaPhotos
                 );
-            #pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         internal static async Task SendPhotoAsync(ChatId chatId,

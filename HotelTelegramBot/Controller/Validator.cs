@@ -12,7 +12,7 @@ namespace HotelTelegramBot.Controller
         public static readonly string BadNumberRange = "Введіть число в діапазоні 0-10";
         public static readonly string BadEmail = "Введіть коректний e-mail";
         public static readonly string BadPhoneNumber = "Введіть коректний номер телефону. Приклад: +380501001214";
-        public static readonly string BadName = "Можна використовувати лише символи A-я A-z";      
+        public static readonly string BadName = "Можна використовувати лише символи A-я A-z";
 
         public static bool CheckDateFormat(string userDate)
         {

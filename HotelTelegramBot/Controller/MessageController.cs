@@ -26,7 +26,7 @@ namespace HotelTelegramBot.Controller
                 Logger.Log(chatPosition, e);
                 await ServicesMessageController.RouteMessageChatPositionAsync(chatPosition, e);
             }
-            catch(Telegram.Bot.Exceptions.ApiRequestException exception)
+            catch (Telegram.Bot.Exceptions.ApiRequestException exception)
             {
                 if (exception.Message == "Forbidden: bot was blocked by the user")
                 {
