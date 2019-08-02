@@ -6,34 +6,39 @@ namespace HotelTelegramBot.Controller
 {
     class MessageController
     {
+        private static ChatResponder chatResponder = null;
+
         internal static async void OnMessageAsync(object sender, MessageEventArgs e)
         {
-            string userInput = e.Message.Text;
-            Chat chat = e.Message.Chat;
-            string chatPosition;
-
-            if (e.Message == null)
+            if (chatResponder == null)
             {
+                chatResponder = new ChatResponder(new Start(e.Message.Chat));
                 return;
             }
 
-            try
-            {
-                await DbServices.CrateIfNotExistUserChatAsync(chat.Id);
-                await ServicesMessageController.RouteMenuAsync(userInput, chat);
+            chatResponder.ReceiveMessageAsync(e);
 
-                chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
-                Logger.Log(chatPosition, e);
-                await ServicesMessageController.RouteMessageChatPositionAsync(chatPosition, e);
-            }
-            catch (Telegram.Bot.Exceptions.ApiRequestException exception)
-            {
-                if (exception.Message == "Forbidden: bot was blocked by the user")
-                {
-                    Logger.Log(exception.Message);
-                    return;
-                }
-            }
+            //string userInput = e.Message.Text;
+            //Chat chat = e.Message.Chat;
+            //string chatPosition;
+
+            //try
+            //{
+            //    await DbServices.CrateIfNotExistUserChatAsync(chat.Id);
+            //    await ServicesMessageController.RouteMenuAsync(userInput, chat);
+
+            //    chatPosition = DbServices.GetChatPositionByIdChat(chat.Id);
+            //    Logger.Log(chatPosition, e);
+            //    await ServicesMessageController.RouteMessageChatPositionAsync(chatPosition, e);
+            //}
+            //catch (Telegram.Bot.Exceptions.ApiRequestException exception)
+            //{
+            //    if (exception.Message == "Forbidden: bot was blocked by the user")
+            //    {
+            //        Logger.Log(exception.Message);
+            //        return;
+            //    }
+            //}
         }
 
         internal static async void OnCallbackQueryAsync(object sender, CallbackQueryEventArgs e)

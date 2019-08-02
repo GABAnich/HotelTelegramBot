@@ -56,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigTelegramBot.cs" />
+    <Compile Include="Controller\ChatResponder\BookRoom_00.cs" />
+    <Compile Include="Controller\ChatResponder\BookRoom_01.cs" />
+    <Compile Include="Controller\ChatResponder\BookRoom_02.cs" />
+    <Compile Include="Controller\ChatResponder\ChatResponder.cs" />
+    <Compile Include="Controller\ChatResponder\ChatState.cs" />
+    <Compile Include="Controller\ChatResponder\Start.cs" />
     <Compile Include="Controller\MessageController.cs" />
     <Compile Include="Controller\ServicesChatPosition\BookRoom_00.cs" />
     <Compile Include="Controller\ServicesChatPosition\BookRoom_10.cs" />

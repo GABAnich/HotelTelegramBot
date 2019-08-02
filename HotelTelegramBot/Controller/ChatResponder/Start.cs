@@ -1,0 +1,47 @@
+﻿using HotelTelegramBot.Model;
+using HotelTelegramBot.View;
+using System;
+using System.Threading.Tasks;
+using Telegram.Bot.Args;
+using Telegram.Bot.Types;
+
+namespace HotelTelegramBot.Controller
+{
+    class Start : ChatState
+    {
+        public Start(Chat chat) : base(chat) { }
+
+        protected override async void OnCreateAsync()
+        {
+            await DbServices.ClearUserTempDataAsync(chat.Id);
+            await ServicesMessageController.SendPhotoAsync(
+                chat,
+                AboutHotel.ImageAboutHotel,
+                AboutHotel.InfoAboutHotel,
+                Keyboards.MainKeyboard);
+        }
+
+        public override async Task ReceiveMessageAsync(EventArgs e)
+        {
+            string userInput = (e as MessageEventArgs).Message.Text;
+
+            if (userInput == "🏨 Замовити номер")
+            {
+                responder.SetState(new BookRoom_00(chat));
+            }
+            //else if (userInput == "❌ Зняти бронювання")
+            //{
+            //    await DbServices.ChangePositionAsync(chat.Id, "❌ Зняти бронювання 0");
+            //}
+            //else if (userInput == "⛺️ Номери")
+            //{
+            //    await DbServices.ChangePositionAsync(chat.Id, "⛺️ Номери 0");
+            //}
+        }
+
+        public override void Back()
+        {
+            return;
+        }
+    }
+}
