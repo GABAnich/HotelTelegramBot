@@ -7,13 +7,13 @@ using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
-    internal class BookRoom_02 : ChatState
+    class BookRoom_03 : ChatState
     {
-        public BookRoom_02(Chat chat) : base(chat) { }
+        public BookRoom_03(Chat chat) : base(chat) { }
 
         protected override async void OnCreateAsync()
         {
-            await ServicesMessageController.SendMessageAsync(chat, "Введіть кількість дорослих", Keyboards.Adults);
+            await ServicesMessageController.SendMessageAsync(chat, "Введіть кількість дітей", Keyboards.Children);
         }
 
         public override async Task ReceiveMessageAsync(EventArgs e)
@@ -30,14 +30,12 @@ namespace HotelTelegramBot.Controller
                 await ServicesMessageController.SendMessageAsync(chat, Validator.BadNumberRange);
                 return;
             }
-            await DbServices.SaveUserTempDataAsync("NumberOfAdults", userInput, chat.Id);
-
-            responder.SetState(new BookRoom_03(chat));
+            await DbServices.SaveUserTempDataAsync("NumberOfChildren", userInput, chat.Id);
         }
 
         public override void Back()
         {
-            responder.SetState(new BookRoom_01(chat));
+            responder.SetState(new BookRoom_02(chat));
         }
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="Controller\ChatResponder\BookRoom_00.cs" />
     <Compile Include="Controller\ChatResponder\BookRoom_01.cs" />
     <Compile Include="Controller\ChatResponder\BookRoom_02.cs" />
+    <Compile Include="Controller\ChatResponder\BookRoom_03.cs" />
     <Compile Include="Controller\ChatResponder\ChatResponder.cs" />
     <Compile Include="Controller\ChatResponder\ChatState.cs" />
     <Compile Include="Controller\ChatResponder\Start.cs" />

@@ -35,7 +35,7 @@ namespace HotelTelegramBot.Controller
             //}
             //else if (userInput == "⛺️ Номери")
             //{
-            //    await DbServices.ChangePositionAsync(chat.Id, "⛺️ Номери 0");
+            //    responder.SetState(new HotelRoom_0(chat));
             //}
         }
 
