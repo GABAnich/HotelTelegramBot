@@ -31,6 +31,7 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             await DbServices.SaveUserTempDataAsync("NumberOfChildren", userInput, chat.Id);
+            responder.SetState(new BookRoom_04(chat));
         }
 
         public override void Back()
