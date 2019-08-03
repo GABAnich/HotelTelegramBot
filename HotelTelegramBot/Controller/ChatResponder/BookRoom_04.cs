@@ -30,7 +30,7 @@ namespace HotelTelegramBot.Controller
 
         public override async Task ReceiveMessageAsync(EventArgs e)
         {
-            string userInput = (e as MessageEventArgs).Message.Text;
+            string userInput = (e as CallbackQueryEventArgs).CallbackQuery.Data;
 
             if (!Validator.CheckNumber(userInput))
             {
@@ -49,7 +49,7 @@ namespace HotelTelegramBot.Controller
 
             await DbServices.SaveUserTempDataAsync("HotelRoomTypeId", userInput, chat.Id);
 
-            //responder.SetState(new BookRoom_05(chat));
+            responder.SetState(new BookRoom_05(chat));
         }
 
         public override void Back()

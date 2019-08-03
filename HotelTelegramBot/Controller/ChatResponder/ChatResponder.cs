@@ -21,7 +21,18 @@ namespace HotelTelegramBot.Controller
 
         public void ReceiveMessageAsync(EventArgs e)
         {
-            if ((e as MessageEventArgs).Message.Text == "Back")
+            string text = string.Empty;
+
+            if ((e as MessageEventArgs) != null)
+            {
+                text = (e as MessageEventArgs).Message.Text;
+            }
+            else if ((e as CallbackQueryEventArgs) != null)
+            {
+                text = (e as CallbackQueryEventArgs).CallbackQuery.Data;
+            }
+
+            if (text == "Back")
             {
                 state.Back();
                 return;
