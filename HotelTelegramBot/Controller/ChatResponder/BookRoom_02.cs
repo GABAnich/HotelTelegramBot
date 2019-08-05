@@ -9,7 +9,9 @@ namespace HotelTelegramBot.Controller
 {
     internal class BookRoom_02 : ChatState
     {
-        public BookRoom_02(Chat chat) : base(chat) { }
+        public BookRoom_02(Chat chat) : base(chat)
+        {
+        }
 
         protected override async void OnCreateAsync()
         {

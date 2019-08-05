@@ -20,7 +20,7 @@ namespace HotelTelegramBot.Controller
 
         public override Task ReceiveMessageAsync(EventArgs e)
         {
-            responder.SetState(new Start(chat));
+            responder.SetState(new MainMenu(chat));
             return Task.CompletedTask;
         }
 

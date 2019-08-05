@@ -8,9 +8,11 @@ using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
-    class BookRoom_00 : ChatState
+    internal class BookRoom_00 : ChatState
     {
-        public BookRoom_00(Chat chat) : base(chat) { }
+        public BookRoom_00(Chat chat) : base(chat)
+        {
+        }
 
         protected override async void OnCreateAsync()
         {
@@ -23,7 +25,6 @@ namespace HotelTelegramBot.Controller
 
         public override async Task ReceiveMessageAsync(EventArgs e)
         {
-            Chat chat = (e as MessageEventArgs).Message.Chat;
             string userInput = (e as MessageEventArgs).Message.Text;
 
             if (!Validator.CheckDateFormat(userInput))

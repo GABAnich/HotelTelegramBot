@@ -17,7 +17,7 @@ namespace HotelTelegramBot.Controller
 
         public override void Back()
         {
-            responder.SetState(new Start(chat));
+            responder.SetState(new MainMenu(chat));
         }
 
         public override async Task ReceiveMessageAsync(EventArgs e)
@@ -34,7 +34,7 @@ namespace HotelTelegramBot.Controller
             await ServicesReservation.DeleteReservationByIdAsync(r.Id);
             await ServicesMessageController.SendMessageAsync(chat, "Бронювання знято", Keyboards.ReturnMainMenu);
 
-            responder.SetState(new Start(chat));
+            responder.SetState(new MainMenu(chat));
         }
 
         protected override async void OnCreateAsync()
@@ -43,7 +43,7 @@ namespace HotelTelegramBot.Controller
             if (listReservation.Count == 0)
             {
                 await ServicesMessageController.SendMessageAsync(chat, "Бронювань немає", Keyboards.ReturnMainMenu);
-                await DbServices.ChangePositionAsync(chat.Id, "/start");
+                responder.SetState(new MainMenu(chat));
                 return;
             }
             IReplyMarkup markup = Keyboards.GetReservationsMenu(listReservation);

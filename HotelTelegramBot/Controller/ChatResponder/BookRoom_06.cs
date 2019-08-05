@@ -33,7 +33,9 @@ namespace HotelTelegramBot.Controller
 
         protected override async void OnCreateAsync()
         {
-            await ServicesMessageController.SendMessageAsync(chat, "Введіть ім’я", Keyboards.Text(chat.FirstName));
+            await ServicesMessageController.SendMessageAsync(
+                chat, "Введіть ім’я",
+                Keyboards.Text(chat.FirstName));
         }
     }
 }

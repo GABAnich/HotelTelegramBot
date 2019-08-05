@@ -18,7 +18,7 @@ namespace HotelTelegramBot.Controller
 
         public override void Back()
         {
-            responder.SetState(new Start(chat));
+            responder.SetState(new MainMenu(chat));
         }
 
         public override async Task ReceiveMessageAsync(EventArgs e)
@@ -45,6 +45,8 @@ namespace HotelTelegramBot.Controller
             string message = ViewRoomType.GetTextAboutRoomType(roomType);
             await ServicesMessageController.SendPhotosAsync(chat.Id, photos);
             await ServicesMessageController.SendMessageAsync(chat, message, Keyboards.ReturnMainMenu);
+
+            responder.SetState(new MainMenu(chat));
         }
 
         protected override async void OnCreateAsync()

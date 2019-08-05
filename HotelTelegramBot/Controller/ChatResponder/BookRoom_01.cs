@@ -8,9 +8,11 @@ using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
-    class BookRoom_01 : ChatState
+    internal class BookRoom_01 : ChatState
     {
-        public BookRoom_01(Chat chat) : base(chat) { }
+        public BookRoom_01(Chat chat) : base(chat)
+        {
+        }
 
         protected override async void OnCreateAsync()
         {

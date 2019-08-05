@@ -71,6 +71,7 @@
     <Compile Include="Controller\ChatResponder\ChatResponder.cs" />
     <Compile Include="Controller\ChatResponder\ChatState.cs" />
     <Compile Include="Controller\ChatResponder\HotelRoom_0.cs" />
+    <Compile Include="Controller\ChatResponder\MainMenu.cs" />
     <Compile Include="Controller\ChatResponder\Start.cs" />
     <Compile Include="Controller\MessageController.cs" />
     <Compile Include="Controller\ServicesChatPosition\BookRoom_00.cs" />
