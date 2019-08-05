@@ -27,6 +27,7 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             await DbServices.SaveUserTempDataAsync("MiddleName", userInput, chat.Id);
+            responder.SetState(new BookRoom_08(chat));
         }
 
         protected override async void OnCreateAsync()
