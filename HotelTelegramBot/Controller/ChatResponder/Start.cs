@@ -33,10 +33,10 @@ namespace HotelTelegramBot.Controller
             {
                 responder.SetState(new CancelReservation_0(chat));
             }
-            //else if (userInput == "⛺️ Номери")
-            //{
-            //    responder.SetState(new HotelRoom_0(chat));
-            //}
+            else if (userInput == "⛺️ Номери")
+            {
+                responder.SetState(new HotelRoom_0(chat));
+            }
         }
 
         public override void Back()
