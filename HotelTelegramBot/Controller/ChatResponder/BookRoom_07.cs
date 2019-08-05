@@ -1,5 +1,4 @@
 ﻿using HotelTelegramBot.Model;
-using HotelTelegramBot.View;
 using System;
 using System.Threading.Tasks;
 using Telegram.Bot.Args;
@@ -7,15 +6,15 @@ using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
-    internal class BookRoom_06 : ChatState
+    internal class BookRoom_07 : ChatState
     {
-        public BookRoom_06(Chat chat) : base(chat)
+        public BookRoom_07(Chat chat) : base(chat)
         {
         }
 
         public override void Back()
         {
-            responder.SetState(new BookRoom_05(chat));
+            responder.SetState(new BookRoom_06(chat));
         }
 
         public override async Task ReceiveMessageAsync(EventArgs e)
@@ -27,13 +26,12 @@ namespace HotelTelegramBot.Controller
                 await ServicesMessageController.SendMessageAsync(chat, Validator.BadName);
                 return;
             }
-            await DbServices.SaveUserTempDataAsync("FirstName", userInput, chat.Id);
-            responder.SetState(new BookRoom_07(chat));
+            await DbServices.SaveUserTempDataAsync("MiddleName", userInput, chat.Id);
         }
 
         protected override async void OnCreateAsync()
         {
-            await ServicesMessageController.SendMessageAsync(chat, "Введіть ім’я", Keyboards.Text(chat.FirstName));
+            await ServicesMessageController.SendMessageAsync(chat, "Введіть по батькові");
         }
     }
 }
