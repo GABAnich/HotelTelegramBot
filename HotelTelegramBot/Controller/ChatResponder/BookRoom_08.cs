@@ -43,6 +43,7 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             await DbServices.SaveUserTempDataAsync("Number", userInput, chat.Id);
+            responder.SetState(new BookRoom_09(chat));
         }
 
         protected override async void OnCreateAsync()
