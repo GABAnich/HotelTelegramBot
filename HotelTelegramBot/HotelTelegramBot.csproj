@@ -67,8 +67,10 @@
     <Compile Include="Controller\ChatResponder\BookRoom_08.cs" />
     <Compile Include="Controller\ChatResponder\BookRoom_09.cs" />
     <Compile Include="Controller\ChatResponder\BookRoom_10.cs" />
+    <Compile Include="Controller\ChatResponder\CancelReservation_0.cs" />
     <Compile Include="Controller\ChatResponder\ChatResponder.cs" />
     <Compile Include="Controller\ChatResponder\ChatState.cs" />
+    <Compile Include="Controller\ChatResponder\MainMenu.cs" />
     <Compile Include="Controller\ChatResponder\Start.cs" />
     <Compile Include="Controller\MessageController.cs" />
     <Compile Include="Controller\ServicesChatPosition\BookRoom_00.cs" />

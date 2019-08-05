@@ -29,10 +29,10 @@ namespace HotelTelegramBot.Controller
             {
                 responder.SetState(new BookRoom_00(chat));
             }
-            //else if (userInput == "❌ Зняти бронювання")
-            //{
-            //    await DbServices.ChangePositionAsync(chat.Id, "❌ Зняти бронювання 0");
-            //}
+            else if (userInput == "❌ Зняти бронювання")
+            {
+                responder.SetState(new CancelReservation_0(chat));
+            }
             //else if (userInput == "⛺️ Номери")
             //{
             //    responder.SetState(new HotelRoom_0(chat));
