@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
@@ -45,7 +44,7 @@ namespace HotelTelegramBot.Controller
             {
                 SetState(new Start(chat));
             }
-            else if (text == "🎛 Головне меню")
+            else if (text == "/main_menu" || text == "🎛 Головне меню")
             {
                 SetState(new MainMenu(chat));
             }
