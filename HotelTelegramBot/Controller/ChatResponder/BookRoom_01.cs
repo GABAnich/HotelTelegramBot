@@ -9,11 +9,7 @@ namespace HotelTelegramBot.Controller
 {
     internal class BookRoom_01 : ChatState
     {
-        public BookRoom_01(Chat chat) : base(chat)
-        {
-        }
-
-        protected override async void OnCreateAsync()
+        public override async void OnCreateAsync(Chat chat)
         {
             string firstDateString = DbServices.GetUserTempDataValue(chat.Id, "DateOfArrival");
             DateTime firstDate = DateTime.Parse(firstDateString).AddDays(1);
@@ -26,6 +22,7 @@ namespace HotelTelegramBot.Controller
         public override async void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as MessageEventArgs).Message.Text;
+            Chat chat = (e as MessageEventArgs).Message.Chat;
 
             if (!Validator.CheckDateFormat(userInput))
             {
@@ -46,12 +43,12 @@ namespace HotelTelegramBot.Controller
             }
             await DbServices.SaveUserTempDataAsync("DateOfDeparture", userInput, chat.Id);
 
-            responder.SetState(new BookRoom_02(chat));
+            responder.SetState(new BookRoom_02());
         }
 
         public override void Back()
         {
-            responder.SetState(new BookRoom_00(chat));
+            responder.SetState(new BookRoom_00());
         }
     }
 }

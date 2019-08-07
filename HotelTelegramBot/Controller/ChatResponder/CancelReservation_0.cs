@@ -10,18 +10,15 @@ namespace HotelTelegramBot.Controller
 {
     internal class CancelReservation_0 : ChatState
     {
-        public CancelReservation_0(Chat chat) : base(chat)
-        {
-        }
-
         public override void Back()
         {
-            responder.SetState(new MainMenu(chat));
+            responder.SetState(new MainMenu());
         }
 
         public override async void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as CallbackQueryEventArgs).CallbackQuery.Data;
+            Chat chat = (e as CallbackQueryEventArgs).CallbackQuery.Message.Chat;
 
             Reservation r = ServicesReservation.GetReservationById(int.Parse(userInput));
             if (r == null)
@@ -33,16 +30,16 @@ namespace HotelTelegramBot.Controller
             await ServicesReservation.DeleteReservationByIdAsync(r.Id);
             await ServicesMessageController.SendMessageAsync(chat, "Бронювання знято", Keyboards.ReturnMainMenu);
 
-            responder.SetState(new MainMenu(chat));
+            responder.SetState(new MainMenu());
         }
 
-        protected override async void OnCreateAsync()
+        public override async void OnCreateAsync(Chat chat)
         {
             var listReservation = DbServices.GetValidReservation(chat.Id, DateTime.Now);
             if (listReservation.Count == 0)
             {
                 await ServicesMessageController.SendMessageAsync(chat, "Бронювань немає", Keyboards.ReturnMainMenu);
-                responder.SetState(new MainMenu(chat));
+                responder.SetState(new MainMenu());
                 return;
             }
             IReplyMarkup markup = Keyboards.GetReservationsMenu(listReservation);

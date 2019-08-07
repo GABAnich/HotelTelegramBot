@@ -8,18 +8,15 @@ namespace HotelTelegramBot.Controller
 {
     internal class BookRoom_05 : ChatState
     {
-        public BookRoom_05(Chat chat) : base(chat)
-        {
-        }
-
         public override void Back()
         {
-            responder.SetState(new BookRoom_04(chat));
+            responder.SetState(new BookRoom_04());
         }
 
         public override async void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as MessageEventArgs).Message.Text;
+            Chat chat = (e as MessageEventArgs).Message.Chat;
 
             if (!Validator.CheckName(userInput))
             {
@@ -27,10 +24,10 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             await DbServices.SaveUserTempDataAsync("SecondName", userInput, chat.Id);
-            responder.SetState(new BookRoom_06(chat));
+            responder.SetState(new BookRoom_06());
         }
 
-        protected override async void OnCreateAsync()
+        public override async void OnCreateAsync(Chat chat)
         {
             await ServicesMessageController.SendMessageAsync(
                 chat, "Введіть прізвище", Keyboards.Text(chat.LastName));

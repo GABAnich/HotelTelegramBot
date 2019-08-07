@@ -6,11 +6,7 @@ namespace HotelTelegramBot.Controller
 {
     internal class MainMenu : Start
     {
-        public MainMenu(Chat chat) : base(chat)
-        {
-        }
-
-        protected override async void OnCreateAsync()
+        public override async void OnCreateAsync(Chat chat)
         {
             await DbServices.ClearUserTempDataAsync(chat.Id);
             await ServicesMessageController.SendMessageAsync(chat.Id, "Головне меню", Keyboards.MainKeyboard);
@@ -18,7 +14,7 @@ namespace HotelTelegramBot.Controller
 
         public override void Back()
         {
-            responder.SetState(new Start(chat));
+            responder.SetState(new Start());
         }
     }
 }

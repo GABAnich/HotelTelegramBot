@@ -8,21 +8,17 @@ namespace HotelTelegramBot.Controller
 {
     internal class BookRoom_10 : ChatState
     {
-        public BookRoom_10(Chat chat) : base(chat)
-        {
-        }
-
         public override void Back()
         {
-            responder.SetState(new BookRoom_09(chat));
+            responder.SetState(new BookRoom_09());
         }
 
         public override void ReceiveMessageAsync(EventArgs e)
         {
-            responder.SetState(new MainMenu(chat));
+            responder.SetState(new MainMenu());
         }
 
-        protected override async void OnCreateAsync()
+        public override async void OnCreateAsync(Chat chat)
         {
             await ServicesMessageController.SendMessageAsync(chat, "Очікування бронювання");
 

@@ -8,9 +8,7 @@ namespace HotelTelegramBot.Controller
 {
     class Start : ChatState
     {
-        public Start(Chat chat) : base(chat) { }
-
-        protected override async void OnCreateAsync()
+        public override async void OnCreateAsync(Chat chat)
         {
             await DbServices.ClearUserTempDataAsync(chat.Id);
             await ServicesMessageController.SendPhotoAsync(
@@ -23,18 +21,19 @@ namespace HotelTelegramBot.Controller
         public override void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as MessageEventArgs).Message.Text;
+            Chat chat = (e as MessageEventArgs).Message.Chat;
 
             if (userInput == "🏨 Замовити номер")
             {
-                responder.SetState(new BookRoom_00(chat));
+                responder.SetState(new BookRoom_00());
             }
             else if (userInput == "❌ Зняти бронювання")
             {
-                responder.SetState(new CancelReservation_0(chat));
+                responder.SetState(new CancelReservation_0());
             }
             else if (userInput == "⛺️ Номери")
             {
-                responder.SetState(new HotelRoom_0(chat));
+                responder.SetState(new HotelRoom_0());
             }
         }
 

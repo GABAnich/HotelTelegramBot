@@ -7,9 +7,11 @@ namespace HotelTelegramBot.Controller
     class ChatResponder
     {
         private ChatState state;
+        private Chat chat;
 
-        public ChatResponder(ChatState state)
+        public ChatResponder(Chat chat, ChatState state)
         {
+            this.chat = chat;
             SetState(state);
         }
 
@@ -17,6 +19,8 @@ namespace HotelTelegramBot.Controller
         {
             this.state = state;
             this.state.SetResponder(this);
+            //Change name 'OnCreateAsync' to 'OnStateChange'
+            this.state.OnCreateAsync(chat);
         }
 
         public void ReceiveMessageAsync(EventArgs e)
@@ -42,11 +46,11 @@ namespace HotelTelegramBot.Controller
             }
             else if (text == "/start")
             {
-                SetState(new Start(chat));
+                SetState(new Start());
             }
             else if (text == "/main_menu" || text == "🎛 Головне меню")
             {
-                SetState(new MainMenu(chat));
+                SetState(new MainMenu());
             }
 
             state.ReceiveMessageAsync(e);

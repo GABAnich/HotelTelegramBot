@@ -11,18 +11,15 @@ namespace HotelTelegramBot.Controller
 {
     internal class HotelRoom_0 : ChatState
     {
-        public HotelRoom_0(Chat chat) : base(chat)
-        {
-        }
-
         public override void Back()
         {
-            responder.SetState(new MainMenu(chat));
+            responder.SetState(new MainMenu());
         }
 
         public override async void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as CallbackQueryEventArgs).CallbackQuery.Data;
+            Chat chat = (e as CallbackQueryEventArgs).CallbackQuery.Message.Chat;
 
             if (!Validator.CheckNumber(userInput))
             {
@@ -45,10 +42,10 @@ namespace HotelTelegramBot.Controller
             await ServicesMessageController.SendPhotosAsync(chat.Id, photos);
             await ServicesMessageController.SendMessageAsync(chat, message, Keyboards.ReturnMainMenu);
 
-            responder.SetState(new MainMenu(chat));
+            responder.SetState(new MainMenu());
         }
 
-        protected override async void OnCreateAsync()
+        public override async void OnCreateAsync(Chat chat)
         {
             List<HotelRoomType> listRoomTypes = ServicesHotelRoomType.GetHotelRoomTypes();
 

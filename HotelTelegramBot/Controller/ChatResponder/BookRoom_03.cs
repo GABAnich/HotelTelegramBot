@@ -8,10 +8,7 @@ namespace HotelTelegramBot.Controller
 {
     class BookRoom_03 : ChatState
     {
-        public BookRoom_03(Chat chat) : base(chat)
-        { }
-
-        protected override async void OnCreateAsync()
+        public override async void OnCreateAsync(Chat chat)
         {
             await ServicesMessageController.SendMessageAsync(chat, "Введіть кількість дітей", Keyboards.Children);
         }
@@ -19,6 +16,7 @@ namespace HotelTelegramBot.Controller
         public override async void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as MessageEventArgs).Message.Text;
+            Chat chat = (e as MessageEventArgs).Message.Chat;
 
             if (!Validator.CheckNumber(userInput))
             {
@@ -31,12 +29,12 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             await DbServices.SaveUserTempDataAsync("NumberOfChildren", userInput, chat.Id);
-            responder.SetState(new BookRoom_04(chat));
+            responder.SetState(new BookRoom_04());
         }
 
         public override void Back()
         {
-            responder.SetState(new BookRoom_02(chat));
+            responder.SetState(new BookRoom_02());
         }
     }
 }

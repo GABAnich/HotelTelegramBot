@@ -11,7 +11,7 @@ namespace HotelTelegramBot.Controller
         {
             if (chatResponder == null)
             {
-                chatResponder = new ChatResponder(new Start(e.Message.Chat));
+                chatResponder = new ChatResponder(e.Message.Chat, new Start());
                 return;
             }
 
@@ -47,7 +47,7 @@ namespace HotelTelegramBot.Controller
 
             if (chatResponder == null)
             {
-                chatResponder = new ChatResponder(new Start(e.CallbackQuery.Message.Chat));
+                chatResponder = new ChatResponder(e.CallbackQuery.Message.Chat, new Start());
                 return;
             }
 
