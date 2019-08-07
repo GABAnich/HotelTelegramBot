@@ -118,3 +118,44 @@
 07.08.2019 8:22 | HotelTelegramBot.Controller.BookRoom_08 | 390267261 | gabanich |B R : 
 07.08.2019 8:25 | HotelTelegramBot.Controller.BookRoom_09 | 384331790 |  |Roha Oleksandr : 
 07.08.2019 8:25 | HotelTelegramBot.Controller.BookRoom_09 | 384331790 |  |Roha Oleksandr : йди нахуй бот єбаний
+07.08.2019 8:46 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : /start
+07.08.2019 8:46 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : 🏨 Замовити номер
+07.08.2019 8:47 | HotelTelegramBot.Controller.BookRoom_00 | 390267261 | gabanich |B R : 12.08.2019
+07.08.2019 8:47 | HotelTelegramBot.Controller.BookRoom_01 | 390267261 | gabanich |B R : 17.08.2019
+07.08.2019 8:47 | HotelTelegramBot.Controller.BookRoom_02 | 390267261 | gabanich |B R : 3
+07.08.2019 8:47 | HotelTelegramBot.Controller.BookRoom_03 | 390267261 | gabanich |B R : 2
+07.08.2019 8:50 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : 3
+07.08.2019 8:50 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : 6
+07.08.2019 8:50 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : ⛺️ Номери
+07.08.2019 8:50 | HotelTelegramBot.Controller.HotelRoom_0 | 390267261 | gabanich |B R : /main_menu
+07.08.2019 8:50 | HotelTelegramBot.Controller.MainMenu | 390267261 | gabanich |B R : 🏨 Замовити номер
+07.08.2019 8:50 | HotelTelegramBot.Controller.BookRoom_00 | 390267261 | gabanich |B R : 12.08.2019
+07.08.2019 8:50 | HotelTelegramBot.Controller.BookRoom_01 | 390267261 | gabanich |B R : 14.08.2019
+07.08.2019 8:51 | HotelTelegramBot.Controller.BookRoom_02 | 390267261 | gabanich |B R : 2
+07.08.2019 8:51 | HotelTelegramBot.Controller.BookRoom_03 | 390267261 | gabanich |B R : 0
+07.08.2019 8:51 | HotelTelegramBot.Controller.BookRoom_04 | 390267261 | gabanich |B R : /start
+07.08.2019 8:51 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : 🏨 Замовити номер
+07.08.2019 8:51 | HotelTelegramBot.Controller.BookRoom_00 | 390267261 | gabanich |B R : 12.08.2019
+07.08.2019 8:51 | HotelTelegramBot.Controller.BookRoom_01 | 390267261 | gabanich |B R : 17.08.2019
+07.08.2019 8:51 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : 2
+07.08.2019 8:51 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : 🏨 Замовити номер
+07.08.2019 8:51 | HotelTelegramBot.Controller.BookRoom_00 | 390267261 | gabanich |B R : 12.08.2019
+07.08.2019 8:51 | HotelTelegramBot.Controller.BookRoom_01 | 390267261 | gabanich |B R : 17.08.2019
+07.08.2019 8:51 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : 🏨 Замовити номер
+07.08.2019 8:54 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : 🏨 Замовити номер
+07.08.2019 8:54 | HotelTelegramBot.Controller.BookRoom_00 | 390267261 | gabanich |B R : 12.08.2019
+07.08.2019 8:54 | HotelTelegramBot.Controller.BookRoom_01 | 390267261 | gabanich |B R : 17.08.2019
+07.08.2019 8:54 | HotelTelegramBot.Controller.BookRoom_02 | 390267261 | gabanich |B R : 3
+07.08.2019 8:54 | HotelTelegramBot.Controller.BookRoom_03 | 390267261 | gabanich |B R : 1
+07.08.2019 8:54 | HotelTelegramBot.Controller.BookRoom_04 | 390267261 | gabanich |B R : 5
+07.08.2019 8:54 | HotelTelegramBot.Controller.BookRoom_05 | 390267261 | gabanich |B R : B
+07.08.2019 8:54 | HotelTelegramBot.Controller.BookRoom_06 | 390267261 | gabanich |B R : R
+07.08.2019 9:02 | HotelTelegramBot.Controller.Start | 384331790 |  |Roha Oleksandr : вибач
+07.08.2019 9:03 | HotelTelegramBot.Controller.Start | 384331790 |  |Roha Oleksandr : я був на емоціях
+07.08.2019 9:03 | HotelTelegramBot.Controller.Start | 384331790 |  |Roha Oleksandr : важкий тиждень на роботі
+07.08.2019 9:03 | HotelTelegramBot.Controller.Start | 384331790 |  |Roha Oleksandr : ти повинен мене розуміти
+07.08.2019 9:15 | HotelTelegramBot.Controller.Start | 384331790 |  |Roha Oleksandr : ⛺️ Номери
+07.08.2019 9:15 | HotelTelegramBot.Controller.HotelRoom_0 | 384331790 |  |Roha Oleksandr : 5
+07.08.2019 9:16 | HotelTelegramBot.Controller.MainMenu | 384331790 |  |Roha Oleksandr : 🏨 Замовити номер
+07.08.2019 9:17 | HotelTelegramBot.Controller.BookRoom_00 | 384331790 |  |Roha Oleksandr : 13.08.2019
+07.08.2019 9:18 | HotelTelegramBot.Controller.BookRoom_07 | 390267261 | gabanich |B R : kl

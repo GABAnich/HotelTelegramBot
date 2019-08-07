@@ -1,21 +1,26 @@
-﻿using Telegram.Bot.Args;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
 {
     class MessageController
     {
-        private static ChatResponder chatResponder = null;
+        private static List<Tuple<long, ChatResponder>> chatResponders = new List<Tuple<long, ChatResponder>>();
 
         internal static void OnMessageAsync(object sender, MessageEventArgs e)
         {
-            if (chatResponder == null)
+            Chat chat = e.Message.Chat;
+
+            if (!chatResponders.Exists(c => c.Item1 == chat.Id))
             {
-                chatResponder = new ChatResponder(e.Message.Chat, new Start());
+                chatResponders.Add(new Tuple<long, ChatResponder>(chat.Id, new ChatResponder(chat, new Start())));
                 return;
             }
 
-            chatResponder.ReceiveMessageAsync(e);
+            chatResponders.FirstOrDefault(c => c.Item1 == chat.Id).Item2.ReceiveMessageAsync(e);
 
             //string userInput = e.Message.Text;
             //Chat chat = e.Message.Chat;
@@ -45,14 +50,14 @@ namespace HotelTelegramBot.Controller
             Chat chat = e.CallbackQuery.Message.Chat;
             int messageId = e.CallbackQuery.Message.MessageId;
 
-            if (chatResponder == null)
+            if (!chatResponders.Exists(c => c.Item1 == chat.Id))
             {
-                chatResponder = new ChatResponder(e.CallbackQuery.Message.Chat, new Start());
+                chatResponders.Add(new Tuple<long, ChatResponder>(chat.Id, new ChatResponder(chat, new Start())));
                 return;
             }
 
             await Program.botClient.DeleteMessageAsync(chat, messageId);
-            chatResponder.ReceiveMessageAsync(e);
+            chatResponders.FirstOrDefault(c => c.Item1 == chat.Id).Item2.ReceiveMessageAsync(e);
 
             //Chat chat = e.CallbackQuery.Message.Chat;
             //int messageId = e.CallbackQuery.Message.MessageId;
