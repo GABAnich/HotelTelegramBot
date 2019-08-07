@@ -110,6 +110,7 @@ namespace HotelTelegramBot.Controller
             }
         }
 
+        [System.Obsolete]
         internal static async Task SendPhotosAsync(long chatId, List<string> photos)
         {
             List<InputMediaPhoto> inputMediaPhotos = new List<InputMediaPhoto>();
@@ -118,12 +119,21 @@ namespace HotelTelegramBot.Controller
                 inputMediaPhotos.Add(new InputMediaPhoto(str));
             }
 
-#pragma warning disable CS0618 // Type or member is obsolete
-            Message[] msg = await Program.botClient.SendMediaGroupAsync(
-                    chatId: chatId,
-                    media: inputMediaPhotos
-                );
-#pragma warning restore CS0618 // Type or member is obsolete
+            try
+            {
+                Message[] msg = await Program.botClient.SendMediaGroupAsync(
+                            chatId: chatId,
+                            media: inputMediaPhotos
+                        );
+            }
+            catch (Telegram.Bot.Exceptions.ApiRequestException exception)
+            {
+                if (exception.Message == "Forbidden: bot was blocked by the user")
+                {
+                    Logger.Log(exception.Message);
+                    return;
+                }
+            }
         }
 
         internal static async Task SendPhotoAsync(ChatId chatId,
@@ -131,12 +141,23 @@ namespace HotelTelegramBot.Controller
             string caption,
             IReplyMarkup keyboard)
         {
-            await Program.botClient.SendPhotoAsync(
-                chatId: chatId,
-                photo: photo,
-                caption: caption,
-                parseMode: ParseMode.Markdown,
-                replyMarkup: keyboard);
+            try
+            { 
+                await Program.botClient.SendPhotoAsync(
+                    chatId: chatId,
+                    photo: photo,
+                    caption: caption,
+                    parseMode: ParseMode.Markdown,
+                    replyMarkup: keyboard);
+            }
+            catch (Telegram.Bot.Exceptions.ApiRequestException exception)
+            {
+                if (exception.Message == "Forbidden: bot was blocked by the user")
+                {
+                    Logger.Log(exception.Message);
+                    return;
+                }
+            }
         }
 
         internal static async Task SendMessageAsync(ChatId chatId,
@@ -148,13 +169,24 @@ namespace HotelTelegramBot.Controller
                 keyboard = new ReplyKeyboardRemove();
             }
 
-            Message message = await Program.botClient.SendTextMessageAsync(
-                    chatId: chatId,
-                    text: text,
-                    parseMode: ParseMode.Markdown,
-                    disableNotification: true,
-                    replyMarkup: keyboard
-                );
+            try
+            { 
+                Message message = await Program.botClient.SendTextMessageAsync(
+                        chatId: chatId,
+                        text: text,
+                        parseMode: ParseMode.Markdown,
+                        disableNotification: true,
+                        replyMarkup: keyboard
+                    );
+            }
+            catch (Telegram.Bot.Exceptions.ApiRequestException exception)
+            {
+                if (exception.Message == "Forbidden: bot was blocked by the user")
+                {
+                    Logger.Log(exception.Message);
+                    return;
+                }
+            }
         }
     }
 }
