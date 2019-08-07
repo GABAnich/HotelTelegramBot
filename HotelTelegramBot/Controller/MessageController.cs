@@ -7,7 +7,7 @@ namespace HotelTelegramBot.Controller
     {
         private static ChatResponder chatResponder = null;
 
-        internal static async void OnMessageAsync(object sender, MessageEventArgs e)
+        internal static void OnMessageAsync(object sender, MessageEventArgs e)
         {
             if (chatResponder == null)
             {
