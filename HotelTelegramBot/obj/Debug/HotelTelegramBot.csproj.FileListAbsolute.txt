@@ -48,3 +48,4 @@ C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramB
 C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.csproj.CopyComplete
 C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.exe
 C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.pdb
+C:\Users\User\Desktop\HotelTelegramBot\HotelTelegramBot\obj\Debug\HotelTelegramBot.csprojAssemblyReference.cache
