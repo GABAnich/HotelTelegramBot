@@ -29,10 +29,14 @@ namespace HotelTelegramBot.Controller
             if ((e as MessageEventArgs) != null)
             {
                 text = (e as MessageEventArgs).Message.Text;
+                // Move this code to another place
+                Logger.Log(state.GetType().ToString(), e as MessageEventArgs);
             }
             else if ((e as CallbackQueryEventArgs) != null)
             {
                 text = (e as CallbackQueryEventArgs).CallbackQuery.Data;
+                // Move this code to another place
+                Logger.Log(state.GetType().ToString(), e as CallbackQueryEventArgs);
             }
 
             if (text == "Back")
