@@ -20,7 +20,7 @@ namespace HotelTelegramBot.Controller
             this.responder = responder;
         }
 
-        public abstract Task ReceiveMessageAsync(EventArgs e);
+        public abstract void ReceiveMessageAsync(EventArgs e);
         protected abstract void OnCreateAsync();
         public abstract void Back();
     }

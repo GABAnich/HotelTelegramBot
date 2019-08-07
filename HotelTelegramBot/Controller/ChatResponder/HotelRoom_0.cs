@@ -21,7 +21,7 @@ namespace HotelTelegramBot.Controller
             responder.SetState(new MainMenu(chat));
         }
 
-        public override async Task ReceiveMessageAsync(EventArgs e)
+        public override async void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as CallbackQueryEventArgs).CallbackQuery.Data;
 

@@ -21,7 +21,7 @@ namespace HotelTelegramBot.Controller
                 Keyboards.MainKeyboard);
         }
 
-        public override async Task ReceiveMessageAsync(EventArgs e)
+        public override void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as MessageEventArgs).Message.Text;
 

@@ -30,7 +30,7 @@ namespace HotelTelegramBot.Controller
             await ServicesMessageController.SendMessageAsync(chat, "Оберіть тип номеру", markup);
         }
 
-        public override async Task ReceiveMessageAsync(EventArgs e)
+        public override async void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as CallbackQueryEventArgs).CallbackQuery.Data;
 

@@ -24,7 +24,7 @@ namespace HotelTelegramBot.Controller
                 chat, "Введіть дату відбуття", Keyboards.NextDates(dates));
         }
 
-        public override async Task ReceiveMessageAsync(EventArgs e)
+        public override async void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as MessageEventArgs).Message.Text;
 

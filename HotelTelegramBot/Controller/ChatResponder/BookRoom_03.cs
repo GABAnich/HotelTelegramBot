@@ -17,7 +17,7 @@ namespace HotelTelegramBot.Controller
             await ServicesMessageController.SendMessageAsync(chat, "Введіть кількість дітей", Keyboards.Children);
         }
 
-        public override async Task ReceiveMessageAsync(EventArgs e)
+        public override async void ReceiveMessageAsync(EventArgs e)
         {
             string userInput = (e as MessageEventArgs).Message.Text;
 

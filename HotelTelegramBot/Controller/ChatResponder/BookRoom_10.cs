@@ -18,10 +18,9 @@ namespace HotelTelegramBot.Controller
             responder.SetState(new BookRoom_09(chat));
         }
 
-        public override Task ReceiveMessageAsync(EventArgs e)
+        public override void ReceiveMessageAsync(EventArgs e)
         {
             responder.SetState(new MainMenu(chat));
-            return Task.CompletedTask;
         }
 
         protected override async void OnCreateAsync()

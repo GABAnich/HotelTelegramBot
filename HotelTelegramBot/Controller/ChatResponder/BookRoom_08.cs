@@ -19,7 +19,7 @@ namespace HotelTelegramBot.Controller
             responder.SetState(new BookRoom_07(chat));
         }
 
-        public override async Task ReceiveMessageAsync(EventArgs e)
+        public override async void ReceiveMessageAsync(EventArgs e)
         {
             MessageEventArgs ev = e as MessageEventArgs;
             string userInput;
