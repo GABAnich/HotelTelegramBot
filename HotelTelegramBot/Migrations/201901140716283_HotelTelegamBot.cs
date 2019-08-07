@@ -1,8 +1,7 @@
 namespace HotelTelegramBot.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class HotelTelegamBot : DbMigration
     {
         public override void Up()
@@ -17,7 +16,7 @@ namespace HotelTelegramBot.Migrations
             AddForeignKey("dbo.HotelRoomReservedDates", "ReservationId", "dbo.Reservations", "Id", cascadeDelete: true);
             AddForeignKey("dbo.HotelRoomReservedDates", "HotelRoom_Id", "dbo.HotelRooms", "Id");
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.HotelRoomReservedDates", "HotelRoom_Id", "dbo.HotelRooms");

@@ -1,5 +1,4 @@
-﻿using HotelTelegramBot.Model;
-using Telegram.Bot.Args;
+﻿using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
