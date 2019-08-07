@@ -208,3 +208,10 @@ Forbidden: bot was blocked by the user07.08.2019 14:08 | HotelTelegramBot.Contro
 07.08.2019 17:47 | HotelTelegramBot.Controller.MainMenu | 390267261 | gabanich |B R : ⛺️ Номери
 07.08.2019 17:47 | HotelTelegramBot.Controller.HotelRoom_0 | 390267261 | gabanich |B R : 4
 07.08.2019 17:47 | HotelTelegramBot.Controller.HotelRoom_0 | 390267261 | gabanich |B R : 5
+07.08.2019 17:48 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : 🎛 Головне меню
+07.08.2019 17:48 | HotelTelegramBot.Controller.MainMenu | 390267261 | gabanich |B R : /start
+07.08.2019 17:48 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : /start
+07.08.2019 17:48 | HotelTelegramBot.Controller.Start | 390267261 | gabanich |B R : /main_menu
+07.08.2019 17:48 | HotelTelegramBot.Controller.MainMenu | 390267261 | gabanich |B R : ⛺️ Номери
+07.08.2019 17:48 | HotelTelegramBot.Controller.HotelRoom_0 | 390267261 | gabanich |B R : 3
+07.08.2019 17:48 | HotelTelegramBot.Controller.HotelRoom_0 | 390267261 | gabanich |B R : 5
