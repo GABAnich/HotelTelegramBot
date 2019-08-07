@@ -1,7 +1,5 @@
-﻿using HotelTelegramBot.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
@@ -43,7 +41,7 @@ namespace HotelTelegramBot.Controller
             IReplyMarkup keyboard)
         {
             try
-            { 
+            {
                 await Program.botClient.SendPhotoAsync(
                     chatId: chatId,
                     photo: photo,
@@ -71,7 +69,7 @@ namespace HotelTelegramBot.Controller
             }
 
             try
-            { 
+            {
                 Message message = await Program.botClient.SendTextMessageAsync(
                         chatId: chatId,
                         text: text,
