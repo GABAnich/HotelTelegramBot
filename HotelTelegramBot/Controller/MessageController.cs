@@ -8,15 +8,15 @@ namespace HotelTelegramBot.Controller
 {
     class MessageController
     {
-        private static List<Tuple<long, ChatResponder>> chatResponders = new List<Tuple<long, ChatResponder>>();
+        private List<Tuple<long, ChatResponder>> chatResponders = new List<Tuple<long, ChatResponder>>();
 
-        internal static void OnMessageAsync(object sender, MessageEventArgs e)
+        internal void OnMessageAsync(object sender, MessageEventArgs e)
         {
             Chat chat = e.Message.Chat;
             SetUpChatResponder(e, chat);
         }
 
-        internal static async void OnCallbackQueryAsync(object sender, CallbackQueryEventArgs e)
+        internal async void OnCallbackQueryAsync(object sender, CallbackQueryEventArgs e)
         {
             Chat chat = e.CallbackQuery.Message.Chat;
             int messageId = e.CallbackQuery.Message.MessageId;
@@ -24,7 +24,7 @@ namespace HotelTelegramBot.Controller
             SetUpChatResponder(e, chat);
         }
 
-        private static void SetUpChatResponder(EventArgs e, Chat chat)
+        private void SetUpChatResponder(EventArgs e, Chat chat)
         {
             if (!chatResponders.Exists(c => c.Item1 == chat.Id))
             {
