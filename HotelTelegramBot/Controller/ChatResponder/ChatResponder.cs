@@ -19,8 +19,7 @@ namespace HotelTelegramBot.Controller
         {
             this.state = state;
             this.state.SetResponder(this);
-            //Change name 'OnCreateAsync' to 'OnStateChange'
-            this.state.OnCreateAsync(chat);
+            this.state.OnStateChange(chat);
         }
 
         public void ReceiveMessageAsync(EventArgs e)

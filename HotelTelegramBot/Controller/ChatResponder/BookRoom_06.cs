@@ -27,7 +27,7 @@ namespace HotelTelegramBot.Controller
             responder.SetState(new BookRoom_07());
         }
 
-        public override async void OnCreateAsync(Chat chat)
+        public override async void OnStateChange(Chat chat)
         {
             await ServicesMessageController.SendMessageAsync(
                 chat, "Введіть ім’я",

@@ -10,7 +10,7 @@ namespace HotelTelegramBot.Controller
 {
     internal class BookRoom_04 : ChatState
     {
-        public override async void OnCreateAsync(Chat chat)
+        public override async void OnStateChange(Chat chat)
         {
             var listRoomTypes = DbServices.GetAviableRoomTypes(chat);
 

@@ -9,7 +9,7 @@ namespace HotelTelegramBot.Controller
 {
     internal class BookRoom_01 : ChatState
     {
-        public override async void OnCreateAsync(Chat chat)
+        public override async void OnStateChange(Chat chat)
         {
             string firstDateString = DbServices.GetUserTempDataValue(chat.Id, "DateOfArrival");
             DateTime firstDate = DateTime.Parse(firstDateString).AddDays(1);

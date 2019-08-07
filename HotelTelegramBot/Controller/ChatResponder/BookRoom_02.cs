@@ -8,7 +8,7 @@ namespace HotelTelegramBot.Controller
 {
     internal class BookRoom_02 : ChatState
     {
-        public override async void OnCreateAsync(Chat chat)
+        public override async void OnStateChange(Chat chat)
         {
             await ServicesMessageController.SendMessageAsync(chat, "Введіть кількість дорослих", Keyboards.Adults);
         }

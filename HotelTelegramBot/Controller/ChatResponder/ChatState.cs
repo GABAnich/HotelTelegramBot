@@ -13,7 +13,7 @@ namespace HotelTelegramBot.Controller
         }
 
         public abstract void ReceiveMessageAsync(EventArgs e);
-        public abstract void OnCreateAsync(Chat chat);
+        public abstract void OnStateChange(Chat chat);
         public abstract void Back();
     }
 }

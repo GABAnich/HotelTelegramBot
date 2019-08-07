@@ -33,7 +33,7 @@ namespace HotelTelegramBot.Controller
             responder.SetState(new MainMenu());
         }
 
-        public override async void OnCreateAsync(Chat chat)
+        public override async void OnStateChange(Chat chat)
         {
             var listReservation = DbServices.GetValidReservation(chat.Id, DateTime.Now);
             if (listReservation.Count == 0)

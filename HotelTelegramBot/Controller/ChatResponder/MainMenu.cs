@@ -6,7 +6,7 @@ namespace HotelTelegramBot.Controller
 {
     internal class MainMenu : Start
     {
-        public override async void OnCreateAsync(Chat chat)
+        public override async void OnStateChange(Chat chat)
         {
             await DbServices.ClearUserTempDataAsync(chat.Id);
             await ServicesMessageController.SendMessageAsync(chat.Id, "Головне меню", Keyboards.MainKeyboard);
