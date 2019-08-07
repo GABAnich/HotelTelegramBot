@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_program" kind="class" prot="public">
+    <compoundname>HotelTelegramBot::Program</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_hotel_telegram_bot_1_1_program_1aae9f000706aafc2dbdfcfb89ba5a1296" prot="public" static="yes" mutable="no">
+        <type>ITelegramBotClient</type>
+        <definition>ITelegramBotClient HotelTelegramBot.Program.botClient</definition>
+        <argsstring></argsstring>
+        <name>botClient</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Program.cs" line="11" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Program.cs" bodystart="11" bodyend="-1"/>
+        <referencedby refid="class_hotel_telegram_bot_1_1_program_1ad011afdae614592586f4d511dab7b7b7" compoundref="_program_8cs" startline="14" endline="26">HotelTelegramBot.Program.Main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_hotel_telegram_bot_1_1_program_1a51aff241029b604b379de7ee35eeeb3b" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_hotel_telegram_bot_1_1_controller_1_1_message_controller" kindref="compound">MessageController</ref></type>
+        <definition>MessageController HotelTelegramBot.Program.messageController</definition>
+        <argsstring></argsstring>
+        <name>messageController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Program.cs" line="12" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Program.cs" bodystart="12" bodyend="-1"/>
+        <referencedby refid="class_hotel_telegram_bot_1_1_program_1ad011afdae614592586f4d511dab7b7b7" compoundref="_program_8cs" startline="14" endline="26">HotelTelegramBot.Program.Main</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_program_1ad011afdae614592586f4d511dab7b7b7" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void HotelTelegramBot.Program.Main</definition>
+        <argsstring>()</argsstring>
+        <name>Main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Program.cs" line="14" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Program.cs" bodystart="14" bodyend="26"/>
+        <references refid="class_hotel_telegram_bot_1_1_config_telegram_bot_1a2c7b8fe37a392454a938dff80da9c82c" compoundref="_config_telegram_bot_8cs" startline="8">HotelTelegramBot.ConfigTelegramBot.APIToken</references>
+        <references refid="class_hotel_telegram_bot_1_1_program_1aae9f000706aafc2dbdfcfb89ba5a1296" compoundref="_program_8cs" startline="11">HotelTelegramBot.Program.botClient</references>
+        <references refid="class_hotel_telegram_bot_1_1_program_1a51aff241029b604b379de7ee35eeeb3b" compoundref="_program_8cs" startline="12">HotelTelegramBot.Program.messageController</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="151">
+        <label>HotelTelegramBot.Controller.MessageController</label>
+        <link refid="class_hotel_telegram_bot_1_1_controller_1_1_message_controller"/>
+      </node>
+      <node id="150">
+        <label>HotelTelegramBot.Program</label>
+        <link refid="class_hotel_telegram_bot_1_1_program"/>
+        <childnode refid="151" relation="usage">
+          <edgelabel>messageController</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Program.cs" line="10" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Program.cs" bodystart="9" bodyend="27"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_program_1aae9f000706aafc2dbdfcfb89ba5a1296" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Program</scope><name>botClient</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_program_1ad011afdae614592586f4d511dab7b7b7" prot="private" virt="non-virtual"><scope>HotelTelegramBot::Program</scope><name>Main</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_program_1a51aff241029b604b379de7ee35eeeb3b" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Program</scope><name>messageController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

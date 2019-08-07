@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_577d6678edd673e962879d947d0a45cc" kind="dir">
+    <compoundname>HotelTelegramBot/Migrations</compoundname>
+    <innerfile refid="201812080709146___initial_create_8cs">201812080709146_InitialCreate.cs</innerfile>
+    <innerfile refid="201812080709146___initial_create_8_designer_8cs">201812080709146_InitialCreate.Designer.cs</innerfile>
+    <innerfile refid="201901140716283___hotel_telegam_bot_8cs">201901140716283_HotelTelegamBot.cs</innerfile>
+    <innerfile refid="201901140716283___hotel_telegam_bot_8_designer_8cs">201901140716283_HotelTelegamBot.Designer.cs</innerfile>
+    <innerfile refid="_configuration_8cs">Configuration.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Migrations/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_migrations_1_1_configuration" kind="class" prot="package">
+    <compoundname>HotelTelegramBot::Migrations::Configuration</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">DbMigrationsConfiguration&lt; HotelTelegramBotContext &gt;</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_migrations_1_1_configuration_1a336119e69ba4ac6ced3675446e685a01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>HotelTelegramBot.Migrations.Configuration.Configuration</definition>
+        <argsstring>()</argsstring>
+        <name>Configuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Migrations/Configuration.cs" line="7" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Migrations/Configuration.cs" bodystart="7" bodyend="11"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_migrations_1_1_configuration_1a1ae94ecd6f1555d9223807a02d912d5e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void HotelTelegramBot.Migrations.Configuration.Seed</definition>
+        <argsstring>(HotelTelegramBotContext context)</argsstring>
+        <name>Seed</name>
+        <param>
+          <type><ref refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context" kindref="compound">HotelTelegramBotContext</ref></type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Migrations/Configuration.cs" line="13" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Migrations/Configuration.cs" bodystart="13" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="97">
+        <label>HotelTelegramBot.Migrations.Configuration</label>
+        <link refid="class_hotel_telegram_bot_1_1_migrations_1_1_configuration"/>
+        <childnode refid="98" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>DbMigrationsConfiguration&lt; HotelTelegramBotContext &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="99">
+        <label>HotelTelegramBot.Migrations.Configuration</label>
+        <link refid="class_hotel_telegram_bot_1_1_migrations_1_1_configuration"/>
+        <childnode refid="100" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>DbMigrationsConfiguration&lt; HotelTelegramBotContext &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Migrations/Configuration.cs" line="6" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Migrations/Configuration.cs" bodystart="5" bodyend="20"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_configuration_1a336119e69ba4ac6ced3675446e685a01" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Migrations::Configuration</scope><name>Configuration</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_configuration_1a1ae94ecd6f1555d9223807a02d912d5e" prot="protected" virt="non-virtual"><scope>HotelTelegramBot::Migrations::Configuration</scope><name>Seed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

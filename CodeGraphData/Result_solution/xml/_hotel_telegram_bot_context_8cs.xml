@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="_hotel_telegram_bot_context_8cs" kind="file">
+    <compoundname>HotelTelegramBotContext.cs</compoundname>
+    <innerclass refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context" prot="public">HotelTelegramBot::HotelTelegramBotContext</innerclass>
+    <innernamespace refid="namespace_hotel_telegram_bot">HotelTelegramBot</innernamespace>
+    <innernamespace refid="namespace_system_1_1_data_1_1_entity">System::Data::Entity</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using</highlight><highlight class="normal"><sp/>HotelTelegramBot.Model;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Data.Entity;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">HotelTelegramBot</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6" refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context" kindref="compound">HotelTelegramBotContext</ref><sp/>:<sp/>DbContext</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="8" refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a8f24f120c70b045d5cf5bd08c9ff37fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a8f24f120c70b045d5cf5bd08c9ff37fc" kindref="member">HotelTelegramBotContext</ref>()</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>base(</highlight><highlight class="stringliteral">&quot;HotelTelegramBotConnection&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a242f8701c778a9bb8d4930489314d1d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>DbSet&lt;UserChat&gt;<sp/><ref refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a242f8701c778a9bb8d4930489314d1d9" kindref="member">UserChats</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="13" refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a263f61e6649f9dd7685971686683837e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>DbSet&lt;TempInformation&gt;<sp/><ref refid="class_hotel_telegram_bot_1_1_model_1_1_temp_information" kindref="compound">TempInformation</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="14" refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a207191dc44bb441c5725e5503b39de9a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>DbSet&lt;HotelRoomType&gt;<sp/><ref refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a207191dc44bb441c5725e5503b39de9a" kindref="member">HotelRoomTypes</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="15" refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1aacf1df01f0eefeb67dbacbcd1a5a19ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>DbSet&lt;HotelRoomTypeImage&gt;<sp/><ref refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1aacf1df01f0eefeb67dbacbcd1a5a19ea" kindref="member">HotelRoomTypeImages</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="16" refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a93320edaf9ca1f966984fff69e6ae7a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>DbSet&lt;HotelRoom&gt;<sp/><ref refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a93320edaf9ca1f966984fff69e6ae7a1" kindref="member">HotelRooms</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="17" refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a0a12d21d3f5f9923385514a6dd5a07ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>DbSet&lt;HotelRoomReservedDate&gt;<sp/><ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date" kindref="compound">HotelRoomReservedDate</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="18" refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a177be699ea4c7e25e36cb97aa976f079" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>DbSet&lt;Reservation&gt;<sp/><ref refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a177be699ea4c7e25e36cb97aa976f079" kindref="member">Reservations</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/>set;<sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelTelegramBotContext.cs"/>
+  </compounddef>
+</doxygen>

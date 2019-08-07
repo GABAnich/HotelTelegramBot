@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_hotel_telegram_bot_1_1_model" kind="namespace">
+    <compoundname>HotelTelegramBot::Model</compoundname>
+    <innerclass refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room" prot="public">HotelTelegramBot::Model::HotelRoom</innerclass>
+    <innerclass refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date" prot="public">HotelTelegramBot::Model::HotelRoomReservedDate</innerclass>
+    <innerclass refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type" prot="public">HotelTelegramBot::Model::HotelRoomType</innerclass>
+    <innerclass refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_image" prot="public">HotelTelegramBot::Model::HotelRoomTypeImage</innerclass>
+    <innerclass refid="class_hotel_telegram_bot_1_1_model_1_1_reservation" prot="public">HotelTelegramBot::Model::Reservation</innerclass>
+    <innerclass refid="class_hotel_telegram_bot_1_1_model_1_1_temp_information" prot="public">HotelTelegramBot::Model::TempInformation</innerclass>
+    <innerclass refid="class_hotel_telegram_bot_1_1_model_1_1_user_chat" prot="public">HotelTelegramBot::Model::UserChat</innerclass>
+    <innerclass refid="class_hotel_telegram_bot_1_1_model_1_1_db_services" prot="package">HotelTelegramBot::Model::DbServices</innerclass>
+    <innerclass refid="class_hotel_telegram_bot_1_1_model_1_1_about_hotel" prot="public">HotelTelegramBot::Model::AboutHotel</innerclass>
+    <innernamespace refid="namespace_hotel_telegram_bot_1_1_model_1_1_services">HotelTelegramBot::Model::Services</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

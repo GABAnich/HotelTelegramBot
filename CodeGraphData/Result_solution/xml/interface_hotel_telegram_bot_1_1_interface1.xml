@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="interface_hotel_telegram_bot_1_1_interface1" kind="interface" prot="public">
+    <compoundname>HotelTelegramBot::Interface1</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Interface1.cs" line="9" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Interface1.cs" bodystart="8" bodyend="10"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

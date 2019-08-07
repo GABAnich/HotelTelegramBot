@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07" kind="class" prot="package">
+    <compoundname>HotelTelegramBot::Controller::BookRoom_07</compoundname>
+    <basecompoundref refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state" prot="public" virt="non-virtual">HotelTelegramBot.Controller.ChatState</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07_1af4c5d37c3cc30197f07c42d04b1df19f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override void</type>
+        <definition>override void HotelTelegramBot.Controller.BookRoom_07.Back</definition>
+        <argsstring>()</argsstring>
+        <name>Back</name>
+        <reimplements refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1ad309a856ea76627a5f165e8cce342cd8">Back</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/BookRoom_07.cs" line="10" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/BookRoom_07.cs" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07_1a393213ec10da2cd1b43b4599d2dbee2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override async void</type>
+        <definition>override async void HotelTelegramBot.Controller.BookRoom_07.ReceiveMessageAsync</definition>
+        <argsstring>(EventArgs e)</argsstring>
+        <name>ReceiveMessageAsync</name>
+        <reimplements refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1a974d3c73dc9ab372aff61d32ffbc1878">ReceiveMessageAsync</reimplements>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/BookRoom_07.cs" line="15" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/BookRoom_07.cs" bodystart="15" bodyend="27"/>
+        <references refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a7971720d2a99adbb6f6ceefbf4d80811" compoundref="_validator_8cs" startline="73" endline="76">HotelTelegramBot.Controller.Validator.CheckName</references>
+      </memberdef>
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07_1ae815311fa1b157287abbd2d238b9e1aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override async void</type>
+        <definition>override async void HotelTelegramBot.Controller.BookRoom_07.OnStateChange</definition>
+        <argsstring>(Chat chat)</argsstring>
+        <name>OnStateChange</name>
+        <reimplements refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1ad5c3a7e56a854c3898cdf5dd5db09822">OnStateChange</reimplements>
+        <param>
+          <type>Chat</type>
+          <declname>chat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/BookRoom_07.cs" line="29" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/BookRoom_07.cs" bodystart="29" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="45">
+        <label>ChatState</label>
+        <link refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state"/>
+      </node>
+      <node id="44">
+        <label>HotelTelegramBot.Controller.BookRoom_07</label>
+        <link refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="47">
+        <label>ChatState</label>
+        <link refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state"/>
+        <childnode refid="48" relation="usage">
+          <edgelabel>responder</edgelabel>
+        </childnode>
+      </node>
+      <node id="48">
+        <label>HotelTelegramBot.Controller.ChatResponder</label>
+        <link refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder"/>
+        <childnode refid="49" relation="usage">
+          <edgelabel>state</edgelabel>
+        </childnode>
+      </node>
+      <node id="49">
+        <label>HotelTelegramBot.Controller.ChatState</label>
+        <link refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state"/>
+        <childnode refid="48" relation="usage">
+          <edgelabel>responder</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>HotelTelegramBot.Controller.BookRoom_07</label>
+        <link refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/BookRoom_07.cs" line="9" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/BookRoom_07.cs" bodystart="8" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07_1af4c5d37c3cc30197f07c42d04b1df19f" prot="public" virt="virtual"><scope>HotelTelegramBot::Controller::BookRoom_07</scope><name>Back</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07_1ae815311fa1b157287abbd2d238b9e1aa" prot="public" virt="virtual"><scope>HotelTelegramBot::Controller::BookRoom_07</scope><name>OnStateChange</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07_1a393213ec10da2cd1b43b4599d2dbee2c" prot="public" virt="virtual"><scope>HotelTelegramBot::Controller::BookRoom_07</scope><name>ReceiveMessageAsync</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1a77d109f65ea94a9cc43a7bf4f52d036c" prot="protected" virt="non-virtual"><scope>HotelTelegramBot::Controller::BookRoom_07</scope><name>responder</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1a79935b380efdfd818ba59a7b45d8ddce" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Controller::BookRoom_07</scope><name>SetResponder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

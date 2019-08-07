@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_model_1_1_hotel_room" kind="class" prot="public">
+    <compoundname>HotelTelegramBot::Model::HotelRoom</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1ae07f313ebcdedb80f80a0acf75192248" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>long</type>
+        <definition>long HotelTelegramBot.Model.HotelRoom.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" line="7" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1a0d73dae25d3ac41d53cfa638c0b640ca" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>long</type>
+        <definition>long HotelTelegramBot.Model.HotelRoom.HotelRoomTypeId</definition>
+        <argsstring></argsstring>
+        <name>HotelRoomTypeId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" line="8" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1a2667291d440aa559585ac17d880c09db" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type" kindref="compound">HotelRoomType</ref></type>
+        <definition>HotelRoomType HotelTelegramBot.Model.HotelRoom.HotelRoomType</definition>
+        <argsstring></argsstring>
+        <name>HotelRoomType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" line="9" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1a1ba6ac28e8a6c3a5b3fd40e8cf3eb174" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>ICollection&lt; <ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date" kindref="compound">HotelRoomReservedDate</ref> &gt;</type>
+        <definition>ICollection&lt;HotelRoomReservedDate&gt; HotelTelegramBot.Model.HotelRoom.ReservationReservedDate</definition>
+        <argsstring></argsstring>
+        <name>ReservationReservedDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" line="10" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1af6d17067048d63d2fbc5d9b487e31a08" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>ICollection&lt; <ref refid="class_hotel_telegram_bot_1_1_model_1_1_reservation" kindref="compound">Reservation</ref> &gt;</type>
+        <definition>ICollection&lt;Reservation&gt; HotelTelegramBot.Model.HotelRoom.Reservation</definition>
+        <argsstring></argsstring>
+        <name>Reservation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" line="11" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1ad70c1e39f4773f69844aa68acaf43cdf" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string HotelTelegramBot.Model.HotelRoom.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" line="13" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1afcafbf2525904497dcec5236f3d656af" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>int</type>
+        <definition>int HotelTelegramBot.Model.HotelRoom.Floor</definition>
+        <argsstring></argsstring>
+        <name>Floor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" line="14" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" line="6" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/HotelRoom.cs" bodystart="5" bodyend="15"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1afcafbf2525904497dcec5236f3d656af" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::HotelRoom</scope><name>Floor</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1a2667291d440aa559585ac17d880c09db" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::HotelRoom</scope><name>HotelRoomType</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1a0d73dae25d3ac41d53cfa638c0b640ca" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::HotelRoom</scope><name>HotelRoomTypeId</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1ae07f313ebcdedb80f80a0acf75192248" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::HotelRoom</scope><name>Id</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1ad70c1e39f4773f69844aa68acaf43cdf" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::HotelRoom</scope><name>Name</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1af6d17067048d63d2fbc5d9b487e31a08" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::HotelRoom</scope><name>Reservation</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1a1ba6ac28e8a6c3a5b3fd40e8cf3eb174" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::HotelRoom</scope><name>ReservationReservedDate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

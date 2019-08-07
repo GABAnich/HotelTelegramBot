@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_view_1_1_view_room_type" kind="class" prot="public">
+    <compoundname>HotelTelegramBot::View::ViewRoomType</compoundname>
+      <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_view_1_1_view_room_type_1a9d4c86c4208aacda604a8595a97a54de" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string HotelTelegramBot.View.ViewRoomType.GetTextAboutRoomType</definition>
+        <argsstring>(HotelRoomType roomType)</argsstring>
+        <name>GetTextAboutRoomType</name>
+        <param>
+          <type><ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type" kindref="compound">HotelRoomType</ref></type>
+          <declname>roomType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/View/ViewRoomType.cs" line="7" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/View/ViewRoomType.cs" bodystart="7" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/View/ViewRoomType.cs" line="6" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/View/ViewRoomType.cs" bodystart="5" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_view_1_1_view_room_type_1a9d4c86c4208aacda604a8595a97a54de" prot="package" virt="non-virtual"><scope>HotelTelegramBot::View::ViewRoomType</scope><name>GetTextAboutRoomType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder" kind="class" prot="public">
+    <compoundname>HotelTelegramBot::Controller::ChatResponder</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1a16521d6dd00bcbfc26d530909f13f70f" prot="private" static="no" mutable="no">
+        <type><ref refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state" kindref="compound">ChatState</ref></type>
+        <definition>ChatState HotelTelegramBot.Controller.ChatResponder.state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" line="9" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1a28e03c31cabb8ca27981e7163d8cee9e" prot="private" static="no" mutable="no">
+        <type>Chat</type>
+        <definition>Chat HotelTelegramBot.Controller.ChatResponder.chat</definition>
+        <argsstring></argsstring>
+        <name>chat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" line="10" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1aa83c546e16bc16ecba94f1a693826250" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>HotelTelegramBot.Controller.ChatResponder.ChatResponder</definition>
+        <argsstring>(Chat chat, ChatState state)</argsstring>
+        <name>ChatResponder</name>
+        <param>
+          <type>Chat</type>
+          <declname>chat</declname>
+        </param>
+        <param>
+          <type><ref refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state" kindref="compound">ChatState</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" line="12" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" bodystart="12" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1af2c320537f5cfeafce51b1af8e6f2bea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HotelTelegramBot.Controller.ChatResponder.SetState</definition>
+        <argsstring>(ChatState state)</argsstring>
+        <name>SetState</name>
+        <param>
+          <type><ref refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state" kindref="compound">ChatState</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" line="18" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" bodystart="18" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1aa08d353473f8bce40f6e45bf84bcb826" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HotelTelegramBot.Controller.ChatResponder.ReceiveMessageAsync</definition>
+        <argsstring>(EventArgs e)</argsstring>
+        <name>ReceiveMessageAsync</name>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" line="25" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" bodystart="25" bodyend="57"/>
+        <references refid="class_hotel_telegram_bot_1_1_logger_1a41c270cab7abe79a29cfc7eaa89784fb" compoundref="_logger_8cs" startline="8" endline="21">HotelTelegramBot.Logger.Log</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="75">
+        <label>HotelTelegramBot.Controller.ChatResponder</label>
+        <link refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder"/>
+        <childnode refid="76" relation="usage">
+          <edgelabel>state</edgelabel>
+        </childnode>
+      </node>
+      <node id="76">
+        <label>HotelTelegramBot.Controller.ChatState</label>
+        <link refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state"/>
+        <childnode refid="75" relation="usage">
+          <edgelabel>responder</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" line="8" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/ChatResponder.cs" bodystart="7" bodyend="58"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1a28e03c31cabb8ca27981e7163d8cee9e" prot="private" virt="non-virtual"><scope>HotelTelegramBot::Controller::ChatResponder</scope><name>chat</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1aa83c546e16bc16ecba94f1a693826250" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Controller::ChatResponder</scope><name>ChatResponder</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1aa08d353473f8bce40f6e45bf84bcb826" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Controller::ChatResponder</scope><name>ReceiveMessageAsync</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1af2c320537f5cfeafce51b1af8e6f2bea" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Controller::ChatResponder</scope><name>SetState</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1a16521d6dd00bcbfc26d530909f13f70f" prot="private" virt="non-virtual"><scope>HotelTelegramBot::Controller::ChatResponder</scope><name>state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

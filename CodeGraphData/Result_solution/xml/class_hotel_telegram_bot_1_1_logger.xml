@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_logger" kind="class" prot="public">
+    <compoundname>HotelTelegramBot::Logger</compoundname>
+      <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_logger_1a41c270cab7abe79a29cfc7eaa89784fb" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void HotelTelegramBot.Logger.Log</definition>
+        <argsstring>(string chatPosition, MessageEventArgs e)</argsstring>
+        <name>Log</name>
+        <param>
+          <type>string</type>
+          <declname>chatPosition</declname>
+        </param>
+        <param>
+          <type>MessageEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Logger.cs" line="8" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Logger.cs" bodystart="8" bodyend="21"/>
+        <references refid="class_hotel_telegram_bot_1_1_config_telegram_bot_1a9a61c957bc09b43320dc2f80a3cdf490" compoundref="_config_telegram_bot_8cs" startline="19">HotelTelegramBot.ConfigTelegramBot.LogFile</references>
+        <referencedby refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1aa08d353473f8bce40f6e45bf84bcb826" compoundref="_chat_responder_8cs" startline="25" endline="57">HotelTelegramBot.Controller.ChatResponder.ReceiveMessageAsync</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_logger_1a1c2b2a1e4c5138ea6f07e3be8be4c14c" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void HotelTelegramBot.Logger.Log</definition>
+        <argsstring>(string chatPosition, CallbackQueryEventArgs e)</argsstring>
+        <name>Log</name>
+        <param>
+          <type>string</type>
+          <declname>chatPosition</declname>
+        </param>
+        <param>
+          <type>CallbackQueryEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Logger.cs" line="23" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Logger.cs" bodystart="23" bodyend="36"/>
+        <references refid="class_hotel_telegram_bot_1_1_config_telegram_bot_1a9a61c957bc09b43320dc2f80a3cdf490" compoundref="_config_telegram_bot_8cs" startline="19">HotelTelegramBot.ConfigTelegramBot.LogFile</references>
+      </memberdef>
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_logger_1a62b6f01c79cbf8b57077b1e41b0cfa17" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void HotelTelegramBot.Logger.Log</definition>
+        <argsstring>(string text)</argsstring>
+        <name>Log</name>
+        <param>
+          <type>string</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Logger.cs" line="38" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Logger.cs" bodystart="38" bodyend="42"/>
+        <references refid="class_hotel_telegram_bot_1_1_config_telegram_bot_1a9a61c957bc09b43320dc2f80a3cdf490" compoundref="_config_telegram_bot_8cs" startline="19">HotelTelegramBot.ConfigTelegramBot.LogFile</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Logger.cs" line="7" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Logger.cs" bodystart="6" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_logger_1a41c270cab7abe79a29cfc7eaa89784fb" prot="package" virt="non-virtual"><scope>HotelTelegramBot::Logger</scope><name>Log</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_logger_1a1c2b2a1e4c5138ea6f07e3be8be4c14c" prot="package" virt="non-virtual"><scope>HotelTelegramBot::Logger</scope><name>Log</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_logger_1a62b6f01c79cbf8b57077b1e41b0cfa17" prot="package" virt="non-virtual"><scope>HotelTelegramBot::Logger</scope><name>Log</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

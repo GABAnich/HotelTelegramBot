@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_cd150af04fc3354df4ce7417f30095a4" kind="dir">
+    <compoundname>HotelTelegramBot/Controller/ChatResponder</compoundname>
+    <innerfile refid="_book_room__00_8cs">BookRoom_00.cs</innerfile>
+    <innerfile refid="_book_room__01_8cs">BookRoom_01.cs</innerfile>
+    <innerfile refid="_book_room__02_8cs">BookRoom_02.cs</innerfile>
+    <innerfile refid="_book_room__03_8cs">BookRoom_03.cs</innerfile>
+    <innerfile refid="_book_room__04_8cs">BookRoom_04.cs</innerfile>
+    <innerfile refid="_book_room__05_8cs">BookRoom_05.cs</innerfile>
+    <innerfile refid="_book_room__06_8cs">BookRoom_06.cs</innerfile>
+    <innerfile refid="_book_room__07_8cs">BookRoom_07.cs</innerfile>
+    <innerfile refid="_book_room__08_8cs">BookRoom_08.cs</innerfile>
+    <innerfile refid="_book_room__09_8cs">BookRoom_09.cs</innerfile>
+    <innerfile refid="_book_room__10_8cs">BookRoom_10.cs</innerfile>
+    <innerfile refid="_cancel_reservation__0_8cs">CancelReservation_0.cs</innerfile>
+    <innerfile refid="_chat_responder_8cs">ChatResponder.cs</innerfile>
+    <innerfile refid="_chat_state_8cs">ChatState.cs</innerfile>
+    <innerfile refid="_hotel_room__0_8cs">HotelRoom_0.cs</innerfile>
+    <innerfile refid="_main_menu_8cs">MainMenu.cs</innerfile>
+    <innerfile refid="_start_8cs">Start.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/"/>
+  </compounddef>
+</doxygen>

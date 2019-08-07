@@ -76,6 +76,7 @@
     <Compile Include="Controller\MessageController.cs" />
     <Compile Include="Controller\ServicesMessageController.cs" />
     <Compile Include="Controller\Validator.cs" />
+    <Compile Include="Interface1.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Migrations\201812080709146_InitialCreate.cs" />
     <Compile Include="Migrations\201812080709146_InitialCreate.Designer.cs">

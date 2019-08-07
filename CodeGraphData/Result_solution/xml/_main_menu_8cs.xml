@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="_main_menu_8cs" kind="file">
+    <compoundname>MainMenu.cs</compoundname>
+    <innerclass refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu" prot="package">HotelTelegramBot::Controller::MainMenu</innerclass>
+    <innernamespace refid="namespace_hotel_telegram_bot_1_1_controller">HotelTelegramBot::Controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using</highlight><highlight class="normal"><sp/>HotelTelegramBot.Model;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>HotelTelegramBot.View;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>Telegram.Bot.Types;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">HotelTelegramBot.Controller</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7" refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">internal</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu" kindref="compound">MainMenu</ref><sp/>:<sp/><ref refid="class_hotel_telegram_bot_1_1_controller_1_1_start" kindref="compound">Start</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="9" refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu_1ac76d78d53c777b08221d9ab49d3841c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/>async<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu_1ac76d78d53c777b08221d9ab49d3841c4" kindref="member">OnStateChange</ref>(Chat<sp/>chat)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>DbServices.ClearUserTempDataAsync(chat.Id);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>await<sp/>ServicesMessageController.SendMessageAsync(chat.Id,<sp/></highlight><highlight class="stringliteral">&quot;Головне<sp/>меню&quot;</highlight><highlight class="normal">,<sp/>Keyboards.MainKeyboard);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu_1a5c7088d957c92f2b59d68ee59fc4887c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu_1a5c7088d957c92f2b59d68ee59fc4887c" kindref="member">Back</ref>()</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responder.SetState(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_hotel_telegram_bot_1_1_controller_1_1_start" kindref="compound">Start</ref>());</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/ChatResponder/MainMenu.cs"/>
+  </compounddef>
+</doxygen>

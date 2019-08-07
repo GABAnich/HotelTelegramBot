@@ -1,0 +1,506 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_about_hotel" kind="class"><name>HotelTelegramBot::Model::AboutHotel</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_about_hotel_1af2edfffd2cba8c75e0c57646181445b7" kind="property"><name>InfoAboutHotel</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_about_hotel_1ad7ec9a6836d47966609f612bd7ec4d2c" kind="property"><name>ImageAboutHotel</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__00" kind="class"><name>HotelTelegramBot::Controller::BookRoom_00</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__00_1a95631e0358cf347202cf2e09ad043050" kind="function"><name>OnStateChange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__00_1af880570c4db4644fdbeda55bdeb7e31e" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__00_1a6af7f8f4829e01e7235aaffecebfba2f" kind="function"><name>Back</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__01" kind="class"><name>HotelTelegramBot::Controller::BookRoom_01</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__01_1af395f06a18092c927f378fd8403f22f9" kind="function"><name>OnStateChange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__01_1a5a0cf3dcbf279b9c90944f07292c294a" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__01_1ac4069bb7b4245cea1cc2d482f384711e" kind="function"><name>Back</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__02" kind="class"><name>HotelTelegramBot::Controller::BookRoom_02</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__02_1a7710149f2fc7a7fe0fe05aba55fad8a4" kind="function"><name>OnStateChange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__02_1aa3195f4e8c4b8a07a89cf2761945774e" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__02_1a41fb6cd6dfcc53fe8c4f604e258245c8" kind="function"><name>Back</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__03" kind="class"><name>HotelTelegramBot::Controller::BookRoom_03</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__03_1a1c00710218036895fecbf6adf4116fe0" kind="function"><name>OnStateChange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__03_1a81f6b4701bec203c77457d45d51895de" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__03_1a201d164cb4f906c74170367f3d790dbe" kind="function"><name>Back</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__04" kind="class"><name>HotelTelegramBot::Controller::BookRoom_04</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__04_1a0c4d4b87c47d48637c8187d37caa8357" kind="function"><name>OnStateChange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__04_1a0279f289d6b314e55e91eb0f7cdf62c6" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__04_1af277fc08cef87de7af642b698193eb3c" kind="function"><name>Back</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__05" kind="class"><name>HotelTelegramBot::Controller::BookRoom_05</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__05_1aff01b68fcc5e6a3baae86c1908e8e582" kind="function"><name>Back</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__05_1a13af9e3987c263892a0936d6d8ad98d2" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__05_1a4ac9977058ee75c97675483a13482398" kind="function"><name>OnStateChange</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__06" kind="class"><name>HotelTelegramBot::Controller::BookRoom_06</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__06_1ab3b31373d9061ee780294446a0969a62" kind="function"><name>Back</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__06_1a9b1e21aa041d3b11ce710d1aa52b6d3b" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__06_1a61a42d0d3d2252f1958482a57aab3ef4" kind="function"><name>OnStateChange</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07" kind="class"><name>HotelTelegramBot::Controller::BookRoom_07</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07_1af4c5d37c3cc30197f07c42d04b1df19f" kind="function"><name>Back</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07_1a393213ec10da2cd1b43b4599d2dbee2c" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__07_1ae815311fa1b157287abbd2d238b9e1aa" kind="function"><name>OnStateChange</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__08" kind="class"><name>HotelTelegramBot::Controller::BookRoom_08</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__08_1a1e4911a301345f93e2a54fd545d47752" kind="function"><name>Back</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__08_1af2667d3d778fc88edb7e62556147eac4" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__08_1a4354a4b49df409f84277d3e1a2d39896" kind="function"><name>OnStateChange</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__09" kind="class"><name>HotelTelegramBot::Controller::BookRoom_09</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__09_1afd5d389a996db636756388c02ddc0e27" kind="function"><name>Back</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__09_1aba0f2fe81bb01d229f3a16b1159aba2d" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__09_1aa33170ccab988c4da704bca4fa791feb" kind="function"><name>OnStateChange</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__10" kind="class"><name>HotelTelegramBot::Controller::BookRoom_10</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__10_1a157e36497b6a3f8dccec9fdf3bf3db45" kind="function"><name>Back</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__10_1a790b663b3693bbafe16adae30afa71f0" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_book_room__10_1a60a0d2d193fd82b8bff1cb93bbe44a0d" kind="function"><name>OnStateChange</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_cancel_reservation__0" kind="class"><name>HotelTelegramBot::Controller::CancelReservation_0</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_cancel_reservation__0_1a877dd46b3199ace0ad2b0552db2c24d1" kind="function"><name>Back</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_cancel_reservation__0_1a8c076546fcb76d4669dc3c0299a7392a" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_cancel_reservation__0_1a48146d1cdf04767e84aeac2aa68e83d7" kind="function"><name>OnStateChange</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder" kind="class"><name>HotelTelegramBot::Controller::ChatResponder</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1a16521d6dd00bcbfc26d530909f13f70f" kind="variable"><name>state</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1a28e03c31cabb8ca27981e7163d8cee9e" kind="variable"><name>chat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1aa83c546e16bc16ecba94f1a693826250" kind="function"><name>ChatResponder</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1af2c320537f5cfeafce51b1af8e6f2bea" kind="function"><name>SetState</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_responder_1aa08d353473f8bce40f6e45bf84bcb826" kind="function"><name>ReceiveMessageAsync</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state" kind="class"><name>HotelTelegramBot::Controller::ChatState</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1a77d109f65ea94a9cc43a7bf4f52d036c" kind="variable"><name>responder</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1a79935b380efdfd818ba59a7b45d8ddce" kind="function"><name>SetResponder</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1a974d3c73dc9ab372aff61d32ffbc1878" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1ad5c3a7e56a854c3898cdf5dd5db09822" kind="function"><name>OnStateChange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_chat_state_1ad309a856ea76627a5f165e8cce342cd8" kind="function"><name>Back</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_config_telegram_bot" kind="class"><name>HotelTelegramBot::ConfigTelegramBot</name>
+    <member refid="class_hotel_telegram_bot_1_1_config_telegram_bot_1a2c7b8fe37a392454a938dff80da9c82c" kind="property"><name>APIToken</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_config_telegram_bot_1a9a61c957bc09b43320dc2f80a3cdf490" kind="property"><name>LogFile</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_migrations_1_1_configuration" kind="class"><name>HotelTelegramBot::Migrations::Configuration</name>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_configuration_1a336119e69ba4ac6ced3675446e685a01" kind="function"><name>Configuration</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_configuration_1a1ae94ecd6f1555d9223807a02d912d5e" kind="function"><name>Seed</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_db_services" kind="class"><name>HotelTelegramBot::Model::DbServices</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a6cda116f1494857c6f8146e18e846a6c" kind="function"><name>CrateIfNotExistUserChatAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a38e44f8757b10da69699ae4bad37a58c" kind="function"><name>GetChatPositionByIdChat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1aa579393fc3dbe3800be3f0e306bb621d" kind="function"><name>ChangePositionAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1ab64bf5636b8e2958e867b448494c6ec9" kind="function"><name>SaveUserTempDataAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a2f6cba0b7e669e42699f1e1d3f51fd65" kind="function"><name>GetUserTempDataValue</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a836bca14f314c449086482da00437060" kind="function"><name>ClearUserTempDataAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1aad48d8a5d376ea569e6184be293b7800" kind="function"><name>GetIntermediateDates</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1ab89a9889d9a554475e496dc828560037" kind="function"><name>GetIntermediateDates</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a8e9dfea32cc8eaa7e65a3d5298ac2bfe" kind="function"><name>GetAviableRooms</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a16061b8fbe701593b765ba4d557892d4" kind="function"><name>GetHotelRoomTypeIds</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1ab4d54352444ab8f922ceab3689848d90" kind="function"><name>GetHotelRoomTypeImagesUrl</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1ad89167440aa8fbd3959bcf7a90683b74" kind="function"><name>GetAviableRoomTypes</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a1b03e8a07079bc93f1fc323f57296f55" kind="function"><name>GetValidReservation</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a0110599b6b4dffd9537efa65f5f0ca79" kind="function"><name>DeleteHotelRoomReservedDateByRoomIdAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1ab74889869f2c64eb00ea80d57ae5f34c" kind="function"><name>AddReservationAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a9b324173c43da477e6d2b253ca678838" kind="function"><name>GetHotelRoom</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1a6ee65f6686a6d61ba8f7b5b5aff86e09" kind="function"><name>GetReservationFromTempData</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_db_services_1aaf9a459743af2723894b7cf819c78c61" kind="function"><name>IsAviableDate</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room" kind="class"><name>HotelTelegramBot::Model::HotelRoom</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1ae07f313ebcdedb80f80a0acf75192248" kind="property"><name>Id</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1a0d73dae25d3ac41d53cfa638c0b640ca" kind="property"><name>HotelRoomTypeId</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1a2667291d440aa559585ac17d880c09db" kind="property"><name>HotelRoomType</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1a1ba6ac28e8a6c3a5b3fd40e8cf3eb174" kind="property"><name>ReservationReservedDate</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1af6d17067048d63d2fbc5d9b487e31a08" kind="property"><name>Reservation</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1ad70c1e39f4773f69844aa68acaf43cdf" kind="property"><name>Name</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_1afcafbf2525904497dcec5236f3d656af" kind="property"><name>Floor</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_hotel_room__0" kind="class"><name>HotelTelegramBot::Controller::HotelRoom_0</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_hotel_room__0_1ac20b9d73e9710ca4983cea80f288f64a" kind="function"><name>Back</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_hotel_room__0_1a1b4a4ef579b9b7c5b081ca6cfd2c0fff" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_hotel_room__0_1ac13ccbb23349eb31e7e0bcf6bbc0a40c" kind="function"><name>OnStateChange</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date" kind="class"><name>HotelTelegramBot::Model::HotelRoomReservedDate</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date_1afd98f7434f3caf75ee8ca5d85f658f0e" kind="property"><name>Id</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date_1aea1109d3c55ff202530538b9163d245d" kind="property"><name>ReservationId</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date_1aa00045f3db91e1626320a27ed04a371e" kind="property"><name>Reservation</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date_1a8c7a1e1d01970c1455261bd431dfd622" kind="property"><name>ReservedDate</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type" kind="class"><name>HotelTelegramBot::Model::HotelRoomType</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a67b47d14d96e7da771981fe5535ce75a" kind="property"><name>Id</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a6bb97c6526ecdf2823ba8b2fc403b3a6" kind="property"><name>HotelRoomTypeImage</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a6b1e6b65374cc74310f170f69accf0d5" kind="property"><name>HotelRoom</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a96df321a23ebd7247735e8a150410f10" kind="property"><name>Name</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a4750278d6513e1de10e6dd0570f28f22" kind="property"><name>MaxNumberOfAdults</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a98a3dd72b0cdc396331b9b5a30f1a8b0" kind="property"><name>MaxNumberOfChildren</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a4847d2e0690d9e76bcd81bb41760f737" kind="property"><name>Services</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1ad118bdf0e0cb253a4c4d201c717219fd" kind="property"><name>Area</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a53757e5751e4ff23197f18355c2b0eda" kind="property"><name>Description</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a1a0e6fc61a30deaaa535c15438b430d0" kind="property"><name>TotalCountRoom</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_1a1aaf459ceb1fca9f14c06a2d750bcafe" kind="property"><name>Price</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_image" kind="class"><name>HotelTelegramBot::Model::HotelRoomTypeImage</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_image_1acf4bb742ad1bab6dbfaf6e7e16e13091" kind="property"><name>Id</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_image_1ad498cde79622f2df2622dfeb61fb93eb" kind="property"><name>HotelRoomTypeId</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_image_1a6a49396335e4152cd688c14180c4aec0" kind="property"><name>HotelRoomType</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type_image_1ada0ea6e106e7375921b6577068b486cd" kind="property"><name>ImageURL</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_migrations_1_1_hotel_telegam_bot" kind="class"><name>HotelTelegramBot::Migrations::HotelTelegamBot</name>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_hotel_telegam_bot_1a62e66aca361b328dd443f565b416b993" kind="variable"><name>Resources</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_hotel_telegam_bot_1a66fba634d4eaf93bf30cf0c4601a26c1" kind="property"><name>Id</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_hotel_telegam_bot_1a4a2a52f7d132938afdee4c7dc1724798" kind="property"><name>Source</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_hotel_telegam_bot_1a670d5d413506b7c135a443fa46b241ab" kind="property"><name>Target</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_hotel_telegam_bot_1aeeaa6594c47b5eca759f60d84f9eb3fe" kind="function"><name>Up</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_hotel_telegam_bot_1ab3f8702515b23e01d7f5b2ee95f72a6b" kind="function"><name>Down</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context" kind="class"><name>HotelTelegramBot::HotelTelegramBotContext</name>
+    <member refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a242f8701c778a9bb8d4930489314d1d9" kind="property"><name>UserChats</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a263f61e6649f9dd7685971686683837e" kind="property"><name>TempInformation</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a207191dc44bb441c5725e5503b39de9a" kind="property"><name>HotelRoomTypes</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1aacf1df01f0eefeb67dbacbcd1a5a19ea" kind="property"><name>HotelRoomTypeImages</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a93320edaf9ca1f966984fff69e6ae7a1" kind="property"><name>HotelRooms</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a0a12d21d3f5f9923385514a6dd5a07ad" kind="property"><name>HotelRoomReservedDate</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a177be699ea4c7e25e36cb97aa976f079" kind="property"><name>Reservations</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_hotel_telegram_bot_context_1a8f24f120c70b045d5cf5bd08c9ff37fc" kind="function"><name>HotelTelegramBotContext</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_migrations_1_1_initial_create" kind="class"><name>HotelTelegramBot::Migrations::InitialCreate</name>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_initial_create_1ab11ce265decf2e4c6b51e1069cbe43ba" kind="variable"><name>Resources</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_initial_create_1a5ac9ae4d9c091d31c2f7b54e23a5c9d0" kind="property"><name>Id</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_initial_create_1a23154eb311f88802134fffbf9677b311" kind="property"><name>Source</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_initial_create_1a5dbcc45eb0c04b5a26430f11627b87c1" kind="property"><name>Target</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_initial_create_1ad0681728810d12a775713ffa82b6b2c9" kind="function"><name>Up</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_migrations_1_1_initial_create_1a926bed216016b517a94faf89b28b98a1" kind="function"><name>Down</name></member>
+  </compound>
+  <compound refid="interface_hotel_telegram_bot_1_1_interface1" kind="interface"><name>HotelTelegramBot::Interface1</name>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards" kind="class"><name>HotelTelegramBot::View::Keyboards</name>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards_1a147e36578807e47061aa5224806a29ec" kind="variable"><name>MainKeyboard</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards_1ad74cd739ed95cd35d4e39fb7dbe6901e" kind="variable"><name>ReturnMainMenu</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards_1a7fa073d5b8b10964f66c5b1e4d488aad" kind="property"><name>Adults</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards_1a8912cffbfc437642b7a9dc5562a6842e" kind="property"><name>Children</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards_1af92b6db4cb18b4599cca75d40cb35835" kind="function"><name>NextDates</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards_1a6c0234f129dc6ec75509408184ac358b" kind="function"><name>Text</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards_1a754b285f409c63853fd7e3c03ff71fcb" kind="function"><name>GetRoomTypesMenu</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards_1ace7df89faf0c45b4e6455508a351d276" kind="function"><name>GetReservationsMenu</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_keyboards_1a33d287fe870732a83bfd10dccf5101e0" kind="function"><name>GetRequestcontactKeyboard</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_logger" kind="class"><name>HotelTelegramBot::Logger</name>
+    <member refid="class_hotel_telegram_bot_1_1_logger_1a41c270cab7abe79a29cfc7eaa89784fb" kind="function"><name>Log</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_logger_1a1c2b2a1e4c5138ea6f07e3be8be4c14c" kind="function"><name>Log</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_logger_1a62b6f01c79cbf8b57077b1e41b0cfa17" kind="function"><name>Log</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu" kind="class"><name>HotelTelegramBot::Controller::MainMenu</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu_1ac76d78d53c777b08221d9ab49d3841c4" kind="function"><name>OnStateChange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_main_menu_1a5c7088d957c92f2b59d68ee59fc4887c" kind="function"><name>Back</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_message_controller" kind="class"><name>HotelTelegramBot::Controller::MessageController</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_message_controller_1aafe6c7c8142c0c298c91e58bdb46fd8c" kind="variable"><name>chatResponders</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_message_controller_1a4b2d9fa3f860e295dad04caaed3a85cd" kind="function"><name>OnMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_message_controller_1ada2df0617bfbdd1ced8e3ee8f73e1e04" kind="function"><name>OnCallbackQueryAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_message_controller_1a48afeea8306acb46dda07dfd4f9afd0c" kind="function"><name>SetUpChatResponder</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_program" kind="class"><name>HotelTelegramBot::Program</name>
+    <member refid="class_hotel_telegram_bot_1_1_program_1aae9f000706aafc2dbdfcfb89ba5a1296" kind="variable"><name>botClient</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_program_1a51aff241029b604b379de7ee35eeeb3b" kind="variable"><name>messageController</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_program_1ad011afdae614592586f4d511dab7b7b7" kind="function"><name>Main</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_reservation" kind="class"><name>HotelTelegramBot::Model::Reservation</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1a71b528684ddf1d1c9fee86c54a3aeb6b" kind="property"><name>Id</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1aaebc7911be6570bd15713a3b8d1d10e6" kind="property"><name>HotelRoomId</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1aaf51f2e9642067c3af8b8bace05d509e" kind="property"><name>HotelRoom</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1ab0b54aa8d606c28016d8513630a6f617" kind="property"><name>IdUserChat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1ab09fc2e8da9d9b4a2b081af536c203d7" kind="property"><name>UserChat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1acd92b72f10222ecec0b1999b438ca9cc" kind="property"><name>SecondName</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1acae3537a02b0c5e7d01c8bbc191de026" kind="property"><name>FirstName</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1a6c2b7e9b8a984afcb5d1cb44d31db96e" kind="property"><name>MiddleName</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1a16a03928a00d5e5d90db17da342fc5b0" kind="property"><name>Number</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1a094cafc33414eb3c570ee0ba600ca6a8" kind="property"><name>Email</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1ab90019040c35dc19cca9eab79efb915e" kind="property"><name>DateOfArrival</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1a7cbcbc8c1773aa2157ea499d4b734d5f" kind="property"><name>DateOfDeparture</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1afe06ccac66a517cc03ad6244c7af984f" kind="property"><name>NumberOfAdults</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_reservation_1a27c22a39c05c37fb332ab1eaf21d3cb0" kind="property"><name>NumberOfChildren</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room" kind="class"><name>HotelTelegramBot::Model::Services::ServicesHotelRoom</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_1acad819917379339e5569e16247906ff8" kind="function"><name>GetHotelRoomById</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_1ada3e73d53c762922cf4ac58cb74df0ba" kind="function"><name>GetAviableHotelRooms</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date" kind="class"><name>HotelTelegramBot::Model::Services::ServicesHotelRoomReservedDate</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1acadab7c5b2c4fd4e7983a2e36d5bcfde" kind="function"><name>GetHotelRoomReservedDatesByReservationId</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1ae5a0f44108c804de343d4254ea153ff4" kind="function"><name>AddHotelRoomReservedDatesAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1aa6be6dac37edeae8d425d2f82ea86c11" kind="function"><name>GetReservationIds</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1adcbb6707e878989d403e4ea978433e01" kind="function"><name>DeleteHotelRoomReservedDateDatesAsync</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_type" kind="class"><name>HotelTelegramBot::Model::Services::ServicesHotelRoomType</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_type_1a2206b07bd5c1cfaaea5ce27d5f6bdbf1" kind="function"><name>GetHotelRoomTypeById</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_type_1a6baf1ee0461be36746702616ccc7489b" kind="function"><name>GetHotelRoomTypes</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_type_1af04066caff87cc6b515317623327912f" kind="function"><name>GetHotelRoomTypes</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_type_images" kind="class"><name>HotelTelegramBot::Model::Services::ServicesHotelRoomTypeImages</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_type_images_1a8f2e8786e4a8b33a5605a72e024ec7e4" kind="function"><name>GetHotelRoomTypeImages</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_services_message_controller" kind="class"><name>HotelTelegramBot::Controller::ServicesMessageController</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_services_message_controller_1a2ca8c78dd2d68f129565912ef3e77366" kind="function"><name>SendPhotosAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_services_message_controller_1aca3f4760cb9ea1ad32fa9560a952ad86" kind="function"><name>SendPhotoAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_services_message_controller_1a8b4d308bd02ada63bd62ebe1a41fe186" kind="function"><name>SendMessageAsync</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_reservation" kind="class"><name>HotelTelegramBot::Model::Services::ServicesReservation</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_reservation_1a84067d4114870a4bce2bcb5da3a2dd4b" kind="function"><name>GetReservationById</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_reservation_1aba87c2438b2849d9358ad9d79146d231" kind="function"><name>GetReservationByChatId</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_reservation_1a16b23094e96175f4e554393a02866879" kind="function"><name>GetReservedHotelRoomIds</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_reservation_1a5be8ca34a43e8d5dba176d74633d2c8f" kind="function"><name>DeleteReservationByIdAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_reservation_1ae5f45571ddd75380d590d5801c3ce0bf" kind="function"><name>AddReservationAsync</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_temp_information" kind="class"><name>HotelTelegramBot::Model::Services::ServicesTempInformation</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_temp_information_1a216bebbf3960fdc359422c0d3f07c9f7" kind="function"><name>AddTempInformationAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_temp_information_1a54e0f2d1f5a357faa127c4dc4cf5b99e" kind="function"><name>GetTempInformation</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_temp_information_1afe5c077ceb88d61779c5081ce776490e" kind="function"><name>RemoveRangeTempInformationByChatIdAsync</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_user_chat" kind="class"><name>HotelTelegramBot::Model::Services::ServicesUserChat</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_user_chat_1aa1b13f59d945943e1d62313fd394709a" kind="function"><name>GetUserChatByIdChat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_user_chat_1a5492895a17342a9033847e81db78dee4" kind="function"><name>AddUserChatAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_user_chat_1acee6f85c807a2baefb8c2ba8b45722f9" kind="function"><name>UpdateChatPositionAsync</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_start" kind="class"><name>HotelTelegramBot::Controller::Start</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_start_1a3f27fa65453d5da40750c32ea2078a29" kind="function"><name>OnStateChange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_start_1ade791c0967d6c39b0b89ccdf5325f74e" kind="function"><name>ReceiveMessageAsync</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_start_1aef4b729f1a793eb6f423cbfb8cc2aa49" kind="function"><name>Back</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_temp_information" kind="class"><name>HotelTelegramBot::Model::TempInformation</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_temp_information_1a11c2fd67f83c95e3406d934ea31fd724" kind="property"><name>Id</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_temp_information_1ae715938d6c5e41d8339bea06a9ab153a" kind="property"><name>IdUserChat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_temp_information_1a451e0aaf1c2f5e665570ec1c3d0dd2f5" kind="property"><name>UserChat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_temp_information_1adc4076a995c35933f51151c4631df5bb" kind="property"><name>Property</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_temp_information_1a0bb03f73d1ac6580c8edc47b02f5b6f5" kind="property"><name>Value</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_model_1_1_user_chat" kind="class"><name>HotelTelegramBot::Model::UserChat</name>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_user_chat_1ae06d793a4af6b90225e36f5c692a2582" kind="property"><name>Id</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_user_chat_1a9c605189f94b4fc8e854e0359a044576" kind="property"><name>TempInformation</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_user_chat_1aed71be5a700ebba444d20848fec32532" kind="property"><name>Reservation</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_user_chat_1a8f4e9bc18997d6f35a0d0c702ec7214c" kind="property"><name>IdChat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_user_chat_1aea66a4001b8d355f8bc81169625d31ae" kind="property"><name>ChatPosition</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_user_chat_1a50a262c9a6c1ae7c1ad107e543b2d7f1" kind="function"><name>UserChat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_model_1_1_user_chat_1aba06286d17f8a6c7359ca1d486cbd280" kind="function"><name>UserChat</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_controller_1_1_validator" kind="class"><name>HotelTelegramBot::Controller::Validator</name>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1af2e6889ee92437ab68f39645ee73a5af" kind="variable"><name>BadDateFormat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a0d8bd6291ff5f5d8c39d68e4e056a64a" kind="variable"><name>BadDateLessCurrent</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a39e15d9851d68e4d7e0ae254a19d6c23" kind="variable"><name>BadDateRange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1aff719b8e60fcbafffb63c9dfd070e34e" kind="variable"><name>BadNumber</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a6f8b26d141ae72e2bb698e666849e6bc" kind="variable"><name>BadNumberRange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a0820c9af6988b0ee5d1763d929bc34e2" kind="variable"><name>BadEmail</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a22707af79015b4b64670cdd031ffdcd7" kind="variable"><name>BadPhoneNumber</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a631d0f0c96c28c730d7dc167b4c0321e" kind="variable"><name>BadName</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a77be5c62b0e5cb60f7960356d4795246" kind="function"><name>CheckDateFormat</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a7ceae217fb59ddf5c1ea6cb9857ac7a2" kind="function"><name>CheckDateBigerCurrent</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a8e3655643c905190411b6f9cc6f3f1c8" kind="function"><name>CheckDateRange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1ac6ccfce5e516bf15b9863103cfd2d21b" kind="function"><name>CheckNumber</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1aa4f07683dcdc47c2dc173f92932ee3d4" kind="function"><name>CheckNumberRange</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a996fc17a05f570054090e3c0db00043a" kind="function"><name>CheckEmail</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a7672be19377ac0de415e65f8069d69b4" kind="function"><name>CheckPhoneNumber</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_controller_1_1_validator_1a7971720d2a99adbb6f6ceefbf4d80811" kind="function"><name>CheckName</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests" kind="class"><name>HotelTelegramBot::UnitTest::ValidatorTests</name>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1a6e13522b15103ac4abf0bce0120e4b67" kind="function"><name>CheckDateFormat_CorectFormat_ReturnsTrue</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1ae200f5b3b92c4d4b8f356030b5e17b22" kind="function"><name>CheckDateFormat_IncorectFormat_ReturnsFalse</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1acf60d842f3ad93c916097480444f5f6e" kind="function"><name>CheckDateBigerCurrent_DateIsBefor_ReturnsFalse</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1a800f882a37c33afef86daf686963dac6" kind="function"><name>CheckDateRange_EndDateIsLateStartDate_ReturnTrue</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1a09bfcc872b47fa28fe5b5f21e7bc9755" kind="function"><name>CheckDateRange_StartDateIsLateEndDate_ReturnFalse</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1a44d7dc858e0a5c1bccfddd094b4a044a" kind="function"><name>CheckNumber_ValidNumber_ReturnTrue</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1a9ef3eb8d659414bc03f4372ad3446724" kind="function"><name>CheckNumber_InvalidNumber_ReturnFalse</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1afb9f245d9e8f0a9d7ed285487ee1b26c" kind="function"><name>CheckNumberRange_NumberInRange_ReturnTrue</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1aa31e83055eb207334c9756d21df238a1" kind="function"><name>CheckNumberRange_NumberOutOfRange_ReturnFalse</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1acc702b48e68ba468235a01be3ffb6fb0" kind="function"><name>CheckNumberRange_NegativeNumberOutOfRange_ReturnFalse</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1afe0a99d3d7e524dd5d57cdb32b4d1550" kind="function"><name>CheckEmail_CorrectFormat_ReturnTrue</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1a593dc3236964aa7c4d33ae723042045e" kind="function"><name>CheckEmail_CorrectFormat_ReturnFalse</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1a1b3016fa4790384c10591fbc3052daaf" kind="function"><name>CheckPhoneNumber_CorrectFormat_ReturnTrue</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1a2ed92b2be7f5cfbf08b0bd3ff46def2f" kind="function"><name>CheckPhoneNumber_IncorrectFormat_ReturnFalse</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1ad25296a61c46c482ced6b5ce167ce510" kind="function"><name>CheckName_CorrectFormat_ReturnTrue</name></member>
+    <member refid="class_hotel_telegram_bot_1_1_unit_test_1_1_validator_tests_1ab2e2ee870626c1cb9977565db6b283d8" kind="function"><name>CheckName_IncorrectFormat_ReturnFalse</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_view_1_1_view_reservation" kind="class"><name>HotelTelegramBot::View::ViewReservation</name>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_view_reservation_1aa811b043cab901082c29c6ea0113cb01" kind="function"><name>GetTextAboutReservation</name></member>
+  </compound>
+  <compound refid="class_hotel_telegram_bot_1_1_view_1_1_view_room_type" kind="class"><name>HotelTelegramBot::View::ViewRoomType</name>
+    <member refid="class_hotel_telegram_bot_1_1_view_1_1_view_room_type_1a9d4c86c4208aacda604a8595a97a54de" kind="function"><name>GetTextAboutRoomType</name></member>
+  </compound>
+  <compound refid="namespace_hotel_telegram_bot" kind="namespace"><name>HotelTelegramBot</name>
+  </compound>
+  <compound refid="namespace_hotel_telegram_bot_1_1_controller" kind="namespace"><name>HotelTelegramBot::Controller</name>
+  </compound>
+  <compound refid="namespace_hotel_telegram_bot_1_1_migrations" kind="namespace"><name>HotelTelegramBot::Migrations</name>
+  </compound>
+  <compound refid="namespace_hotel_telegram_bot_1_1_model" kind="namespace"><name>HotelTelegramBot::Model</name>
+  </compound>
+  <compound refid="namespace_hotel_telegram_bot_1_1_model_1_1_services" kind="namespace"><name>HotelTelegramBot::Model::Services</name>
+  </compound>
+  <compound refid="namespace_hotel_telegram_bot_1_1_unit_test" kind="namespace"><name>HotelTelegramBot::UnitTest</name>
+  </compound>
+  <compound refid="namespace_hotel_telegram_bot_1_1_view" kind="namespace"><name>HotelTelegramBot::View</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_visual_studio_1_1_test_tools_1_1_unit_testing" kind="namespace"><name>Microsoft::VisualStudio::TestTools::UnitTesting</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_code_dom_1_1_compiler" kind="namespace"><name>System::CodeDom::Compiler</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_data_1_1_entity" kind="namespace"><name>System::Data::Entity</name>
+  </compound>
+  <compound refid="namespace_system_1_1_data_1_1_entity_1_1_migrations" kind="namespace"><name>System::Data::Entity::Migrations</name>
+  </compound>
+  <compound refid="namespace_system_1_1_data_1_1_entity_1_1_migrations_1_1_infrastructure" kind="namespace"><name>System::Data::Entity::Migrations::Infrastructure</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_resources" kind="namespace"><name>System::Resources</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_interop_services" kind="namespace"><name>System::Runtime::InteropServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text_1_1_regular_expressions" kind="namespace"><name>System::Text::RegularExpressions</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading" kind="namespace"><name>System::Threading</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="namespace_system_1_1_xml" kind="namespace"><name>System::Xml</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot" kind="namespace"><name>Telegram::Bot</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot_1_1_args" kind="namespace"><name>Telegram::Bot::Args</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot_1_1_types" kind="namespace"><name>Telegram::Bot::Types</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot_1_1_types_1_1_enums" kind="namespace"><name>Telegram::Bot::Types::Enums</name>
+  </compound>
+  <compound refid="namespace_telegram_1_1_bot_1_1_types_1_1_reply_markups" kind="namespace"><name>Telegram::Bot::Types::ReplyMarkups</name>
+  </compound>
+  <compound refid="_validator_tests_8cs" kind="file"><name>ValidatorTests.cs</name>
+  </compound>
+  <compound refid="_config_telegram_bot_8cs" kind="file"><name>ConfigTelegramBot.cs</name>
+  </compound>
+  <compound refid="_book_room__00_8cs" kind="file"><name>BookRoom_00.cs</name>
+  </compound>
+  <compound refid="_book_room__01_8cs" kind="file"><name>BookRoom_01.cs</name>
+  </compound>
+  <compound refid="_book_room__02_8cs" kind="file"><name>BookRoom_02.cs</name>
+  </compound>
+  <compound refid="_book_room__03_8cs" kind="file"><name>BookRoom_03.cs</name>
+  </compound>
+  <compound refid="_book_room__04_8cs" kind="file"><name>BookRoom_04.cs</name>
+  </compound>
+  <compound refid="_book_room__05_8cs" kind="file"><name>BookRoom_05.cs</name>
+  </compound>
+  <compound refid="_book_room__06_8cs" kind="file"><name>BookRoom_06.cs</name>
+  </compound>
+  <compound refid="_book_room__07_8cs" kind="file"><name>BookRoom_07.cs</name>
+  </compound>
+  <compound refid="_book_room__08_8cs" kind="file"><name>BookRoom_08.cs</name>
+  </compound>
+  <compound refid="_book_room__09_8cs" kind="file"><name>BookRoom_09.cs</name>
+  </compound>
+  <compound refid="_book_room__10_8cs" kind="file"><name>BookRoom_10.cs</name>
+  </compound>
+  <compound refid="_cancel_reservation__0_8cs" kind="file"><name>CancelReservation_0.cs</name>
+  </compound>
+  <compound refid="_chat_responder_8cs" kind="file"><name>ChatResponder.cs</name>
+  </compound>
+  <compound refid="_chat_state_8cs" kind="file"><name>ChatState.cs</name>
+  </compound>
+  <compound refid="_hotel_room__0_8cs" kind="file"><name>HotelRoom_0.cs</name>
+  </compound>
+  <compound refid="_main_menu_8cs" kind="file"><name>MainMenu.cs</name>
+  </compound>
+  <compound refid="_start_8cs" kind="file"><name>Start.cs</name>
+  </compound>
+  <compound refid="_message_controller_8cs" kind="file"><name>MessageController.cs</name>
+  </compound>
+  <compound refid="_services_message_controller_8cs" kind="file"><name>ServicesMessageController.cs</name>
+  </compound>
+  <compound refid="_validator_8cs" kind="file"><name>Validator.cs</name>
+  </compound>
+  <compound refid="_interface1_8cs" kind="file"><name>Interface1.cs</name>
+  </compound>
+  <compound refid="_logger_8cs" kind="file"><name>Logger.cs</name>
+  </compound>
+  <compound refid="201812080709146___initial_create_8cs" kind="file"><name>201812080709146_InitialCreate.cs</name>
+  </compound>
+  <compound refid="201812080709146___initial_create_8_designer_8cs" kind="file"><name>201812080709146_InitialCreate.Designer.cs</name>
+  </compound>
+  <compound refid="201901140716283___hotel_telegam_bot_8cs" kind="file"><name>201901140716283_HotelTelegamBot.cs</name>
+  </compound>
+  <compound refid="201901140716283___hotel_telegam_bot_8_designer_8cs" kind="file"><name>201901140716283_HotelTelegamBot.Designer.cs</name>
+  </compound>
+  <compound refid="_configuration_8cs" kind="file"><name>Configuration.cs</name>
+  </compound>
+  <compound refid="_hotel_room_8cs" kind="file"><name>HotelRoom.cs</name>
+  </compound>
+  <compound refid="_hotel_room_reserved_date_8cs" kind="file"><name>HotelRoomReservedDate.cs</name>
+  </compound>
+  <compound refid="_hotel_room_type_8cs" kind="file"><name>HotelRoomType.cs</name>
+  </compound>
+  <compound refid="_hotel_room_type_image_8cs" kind="file"><name>HotelRoomTypeImage.cs</name>
+  </compound>
+  <compound refid="_hotel_telegram_bot_context_8cs" kind="file"><name>HotelTelegramBotContext.cs</name>
+  </compound>
+  <compound refid="_reservation_8cs" kind="file"><name>Reservation.cs</name>
+  </compound>
+  <compound refid="_services_8cs" kind="file"><name>Services.cs</name>
+  </compound>
+  <compound refid="_services_about_hotel_8cs" kind="file"><name>ServicesAboutHotel.cs</name>
+  </compound>
+  <compound refid="_services_hotel_room_8cs" kind="file"><name>ServicesHotelRoom.cs</name>
+  </compound>
+  <compound refid="_services_hotel_room_reserved_date_8cs" kind="file"><name>ServicesHotelRoomReservedDate.cs</name>
+  </compound>
+  <compound refid="_services_hotel_room_type_8cs" kind="file"><name>ServicesHotelRoomType.cs</name>
+  </compound>
+  <compound refid="_services_hotel_room_type_images_8cs" kind="file"><name>ServicesHotelRoomTypeImages.cs</name>
+  </compound>
+  <compound refid="_services_reservation_8cs" kind="file"><name>ServicesReservation.cs</name>
+  </compound>
+  <compound refid="_services_temp_information_8cs" kind="file"><name>ServicesTempInformation.cs</name>
+  </compound>
+  <compound refid="_services_user_chat_8cs" kind="file"><name>ServicesUserChat.cs</name>
+  </compound>
+  <compound refid="_temp_information_8cs" kind="file"><name>TempInformation.cs</name>
+  </compound>
+  <compound refid="_user_chat_8cs" kind="file"><name>UserChat.cs</name>
+  </compound>
+  <compound refid="_program_8cs" kind="file"><name>Program.cs</name>
+  </compound>
+  <compound refid="_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_unit_test_2_properties_2_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_keyboards_8cs" kind="file"><name>Keyboards.cs</name>
+  </compound>
+  <compound refid="_view_reservation_8cs" kind="file"><name>ViewReservation.cs</name>
+  </compound>
+  <compound refid="_view_room_type_8cs" kind="file"><name>ViewRoomType.cs</name>
+  </compound>
+  <compound refid="dir_cd150af04fc3354df4ce7417f30095a4" kind="dir"><name>HotelTelegramBot/Controller/ChatResponder</name>
+  </compound>
+  <compound refid="dir_47d5005f2959d24e343eac0ae010431c" kind="dir"><name>HotelTelegramBot/Controller</name>
+  </compound>
+  <compound refid="dir_aa39f5824b05426b80597b133acf22eb" kind="dir"><name>HotelTelegramBot</name>
+  </compound>
+  <compound refid="dir_ab94d0288279b6b408e7828fb43a89de" kind="dir"><name>HotelTelegramBot.UnitTest</name>
+  </compound>
+  <compound refid="dir_577d6678edd673e962879d947d0a45cc" kind="dir"><name>HotelTelegramBot/Migrations</name>
+  </compound>
+  <compound refid="dir_79709807b77302c65423ac3fcdc0ab29" kind="dir"><name>HotelTelegramBot/Model</name>
+  </compound>
+  <compound refid="dir_58bdf423b198492010a85062eb222c41" kind="dir"><name>HotelTelegramBot.UnitTest/Properties</name>
+  </compound>
+  <compound refid="dir_8e3df6e31b32ca95d24906e90b255f41" kind="dir"><name>HotelTelegramBot/Properties</name>
+  </compound>
+  <compound refid="dir_9549f781243ed1ca36e7579512ade914" kind="dir"><name>HotelTelegramBot/Model/Services</name>
+  </compound>
+  <compound refid="dir_1069eb631703a9d5d3c476f1ae4b3cdb" kind="dir"><name>HotelTelegramBot/View</name>
+  </compound>
+</doxygenindex>

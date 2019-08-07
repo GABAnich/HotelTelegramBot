@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_1069eb631703a9d5d3c476f1ae4b3cdb" kind="dir">
+    <compoundname>HotelTelegramBot/View</compoundname>
+    <innerfile refid="_keyboards_8cs">Keyboards.cs</innerfile>
+    <innerfile refid="_view_reservation_8cs">ViewReservation.cs</innerfile>
+    <innerfile refid="_view_room_type_8cs">ViewRoomType.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/View/"/>
+  </compounddef>
+</doxygen>

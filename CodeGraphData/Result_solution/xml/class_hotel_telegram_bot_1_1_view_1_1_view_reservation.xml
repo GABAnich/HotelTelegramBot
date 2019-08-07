@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_view_1_1_view_reservation" kind="class" prot="public">
+    <compoundname>HotelTelegramBot::View::ViewReservation</compoundname>
+      <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_view_1_1_view_reservation_1aa811b043cab901082c29c6ea0113cb01" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string HotelTelegramBot.View.ViewReservation.GetTextAboutReservation</definition>
+        <argsstring>(Reservation r, HotelRoomType t, HotelRoom room, int countDays)</argsstring>
+        <name>GetTextAboutReservation</name>
+        <param>
+          <type><ref refid="class_hotel_telegram_bot_1_1_model_1_1_reservation" kindref="compound">Reservation</ref></type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type><ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_type" kindref="compound">HotelRoomType</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type><ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room" kindref="compound">HotelRoom</ref></type>
+          <declname>room</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>countDays</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/View/ViewReservation.cs" line="7" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/View/ViewReservation.cs" bodystart="7" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/View/ViewReservation.cs" line="6" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/View/ViewReservation.cs" bodystart="5" bodyend="28"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_view_1_1_view_reservation_1aa811b043cab901082c29c6ea0113cb01" prot="package" virt="non-virtual"><scope>HotelTelegramBot::View::ViewReservation</scope><name>GetTextAboutReservation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

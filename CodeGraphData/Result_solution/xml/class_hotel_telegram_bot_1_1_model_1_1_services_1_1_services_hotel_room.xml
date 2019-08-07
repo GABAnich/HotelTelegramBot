@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room" kind="class" prot="package">
+    <compoundname>HotelTelegramBot::Model::Services::ServicesHotelRoom</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_1acad819917379339e5569e16247906ff8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room" kindref="compound">HotelRoom</ref></type>
+        <definition>static HotelRoom HotelTelegramBot.Model.Services.ServicesHotelRoom.GetHotelRoomById</definition>
+        <argsstring>(long id)</argsstring>
+        <name>GetHotelRoomById</name>
+        <param>
+          <type>long</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoom.cs" line="8" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoom.cs" bodystart="8" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_1ada3e73d53c762922cf4ac58cb74df0ba" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room" kindref="compound">HotelRoom</ref> &gt;</type>
+        <definition>static List&lt;HotelRoom&gt; HotelTelegramBot.Model.Services.ServicesHotelRoom.GetAviableHotelRooms</definition>
+        <argsstring>(List&lt; long &gt; reservedHotelRoomId)</argsstring>
+        <name>GetAviableHotelRooms</name>
+        <param>
+          <type>List&lt; long &gt;</type>
+          <declname>reservedHotelRoomId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoom.cs" line="18" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoom.cs" bodystart="18" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoom.cs" line="7" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoom.cs" bodystart="6" bodyend="27"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_1ada3e73d53c762922cf4ac58cb74df0ba" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::Services::ServicesHotelRoom</scope><name>GetAviableHotelRooms</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_1acad819917379339e5569e16247906ff8" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::Services::ServicesHotelRoom</scope><name>GetHotelRoomById</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

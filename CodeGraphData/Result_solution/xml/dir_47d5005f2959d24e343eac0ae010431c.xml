@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_47d5005f2959d24e343eac0ae010431c" kind="dir">
+    <compoundname>HotelTelegramBot/Controller</compoundname>
+    <innerdir refid="dir_cd150af04fc3354df4ce7417f30095a4">HotelTelegramBot/Controller/ChatResponder</innerdir>
+    <innerfile refid="_message_controller_8cs">MessageController.cs</innerfile>
+    <innerfile refid="_services_message_controller_8cs">ServicesMessageController.cs</innerfile>
+    <innerfile refid="_validator_8cs">Validator.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Controller/"/>
+  </compounddef>
+</doxygen>

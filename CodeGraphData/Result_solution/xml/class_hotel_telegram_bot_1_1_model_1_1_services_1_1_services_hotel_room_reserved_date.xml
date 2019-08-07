@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date" kind="class" prot="public">
+    <compoundname>HotelTelegramBot::Model::Services::ServicesHotelRoomReservedDate</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1acadab7c5b2c4fd4e7983a2e36d5bcfde" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date" kindref="compound">HotelRoomReservedDate</ref> &gt;</type>
+        <definition>static List&lt;HotelRoomReservedDate&gt; HotelTelegramBot.Model.Services.ServicesHotelRoomReservedDate.GetHotelRoomReservedDatesByReservationId</definition>
+        <argsstring>(long reservationId)</argsstring>
+        <name>GetHotelRoomReservedDatesByReservationId</name>
+        <param>
+          <type>long</type>
+          <declname>reservationId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" line="9" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" bodystart="9" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1ae5a0f44108c804de343d4254ea153ff4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>static async Task HotelTelegramBot.Model.Services.ServicesHotelRoomReservedDate.AddHotelRoomReservedDatesAsync</definition>
+        <argsstring>(long reservationId, List&lt; string &gt; dates)</argsstring>
+        <name>AddHotelRoomReservedDatesAsync</name>
+        <param>
+          <type>long</type>
+          <declname>reservationId</declname>
+        </param>
+        <param>
+          <type>List&lt; string &gt;</type>
+          <declname>dates</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" line="19" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" bodystart="19" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1aa6be6dac37edeae8d425d2f82ea86c11" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; long &gt;</type>
+        <definition>static List&lt;long&gt; HotelTelegramBot.Model.Services.ServicesHotelRoomReservedDate.GetReservationIds</definition>
+        <argsstring>(List&lt; string &gt; dates)</argsstring>
+        <name>GetReservationIds</name>
+        <param>
+          <type>List&lt; string &gt;</type>
+          <declname>dates</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" line="51" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" bodystart="51" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-static-func">
+      <memberdef kind="function" id="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1adcbb6707e878989d403e4ea978433e01" prot="package" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>static async Task HotelTelegramBot.Model.Services.ServicesHotelRoomReservedDate.DeleteHotelRoomReservedDateDatesAsync</definition>
+        <argsstring>(List&lt; HotelRoomReservedDate &gt; dates)</argsstring>
+        <name>DeleteHotelRoomReservedDateDatesAsync</name>
+        <param>
+          <type>List&lt; <ref refid="class_hotel_telegram_bot_1_1_model_1_1_hotel_room_reserved_date" kindref="compound">HotelRoomReservedDate</ref> &gt;</type>
+          <declname>dates</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" line="37" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" bodystart="37" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" line="8" column="1" bodyfile="C:/Users/User/Desktop/HotelTelegramBot/HotelTelegramBot/Model/Services/ServicesHotelRoomReservedDate.cs" bodystart="7" bodyend="61"/>
+    <listofallmembers>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1ae5a0f44108c804de343d4254ea153ff4" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::Services::ServicesHotelRoomReservedDate</scope><name>AddHotelRoomReservedDatesAsync</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1adcbb6707e878989d403e4ea978433e01" prot="package" virt="non-virtual"><scope>HotelTelegramBot::Model::Services::ServicesHotelRoomReservedDate</scope><name>DeleteHotelRoomReservedDateDatesAsync</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1acadab7c5b2c4fd4e7983a2e36d5bcfde" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::Services::ServicesHotelRoomReservedDate</scope><name>GetHotelRoomReservedDatesByReservationId</name></member>
+      <member refid="class_hotel_telegram_bot_1_1_model_1_1_services_1_1_services_hotel_room_reserved_date_1aa6be6dac37edeae8d425d2f82ea86c11" prot="public" virt="non-virtual"><scope>HotelTelegramBot::Model::Services::ServicesHotelRoomReservedDate</scope><name>GetReservationIds</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
