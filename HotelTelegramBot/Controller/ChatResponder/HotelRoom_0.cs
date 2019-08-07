@@ -42,7 +42,7 @@ namespace HotelTelegramBot.Controller
             await ServicesMessageController.SendPhotosAsync(chat.Id, photos);
             await ServicesMessageController.SendMessageAsync(chat, message, Keyboards.ReturnMainMenu);
 
-            responder.SetState(new MainMenu());
+            responder.SetState(new HotelRoom_0());
         }
 
         public override async void OnStateChange(Chat chat)
