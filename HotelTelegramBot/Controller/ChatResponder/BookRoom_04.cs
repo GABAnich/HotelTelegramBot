@@ -10,12 +10,18 @@ namespace HotelTelegramBot.Controller
 {
     internal class BookRoom_04 : ChatState
     {
+        private string arrival;
+        private string departure;
+        private string adults;
+        private string children;
+
         public override async void OnStateChange(Chat chat)
         {
-            responder.userTempData.TryGetValue("DateOfArrival", out string arrival);
-            responder.userTempData.TryGetValue("DateOfDeparture", out string departure);
-            responder.userTempData.TryGetValue("NumberOfAdults", out string adults);
-            responder.userTempData.TryGetValue("NumberOfChildren", out string children);
+            responder.userTempData.TryGetValue("DateOfArrival", out arrival);
+            responder.userTempData.TryGetValue("DateOfDeparture", out departure);
+            responder.userTempData.TryGetValue("NumberOfAdults", out adults);
+            responder.userTempData.TryGetValue("NumberOfChildren", out children);
+
             var listRoomTypes = DbServices.GetAviableRoomTypes(chat, arrival, departure, int.Parse(adults), int.Parse(children));
 
             if (listRoomTypes.Count <= 0)
@@ -39,13 +45,7 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             long id = long.Parse(userInput);
-
-            responder.userTempData.TryGetValue("DateOfArrival", out string arrival);
-            responder.userTempData.TryGetValue("DateOfDeparture", out string departure);
-            responder.userTempData.TryGetValue("NumberOfAdults", out string adults);
-            responder.userTempData.TryGetValue("NumberOfChildren", out string children);
             var listRoomTypes = DbServices.GetAviableRoomTypes(chat, arrival, departure, int.Parse(adults), int.Parse(children));
-
             if (ServicesHotelRoomType.GetHotelRoomTypeById(id) == null ||
                 !listRoomTypes.Exists(t => t.Id == id))
             {
@@ -54,7 +54,6 @@ namespace HotelTelegramBot.Controller
                 return;
             };
 
-            //await DbServices.SaveUserTempDataAsync("HotelRoomTypeId", userInput, chat.Id);
             responder.userTempData["HotelRoomTypeId"] = userInput;
             responder.SetState(new BookRoom_05());
         }

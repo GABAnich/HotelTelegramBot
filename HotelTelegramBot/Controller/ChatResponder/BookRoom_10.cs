@@ -22,8 +22,7 @@ namespace HotelTelegramBot.Controller
         {
             await ServicesMessageController.SendMessageAsync(chat, "Очікування бронювання");
 
-            responder.userTempData.TryGetValue("HotelRoomTypeId", out string typeId);
-            long hotelRoomTypeId = long.Parse(typeId);
+            responder.userTempData.TryGetValue("HotelRoomTypeId", out string hotelRoomTypeId);
             responder.userTempData.TryGetValue("DateOfArrival", out string arrival);
             responder.userTempData.TryGetValue("DateOfDeparture", out string departure);
             responder.userTempData.TryGetValue("SecondName", out string secondName);
@@ -48,7 +47,7 @@ namespace HotelTelegramBot.Controller
                 NumberOfChildren = int.Parse(children)
             };
 
-            Reservation r = await DbServices.AddReservationAsync(chat.Id, hotelRoomTypeId, reservation);
+            Reservation r = await DbServices.AddReservationAsync(chat.Id, int.Parse(hotelRoomTypeId), reservation);
             HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
             HotelRoomType t = ServicesHotelRoomType.GetHotelRoomTypeById(room.HotelRoomTypeId);
             int countDays = DbServices.GetIntermediateDates(r.DateOfArrival, r.DateOfArrival).Count;
