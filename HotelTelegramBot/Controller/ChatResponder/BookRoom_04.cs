@@ -55,7 +55,7 @@ namespace HotelTelegramBot.Controller
             };
 
             //await DbServices.SaveUserTempDataAsync("HotelRoomTypeId", userInput, chat.Id);
-            responder.userTempData.Add("HotelRoomTypeId", userInput);
+            responder.userTempData["HotelRoomTypeId"] = userInput;
             responder.SetState(new BookRoom_05());
         }
 

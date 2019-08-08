@@ -45,7 +45,7 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             //await DbServices.SaveUserTempDataAsync("DateOfDeparture", userInput, chat.Id);
-            responder.userTempData.Add("DateOfDeparture", userInput);
+            responder.userTempData["DateOfDeparture"] = userInput;
             responder.SetState(new BookRoom_02());
         }
 
