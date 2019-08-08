@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
@@ -26,23 +27,33 @@ namespace HotelTelegramBot
                 return;
             }
 
-            string text = "" +
-                    $"{message.Date.ToShortDateString()} " +
-                    $"{message.Date.ToShortTimeString()} | " +
-                    $"{chatPosition} | " +
-                    $"{message.Chat.Id} | " +
-                    $"{message.Chat.Username} |" +
-                    $"{message.Chat.LastName} " +
-                    $"{message.Chat.FirstName} : " +
-                    $"{messageText}\n";
-            System.IO.File.AppendAllText(ConfigTelegramBot.LogFile, text);
-            Console.WriteLine(text);
+            var obj = new
+            {
+                Date = message.Date.ToShortDateString(),
+                Time = message.Date.ToShortTimeString(),
+                chatPosition,
+                message.Chat.Id,
+                message.Chat.Username,
+                message.Chat.LastName,
+                message.Chat.FirstName,
+                messageText
+            };
+            string json = JsonConvert.SerializeObject(obj);
+
+            System.IO.File.AppendAllText(ConfigTelegramBot.LogFile, json);
+            Console.WriteLine(json);
         }
 
         internal static void Log(string text)
         {
-            System.IO.File.AppendAllText(ConfigTelegramBot.LogFile, text);
-            Console.WriteLine(text);
+            var obj = new
+            {
+                Text = text
+            };
+            string json = JsonConvert.SerializeObject(obj);
+
+            System.IO.File.AppendAllText(ConfigTelegramBot.LogFile, json);
+            Console.WriteLine(json);
         }
     }
 }
