@@ -3,7 +3,7 @@ using System;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
-namespace HotelTelegramBot
+namespace HotelTelegramBot.Logger
 {
     class Logger
     {

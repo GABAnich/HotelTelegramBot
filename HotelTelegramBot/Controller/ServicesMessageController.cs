@@ -29,7 +29,7 @@ namespace HotelTelegramBot.Controller
             {
                 if (exception.Message == "Forbidden: bot was blocked by the user")
                 {
-                    Logger.Log(exception.Message);
+                    Logger.Logger.Log(exception.Message);
                     return;
                 }
             }
@@ -53,7 +53,7 @@ namespace HotelTelegramBot.Controller
             {
                 if (exception.Message == "Forbidden: bot was blocked by the user")
                 {
-                    Logger.Log(exception.Message);
+                    Logger.Logger.Log(exception.Message);
                     return;
                 }
             }
@@ -82,7 +82,7 @@ namespace HotelTelegramBot.Controller
             {
                 if (exception.Message == "Forbidden: bot was blocked by the user")
                 {
-                    Logger.Log(exception.Message);
+                    Logger.Logger.Log(exception.Message);
                     return;
                 }
             }
