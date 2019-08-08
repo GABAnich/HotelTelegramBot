@@ -27,16 +27,16 @@ namespace HotelTelegramBot.Logger
                 return;
             }
 
-            var obj = new
+            LogSchema obj = new LogSchema()
             {
                 Date = message.Date.ToShortDateString(),
                 Time = message.Date.ToShortTimeString(),
-                chatPosition,
-                message.Chat.Id,
-                message.Chat.Username,
-                message.Chat.LastName,
-                message.Chat.FirstName,
-                messageText
+                ChatPosition = chatPosition,
+                ChatId = message.Chat.Id,
+                Username = message.Chat.Username,
+                LastName = message.Chat.LastName,
+                FirstName = message.Chat.FirstName,
+                MessageText = messageText
             };
             string json = JsonConvert.SerializeObject(obj);
 
