@@ -23,7 +23,8 @@ namespace HotelTelegramBot.Controller
                 await ServicesMessageController.SendMessageAsync(chat, Validator.BadName);
                 return;
             }
-            await DbServices.SaveUserTempDataAsync("SecondName", userInput, chat.Id);
+            //await DbServices.SaveUserTempDataAsync("SecondName", userInput, chat.Id);
+            responder.userTempData.Add("SecondName", userInput);
             responder.SetState(new BookRoom_06());
         }
 

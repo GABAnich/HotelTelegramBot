@@ -22,7 +22,33 @@ namespace HotelTelegramBot.Controller
         {
             await ServicesMessageController.SendMessageAsync(chat, "Очікування бронювання");
 
-            Reservation r = await DbServices.AddReservationAsync(chat.Id);
+            responder.userTempData.TryGetValue("HotelRoomTypeId", out string typeId);
+            long hotelRoomTypeId = long.Parse(typeId);
+            responder.userTempData.TryGetValue("DateOfArrival", out string arrival);
+            responder.userTempData.TryGetValue("DateOfDeparture", out string departure);
+            responder.userTempData.TryGetValue("SecondName", out string secondName);
+            responder.userTempData.TryGetValue("FirstName", out string firstName);
+            responder.userTempData.TryGetValue("MiddleName", out string middleName);
+            responder.userTempData.TryGetValue("Number", out string number);
+            responder.userTempData.TryGetValue("Email", out string email);
+            responder.userTempData.TryGetValue("NumberOfAdults", out string adults);
+            responder.userTempData.TryGetValue("NumberOfChildren", out string children);
+
+            Reservation reservation = new Reservation()
+            {
+                IdUserChat = chat.Id,
+                SecondName = secondName,
+                FirstName = firstName,
+                MiddleName = middleName,
+                Number = number,
+                Email = email,
+                DateOfArrival = arrival,
+                DateOfDeparture = departure,
+                NumberOfAdults = int.Parse(adults),
+                NumberOfChildren = int.Parse(children)
+            };
+
+            Reservation r = await DbServices.AddReservationAsync(chat.Id, hotelRoomTypeId, reservation);
             HotelRoom room = ServicesHotelRoom.GetHotelRoomById(r.HotelRoomId);
             HotelRoomType t = ServicesHotelRoomType.GetHotelRoomTypeById(room.HotelRoomTypeId);
             int countDays = DbServices.GetIntermediateDates(r.DateOfArrival, r.DateOfArrival).Count;

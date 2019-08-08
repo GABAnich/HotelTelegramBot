@@ -28,8 +28,8 @@ namespace HotelTelegramBot.Controller
                 await ServicesMessageController.SendMessageAsync(chat, Validator.BadNumberRange);
                 return;
             }
-            await DbServices.SaveUserTempDataAsync("NumberOfAdults", userInput, chat.Id);
-
+            //await DbServices.SaveUserTempDataAsync("NumberOfAdults", userInput, chat.Id);
+            responder.userTempData.Add("NumberOfAdults", userInput);
             responder.SetState(new BookRoom_03());
         }
 

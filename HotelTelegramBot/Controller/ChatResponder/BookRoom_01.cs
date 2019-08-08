@@ -11,7 +11,8 @@ namespace HotelTelegramBot.Controller
     {
         public override async void OnStateChange(Chat chat)
         {
-            string firstDateString = DbServices.GetUserTempDataValue(chat.Id, "DateOfArrival");
+            //string firstDateString = DbServices.GetUserTempDataValue(chat.Id, "DateOfArrival");
+            responder.userTempData.TryGetValue("DateOfArrival", out string firstDateString);
             DateTime firstDate = DateTime.Parse(firstDateString).AddDays(1);
             DateTime secondDate = firstDate.AddDays(6);
             List<string> dates = DbServices.GetIntermediateDates(firstDate, secondDate);
@@ -23,6 +24,7 @@ namespace HotelTelegramBot.Controller
         {
             string userInput = (e as MessageEventArgs).Message.Text;
             Chat chat = (e as MessageEventArgs).Message.Chat;
+            responder.userTempData.TryGetValue("DateOfArrival", out string dateOfArrival);
 
             if (!Validator.CheckDateFormat(userInput))
             {
@@ -34,15 +36,16 @@ namespace HotelTelegramBot.Controller
                 await ServicesMessageController.SendMessageAsync(chat, Validator.BadDateLessCurrent);
                 return;
             }
-            else if (!Validator.CheckDateRange(
-                DbServices.GetUserTempDataValue(chat.Id, "DateOfArrival"),
-                userInput))
+            //else if (!Validator.CheckDateRange(
+            //    DbServices.GetUserTempDataValue(chat.Id, "DateOfArrival"),
+            //    userInput))
+            else if (!Validator.CheckDateRange(dateOfArrival, userInput))
             {
                 await ServicesMessageController.SendMessageAsync(chat, Validator.BadDateRange);
                 return;
             }
-            await DbServices.SaveUserTempDataAsync("DateOfDeparture", userInput, chat.Id);
-
+            //await DbServices.SaveUserTempDataAsync("DateOfDeparture", userInput, chat.Id);
+            responder.userTempData.Add("DateOfDeparture", userInput);
             responder.SetState(new BookRoom_02());
         }
 

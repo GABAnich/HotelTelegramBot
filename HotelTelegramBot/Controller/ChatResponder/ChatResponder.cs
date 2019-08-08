@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 
@@ -8,6 +9,7 @@ namespace HotelTelegramBot.Controller
     {
         private ChatState state;
         private Chat chat;
+        public Dictionary<string, string> userTempData = new Dictionary<string, string>();
 
         public ChatResponder(Chat chat, ChatState state)
         {

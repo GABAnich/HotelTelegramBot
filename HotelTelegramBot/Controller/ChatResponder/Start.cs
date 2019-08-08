@@ -10,7 +10,8 @@ namespace HotelTelegramBot.Controller
     {
         public override async void OnStateChange(Chat chat)
         {
-            await DbServices.ClearUserTempDataAsync(chat.Id);
+            //await DbServices.ClearUserTempDataAsync(chat.Id);
+            responder.userTempData.Clear();
             await ServicesMessageController.SendPhotoAsync(
                 chat,
                 AboutHotel.ImageAboutHotel,
