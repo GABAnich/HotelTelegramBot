@@ -9,39 +9,6 @@ namespace HotelTelegramBot.Model
 {
     internal class DbServices
     {
-        public static async Task CrateIfNotExistUserChatAsync(long idChat)
-        {
-            UserChat userChat = ServicesUserChat.GetUserChatByIdChat(idChat);
-            if (userChat != null) return;
-
-            await ServicesUserChat.AddUserChatAsync(0, idChat, "/start");
-        }
-
-        public static string GetChatPositionByIdChat(long idChat)
-        {
-            return ServicesUserChat.GetUserChatByIdChat(idChat).ChatPosition;
-        }
-
-        public static async Task ChangePositionAsync(long idChat, string position)
-        {
-            await ServicesUserChat.UpdateChatPositionAsync(idChat, position);
-        }
-
-        public static async Task SaveUserTempDataAsync(string property, string value, long chatId)
-        {
-            await ServicesTempInformation.AddTempInformationAsync(chatId, property, value);
-        }
-
-        public static string GetUserTempDataValue(long chatId, string property)
-        {
-            return ServicesTempInformation.GetTempInformation(chatId, property).Value;
-        }
-
-        public static async Task ClearUserTempDataAsync(long chatId)
-        {
-            await ServicesTempInformation.RemoveRangeTempInformationByChatIdAsync(chatId);
-        }
-
         public static List<string> GetIntermediateDates(DateTime firstDate, DateTime lastDate)
         {
             return GetIntermediateDates(firstDate.ToShortDateString(), lastDate.ToShortDateString());
