@@ -22,7 +22,7 @@ namespace HotelTelegramBot.Controller
             responder.userTempData.TryGetValue("NumberOfAdults", out adults);
             responder.userTempData.TryGetValue("NumberOfChildren", out children);
 
-            var listRoomTypes = DbServices.GetAviableRoomTypes(chat, arrival, departure, int.Parse(adults), int.Parse(children));
+            var listRoomTypes = DbServices.GetAviableRoomTypes(arrival, departure, int.Parse(adults), int.Parse(children));
 
             if (listRoomTypes.Count <= 0)
             {
@@ -45,7 +45,7 @@ namespace HotelTelegramBot.Controller
                 return;
             }
             long id = long.Parse(userInput);
-            var listRoomTypes = DbServices.GetAviableRoomTypes(chat, arrival, departure, int.Parse(adults), int.Parse(children));
+            var listRoomTypes = DbServices.GetAviableRoomTypes(arrival, departure, int.Parse(adults), int.Parse(children));
             if (ServicesHotelRoomType.GetHotelRoomTypeById(id) == null ||
                 !listRoomTypes.Exists(t => t.Id == id))
             {

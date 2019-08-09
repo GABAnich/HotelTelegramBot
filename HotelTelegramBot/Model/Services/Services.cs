@@ -113,7 +113,7 @@ namespace HotelTelegramBot.Model
                 .FirstOrDefault();
         }
 
-        public static List<HotelRoomType> GetAviableRoomTypes(Chat userChat, string dateOfArrival, string dateOfDeparture, int numberOfAdults, int numberOfChildren)
+        public static List<HotelRoomType> GetAviableRoomTypes(string dateOfArrival, string dateOfDeparture, int numberOfAdults, int numberOfChildren)
         {
             List<string> dates = GetIntermediateDates(dateOfArrival, dateOfDeparture);
             var hotelRooms = GetAviableRooms(dates);
