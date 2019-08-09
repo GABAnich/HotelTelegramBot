@@ -17,11 +17,8 @@ namespace HotelTelegramBot.Model
         {
             List<string> list = new List<string>();
 
-            DateTime date1 = new DateTime();
-            DateTime.TryParse(firstDate, out date1);
-
-            DateTime date2 = new DateTime();
-            DateTime.TryParse(lastDate, out date2);
+            DateTime.TryParse(firstDate, out DateTime date1);
+            DateTime.TryParse(lastDate, out DateTime date2);
 
             list.Add(date1.ToShortDateString());
             while (date1 != date2)
