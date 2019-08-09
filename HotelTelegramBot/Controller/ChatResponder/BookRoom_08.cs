@@ -1,5 +1,4 @@
-﻿using HotelTelegramBot.Model;
-using System;
+﻿using System;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;

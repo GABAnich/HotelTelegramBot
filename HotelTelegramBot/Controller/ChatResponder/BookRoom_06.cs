@@ -1,5 +1,4 @@
-﻿using HotelTelegramBot.Model;
-using HotelTelegramBot.View;
+﻿using HotelTelegramBot.View;
 using System;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;

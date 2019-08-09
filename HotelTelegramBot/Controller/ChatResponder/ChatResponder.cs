@@ -32,7 +32,7 @@ namespace HotelTelegramBot.Controller
 
             if ((e as MessageEventArgs) != null)
             {
-                text = (e as MessageEventArgs).Message.Text;                
+                text = (e as MessageEventArgs).Message.Text;
             }
             else if ((e as CallbackQueryEventArgs) != null)
             {

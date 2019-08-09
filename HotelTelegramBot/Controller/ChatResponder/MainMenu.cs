@@ -1,5 +1,4 @@
-﻿using HotelTelegramBot.Model;
-using HotelTelegramBot.View;
+﻿using HotelTelegramBot.View;
 using Telegram.Bot.Types;
 
 namespace HotelTelegramBot.Controller
@@ -8,7 +7,6 @@ namespace HotelTelegramBot.Controller
     {
         public override async void OnStateChange(Chat chat)
         {
-            //await DbServices.ClearUserTempDataAsync(chat.Id);
             responder.userTempData.Clear();
             await ServicesMessageController.SendMessageAsync(chat.Id, "Головне меню", Keyboards.MainKeyboard);
         }

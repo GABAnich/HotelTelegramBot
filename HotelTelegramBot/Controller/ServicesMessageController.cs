@@ -18,12 +18,12 @@ namespace HotelTelegramBot.Controller
 
             try
             {
-                #pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
                 Message[] msg = await Program.botClient.SendMediaGroupAsync(
                             chatId: chatId,
                             media: inputMediaPhotos
                         );
-                #pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning restore CS0618 // Type or member is obsolete
             }
             catch (Telegram.Bot.Exceptions.ApiRequestException exception)
             {
