@@ -116,8 +116,8 @@ namespace HotelTelegramBot.Model
         public static List<HotelRoomType> GetAviableRoomTypes(string dateOfArrival, string dateOfDeparture, int numberOfAdults, int numberOfChildren)
         {
             List<string> dates = GetIntermediateDates(dateOfArrival, dateOfDeparture);
-            var hotelRooms = GetAviableRooms(dates);
-            var hotelRoomIds = GetHotelRoomTypeIds(hotelRooms);
+            List<HotelRoom> hotelRooms = GetAviableRooms(dates);
+            List<long> hotelRoomIds = GetHotelRoomTypeIds(hotelRooms);
 
             return ServicesHotelRoomType.GetHotelRoomTypes(numberOfAdults, numberOfChildren)
                 .Where(t => hotelRoomIds.Contains(t.Id))
